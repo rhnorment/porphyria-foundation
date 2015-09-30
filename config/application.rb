@@ -18,5 +18,6 @@ module RailsApp
   class Application < Rails::Application
     config.action_controller.action_on_unpermitted_parameters = :raise
     config.active_record.raise_in_transactional_callbacks = true
+    config.i18n.enforce_available_locales = true
   end
 end
