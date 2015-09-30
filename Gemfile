@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 ruby '2.2.1'
 
-gem 'airbrake'    # requires client account
 gem 'bourbon', '~> 4.2.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'delayed_job_active_record'
@@ -18,7 +17,6 @@ gem 'rails', '4.2.1'
 gem 'recipient_interceptor'
 gem 'refills'
 gem 'sass-rails', '~> 5.0'
-gem 'simple_form'
 gem 'title'
 gem 'uglifier'
 
