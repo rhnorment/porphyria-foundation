@@ -18,6 +18,7 @@ gem 'recipient_interceptor'
 gem 'refills'
 gem 'sass-rails', '~> 5.0'
 gem 'title'
+gem 'turbolinks'
 gem 'uglifier'
 
 group :development do
