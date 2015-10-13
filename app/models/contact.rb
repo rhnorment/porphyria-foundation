@@ -41,7 +41,15 @@
 
 class Contact < ActiveRecord::Base
 
-  validates     :email_address,   presence: true
+  PORPHYRIA_TYPES = %w(AIP VP HCP ADP PCT EPP CEP HEP)
+
+  validates     :email_address,   email: true,  allow_nil: true
+  validates     :first_name,      presence: true
+  validates     :last_name,       presence: true
+  validates     :porphyria_type,  inclusion: { in: PORPHYRIA_TYPES,
+                                               message: '%{value} is not a valid type' }
+
+
 
 
 
