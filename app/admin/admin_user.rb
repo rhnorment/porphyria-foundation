@@ -1,10 +1,15 @@
 ActiveAdmin.register AdminUser do
+
+  menu priority: 3
+
   permit_params :email, :password, :password_confirmation
 
   index do
     selectable_column
     id_column
-    column :email
+    column 'Email' do |admin_user|
+      link_to admin_user.email, admin_admin_user_path(admin_user)
+    end
     column :current_sign_in_at
     column :sign_in_count
     column :created_at
@@ -17,7 +22,7 @@ ActiveAdmin.register AdminUser do
   filter :created_at
 
   form do |f|
-    f.inputs "Admin Details" do
+    f.inputs 'Admin Details' do
       f.input :email
       f.input :password
       f.input :password_confirmation
