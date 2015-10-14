@@ -43,20 +43,24 @@
 #  updated_at             :datetime         not null
 #
 
-class Contact < ActiveRecord::Base
+require 'csv'
 
-  PORPHYRIA_TYPES = %w(AIP VP HCP ADP PCT EPP CEP HEP)
+namespace :import_data do
 
-  validates     :email_address,   email: true,  allow_nil: true, allow_blank: true
-  validates     :first_name,      presence: true
-  validates     :last_name,       presence: true
-  # validates     :gift_amount,     numericality: true
-  validates     :porphyria_type,  inclusion: { in: PORPHYRIA_TYPES,
-                                                message: '%{value} is not a valid type',
-                                                allow_blank: true }
+  desc 'Import contacts from CSV'
 
+  task contacts: :environment do
+    filename = File.join(Rails.root, 'APF_import_test.csv')
 
+    counter = 0
 
+    CSV.foreach(filename, headers: true) do |row|
+      contact = Contact.create!(row.to_h)
 
+      counter += 1 if contact.persisted?
+    end
+
+    puts "Imported #{counter} contacts."
+  end
 
 end
