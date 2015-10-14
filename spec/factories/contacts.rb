@@ -28,7 +28,7 @@
 #  last_name              :string           not null
 #  media                  :string           default("")
 #  middle_name            :string           default("")
-#  miscellaneous          :string           default("")
+#  miscellaneous          :text             default("")
 #  name_prefix            :string           default("")
 #  name_suffix            :string           default("")
 #  patient_packet_sent    :string           default("")
