@@ -48,7 +48,7 @@ FactoryGirl.define do
     first_name        'Example'
     last_name         'User'
     email_address     'user@example.com'
-    address_1          '1212 Main Street'
+    address_1         '1212 Main Street'
     city              'Anytown'
     state             'FL'
     zip_code          '12345'

@@ -76,7 +76,7 @@ describe Contact, type: :model do
   it { should have_db_column(:last_name).of_type(:string) }
   it { should have_db_column(:media).of_type(:string) }
   it { should have_db_column(:middle_name).of_type(:string) }
-  it { should have_db_column(:miscellaneous).of_type(:string) }
+  it { should have_db_column(:miscellaneous).of_type(:text) }
   it { should have_db_column(:name_prefix).of_type(:string) }
   it { should have_db_column(:name_suffix).of_type(:string) }
   it { should have_db_column(:patient_packet_sent).of_type(:string) }
@@ -88,7 +88,7 @@ describe Contact, type: :model do
   it { should have_db_column(:waived).of_type(:string) }
   it { should have_db_column(:zip_code).of_type(:string) }
 
-  # it { should validate_numericality_of(:gift_amount) }
+  it { should validate_inclusion_of(:apf_member).with_message(Contact::YES_NO_MESSAGE) }
 
   it { should validate_presence_of(:first_name) }
   it { should validate_presence_of(:last_name) }
