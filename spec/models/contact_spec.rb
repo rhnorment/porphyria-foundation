@@ -76,7 +76,7 @@ describe Contact, type: :model do
   it { should have_db_column(:last_name).of_type(:string) }
   it { should have_db_column(:media).of_type(:string) }
   it { should have_db_column(:middle_name).of_type(:string) }
-  it { should have_db_column(:miscellaneous).of_type(:text) }
+  it { should have_db_column(:miscellaneous).of_type(:string) }
   it { should have_db_column(:name_prefix).of_type(:string) }
   it { should have_db_column(:name_suffix).of_type(:string) }
   it { should have_db_column(:patient_packet_sent).of_type(:string) }

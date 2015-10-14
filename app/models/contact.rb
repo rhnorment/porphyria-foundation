@@ -50,12 +50,12 @@ class Contact < ActiveRecord::Base
   YES_NO_MESSAGE = 'Must be either YES or NO'
 
   # validates     :apf_member,      inclusion: { in: YES_NO, message: YES_NO_MESSAGE }
-  validates     :email_address,   email: true,  allow_nil: true, allow_blank: true
+  # validates     :email_address,   email: true,  allow_nil: true, allow_blank: true
   validates     :first_name,      presence: true
   validates     :last_name,       presence: true
-  validates     :porphyria_type,  inclusion: { in: PORPHYRIA_TYPES,
-                                                message: '%{value} is not a valid type',
-                                                allow_blank: true }
+  # validates     :porphyria_type,  inclusion: { in: PORPHYRIA_TYPES,
+  #                                               message: '%{value} is not a valid type',
+  #                                               allow_blank: true }
 
   scope         :members,         -> { where(apf_member: 'Yes') }
   scope         :non_members,     -> { where.not(apf_member: 'Yes') }
