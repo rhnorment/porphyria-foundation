@@ -108,6 +108,7 @@ ActiveAdmin.register Contact do
           f.input   :gift_amount
           f.input   :gift_given_on
           f.input   :media
+          f.input   :miscellaneous
           f.input   :patient_packet_sent, as: :radio, collection: Contact::YES_NO
           f.input   :patient_packet_sent_on
           f.input   :porphyria_type, as: :select, collection: Contact::PORPHYRIA_TYPES
