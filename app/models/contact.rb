@@ -49,7 +49,7 @@ class Contact < ActiveRecord::Base
   YES_NO = %w(Yes No)
   YES_NO_MESSAGE = 'Must be either YES or NO'
 
-  validates     :apf_member,      inclusion: { in: YES_NO, message: YES_NO_MESSAGE }
+  # validates     :apf_member,      inclusion: { in: YES_NO, message: YES_NO_MESSAGE }
   validates     :email_address,   email: true,  allow_nil: true, allow_blank: true
   validates     :first_name,      presence: true
   validates     :last_name,       presence: true

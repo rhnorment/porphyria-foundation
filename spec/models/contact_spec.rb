@@ -88,7 +88,7 @@ describe Contact, type: :model do
   it { should have_db_column(:waived).of_type(:string) }
   it { should have_db_column(:zip_code).of_type(:string) }
 
-  it { should validate_inclusion_of(:apf_member).with_message(Contact::YES_NO_MESSAGE) }
+  # it { should validate_inclusion_of(:apf_member).with_message(Contact::YES_NO_MESSAGE) }
 
   it { should validate_presence_of(:first_name) }
   it { should validate_presence_of(:last_name) }
