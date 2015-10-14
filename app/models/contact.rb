@@ -58,6 +58,18 @@ class Contact < ActiveRecord::Base
   scope         :members,         -> { where(apf_member: 'Yes') }
   scope         :non_members,     -> { where.not(apf_member: 'Yes') }
 
+  def full_name
+    [name_prefix, first_name, middle_name, last_name, name_suffix].join(' ')
+  end
+
+  def city_state_zip
+    [city, state, zip_code].join(' ')
+  end
+
+  def birthday
+    [birth_month, birth_day, birth_year].join(' ')
+  end
+
 
 
 
