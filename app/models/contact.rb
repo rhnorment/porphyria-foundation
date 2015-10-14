@@ -55,6 +55,9 @@ class Contact < ActiveRecord::Base
                                                 message: '%{value} is not a valid type',
                                                 allow_blank: true }
 
+  scope         :members,         -> { where(apf_member: 'Yes') }
+  scope         :non_members,     -> { where.not(apf_member: 'Yes') }
+
 
 
 
