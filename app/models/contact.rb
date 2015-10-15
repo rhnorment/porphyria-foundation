@@ -51,8 +51,8 @@ class Contact < ActiveRecord::Base
 
   # validates     :apf_member,      inclusion: { in: YES_NO, message: YES_NO_MESSAGE }
   # validates     :email_address,   email: true,  allow_nil: true, allow_blank: true
-  validates     :first_name,      presence: true
-  validates     :last_name,       presence: true
+  # validates     :first_name,      presence: true
+  # validates     :last_name,       presence: true
   # validates     :porphyria_type,  inclusion: { in: PORPHYRIA_TYPES,
   #                                               message: '%{value} is not a valid type',
   #                                               allow_blank: true }
