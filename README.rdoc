@@ -1,1 +1,6 @@
 American Porphyria Foundation
+
+V1.0  APF Database
+
+  *   All fields are strings.
+  *   No ActiveModel validations.
