@@ -2,5 +2,8 @@ American Porphyria Foundation
 
 V1.0  APF Database
 
-  *   All fields are strings.
-  *   No ActiveModel validations.
+  *  No deployment cost under 10,000 records, then $7/month up to 10,000,000 records
+  *  Small fee to improve uptime
+
+  *  All fields are strings.
+  *  No ActiveModel validations.

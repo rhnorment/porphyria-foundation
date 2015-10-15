@@ -15,6 +15,11 @@ ActiveAdmin.register Contact do
   scope     :members
   scope     :non_members
 
+# ACTION ITEMS ======================================================================
+  action_item :new, only: :show do
+    link_to 'Add New Contact', new_admin_contact_path
+  end
+
 # CONTROLLER ======================================================================
   controller do
     def apply_pagination(chain)
