@@ -19,11 +19,11 @@ class CreateContacts < ActiveRecord::Migration
       t.string    :doctor_specialty,        default: ''
       t.string    :email_address,           default: ''
       t.string    :fax_number,              default: ''
-      t.string    :first_name,              null: false
+      t.string    :first_name,              default: ''
       t.string    :gift_amount,             default: ''
       t.string    :gift_given_on,           default: ''
       t.string    :home_phone,              default: ''
-      t.string    :last_name,               null: false
+      t.string    :last_name,               default: ''
       t.string    :media,                   default: ''
       t.string    :middle_name,             default: ''
       t.string    :miscellaneous,           default: ''
