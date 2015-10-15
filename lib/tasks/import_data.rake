@@ -50,7 +50,7 @@ namespace :import_data do
   desc 'Import contacts from CSV'
 
   task contacts: :environment do
-    filename = File.join(Rails.root, 'all_records.csv')
+    filename = File.join(Rails.root, 'APF_import_test.csv')
 
     counter = 0
 
