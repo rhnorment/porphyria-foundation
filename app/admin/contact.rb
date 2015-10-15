@@ -33,13 +33,14 @@ ActiveAdmin.register Contact do
     f.semantic_errors
 
     tabs do
-      tab 'Basic Information' do
-        f.inputs 'Name' do
+      tab 'Personal Information' do
+        f.inputs 'Personal Information' do
           f.input   :name_prefix
           f.input   :first_name
           f.input   :middle_name
           f.input   :last_name
           f.input   :name_suffix
+          f.input   :date_of_birth
         end
 
         f.inputs 'Address Information' do
