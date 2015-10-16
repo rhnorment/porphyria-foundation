@@ -99,7 +99,7 @@ ActiveAdmin.register Contact do
     actions dropdown: true, defaults: false do |contact|
       item 'View', admin_contact_path(contact)
       item 'Edit', edit_admin_contact_path(contact)
-      item 'Print label (coming soon)', 'javascript:void(0'
+      item 'Print label (coming soon)', 'javascript:void(0)'
       item 'Delete', admin_contact_path(contact), method: :delete, data: { confirm: 'Are you sure?'' '}
     end
   end
