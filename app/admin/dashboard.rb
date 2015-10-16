@@ -5,7 +5,7 @@ ActiveAdmin.register_page 'Dashboard' do
   content do
     h2 'American Porphyria Foundation'
 
-    h3 "There are #{ pluralize(Contact.count, 'contact') } contacts in the database."
+    h3 "There are #{ pluralize(Contact.count, 'contact') } in the database."
 
     columns do
 

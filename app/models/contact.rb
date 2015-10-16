@@ -57,9 +57,6 @@ class Contact < ActiveRecord::Base
   #                                               message: '%{value} is not a valid type',
   #                                               allow_blank: true }
 
-  scope         :members,         -> { where(apf_member: 'Yes') }
-  scope         :non_members,     -> { where.not(apf_member: 'Yes') }
-
   def full_name
     [name_prefix, first_name, middle_name, last_name, name_suffix].join(' ')
   end
@@ -71,9 +68,5 @@ class Contact < ActiveRecord::Base
   def birthday
     [birth_month, birth_day, birth_year].join(' ')
   end
-
-
-
-
 
 end

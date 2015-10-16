@@ -4,16 +4,14 @@ ActiveAdmin.register Contact do
 
   config.sort_order = 'last_name_asc'
 
-  filter    :apf_member
-  filter    :city
   filter    :first_name
   filter    :last_name
+  filter    :city
   filter    :state
+  filter    :status
   filter    :porphyria_type
 
   scope     :all, default: true
-  scope     :members
-  scope     :non_members
 
 # ACTION ITEMS ======================================================================
   action_item :new, only: :show do
@@ -57,6 +55,7 @@ ActiveAdmin.register Contact do
           f.input   :home_phone
           f.input   :business_phone
           f.input   :cell_phone
+          f.input   :fax_number
           f.input   :email_address
         end
       end
@@ -70,12 +69,11 @@ ActiveAdmin.register Contact do
           f.input   :doctor_specialty
           f.input   :gift_amount
           f.input   :gift_given_on
-          f.input   :media
           f.input   :miscellaneous
           f.input   :patient_packet_sent, as: :radio, collection: Contact::YES_NO
           f.input   :patient_packet_sent_on
           f.input   :porphyria_type, as: :select, collection: Contact::PORPHYRIA_TYPES
-          f.input   :research
+          f.input   :research, as: :radio, collection: Contact::YES_NO
           f.input   :status
           f.input   :waived, as: :radio, collection: Contact::YES_NO
         end
@@ -89,13 +87,11 @@ ActiveAdmin.register Contact do
   index do
     selectable_column
     id_column
-    column  :apf_member
     column  :first_name
     column  :last_name
-    column  :home_phone
-    column 'Email' do |contact|
-      mail_to contact.email_address, contact.email_address if contact.email_address.present?
-    end
+    column  :business_phone
+    column  :status
+    column  :porphyria_type
     actions dropdown: true, defaults: false do |contact|
       item 'View', admin_contact_path(contact)
       item 'Edit', edit_admin_contact_path(contact)
@@ -135,7 +131,6 @@ ActiveAdmin.register Contact do
       row   :doctor_specialty
       row   :gift_amount
       row   :gift_given_on
-      row   :media
       row   :patient_packet_sent
       row   :patient_packet_sent_on
       row   :porphyria_type
@@ -154,7 +149,7 @@ ActiveAdmin.register Contact do
                   :business_phone, :cell_phone, :city, :cme, :company, :country, :date_of_birth,
                   :doctor_packet_sent, :doctor_packet_sent_on, :doctor_specialty, :email_address,
                   :fax_number, :first_name, :gift_amount, :gift_given_on, :home_phone, :last_name,
-                  :media, :middle_name, :miscellaneous, :name_prefix, :name_suffix, :patient_packet_sent,
+                  :middle_name, :miscellaneous, :name_prefix, :name_suffix, :patient_packet_sent,
                   :patient_packet_sent_on, :porphyria_type, :research, :state, :status, :waived, :zip_code
 
   csv do
