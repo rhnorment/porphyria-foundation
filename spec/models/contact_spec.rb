@@ -33,7 +33,6 @@
 #  patient_packet_sent    :string           default("")
 #  patient_packet_sent_on :string           default("")
 #  porphyria_type         :string           default("")
-#  research               :string           default("")
 #  state                  :string           default("")
 #  status                 :string           default("")
 #  waived                 :string           default("")
@@ -96,7 +95,6 @@ describe Contact, type: :model do
   it { should have_db_column(:patient_packet_sent).of_type(:string) }
   it { should have_db_column(:patient_packet_sent_on).of_type(:string) }
   it { should have_db_column(:porphyria_type).of_type(:string) }
-  it { should have_db_column(:research).of_type(:string) }
   it { should have_db_column(:state).of_type(:string) }
   it { should have_db_column(:status).of_type(:string) }
   it { should have_db_column(:waived).of_type(:string) }

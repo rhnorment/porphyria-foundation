@@ -33,7 +33,6 @@
 #  patient_packet_sent    :string           default("")
 #  patient_packet_sent_on :string           default("")
 #  porphyria_type         :string           default("")
-#  research               :string           default("")
 #  state                  :string           default("")
 #  status                 :string           default("")
 #  waived                 :string           default("")

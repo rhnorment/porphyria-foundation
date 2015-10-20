@@ -33,7 +33,6 @@
 #  patient_packet_sent    :string           default("")
 #  patient_packet_sent_on :string           default("")
 #  porphyria_type         :string           default("")
-#  research               :string           default("")
 #  state                  :string           default("")
 #  status                 :string           default("")
 #  waived                 :string           default("")
@@ -73,7 +72,8 @@ FactoryGirl.define do
     patient_packet_sent      'x'
     patient_packet_sent_on  test_date
     porphyria_type          'HEP'
-    research
+    state                   'AL'
+    waived
 
 
 
