@@ -6,6 +6,7 @@ ActiveAdmin.register Contact do
 
   filter    :first_name
   filter    :last_name
+  filter    :company
   filter    :city
   filter    :state
   filter    :status

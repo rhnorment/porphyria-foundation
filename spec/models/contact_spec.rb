@@ -99,5 +99,4 @@ describe Contact, type: :model do
   it { should have_db_column(:status).of_type(:string) }
   it { should have_db_column(:waived).of_type(:string) }
   it { should have_db_column(:zip_code).of_type(:string) }
-
 end

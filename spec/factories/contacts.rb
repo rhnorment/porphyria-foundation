@@ -47,51 +47,44 @@ FactoryGirl.define do
     address_2               'Address Two'
     apf_member              'Yes'
     birth_day               '25'
+    birth_month             'March'
     birth_year              '1997'
-    business_phone          test_phone_number
-    cell_phone              test_phone_number
+    business_phone          '800-555-1212'
+    cell_phone              '800-555-1212'
     city                    'New York'
     cme                     'Yes'
     company                 'Example Company'
     country                 'Example Country'
     date_of_birth           ''
     doctor_packet_sent      'x'
-    doctor_packet_sent_on   test_date
+    doctor_packet_sent_on   '12/25/1997'
     doctor_specialty        'Diabetes'
     email_address           'user@example.com'
-    fax_number              test_phone_number
+    fax_number              '800-555-1212'
     first_name              'Example'
     gift_amount             '50'
-    gift_given_on           test_date
-    home_phone              test_phone_number
+    gift_given_on           '12/25/1997'
+    home_phone              '800-555-1212'
     last_name               'User'
     middle_name             'Middle'
     miscellaneous           'Example User miscellaneous data'
     name_prefix             'Mr.'
     name_suffix             'MD'
     patient_packet_sent      'x'
-    patient_packet_sent_on  test_date
+    patient_packet_sent_on  '12/25/1997'
     porphyria_type          'HEP'
     state                   'AL'
-    waived
+    waived                  'x'
+    zip_code                '55555'
 
+    trait :with_date_of_birth do
+      date_of_birth         '12/25/1997'
+    end
 
-
-    email_address     'user@example.com'
-    address_1         '1212 Main Street'
-    city              'Anytown'
-    state             'FL'
-    zip_code          '12345'
-    date_of_birth     '12/12/2005'
-    porphyria_type    'AIP'
-    gift_amount       '100.23'
+    trait :with_blank_birthday_fields do
+      birth_day             ''
+      birth_month           ''
+      birth_year            ''
+    end
   end
-end
-
-def test_phone_number
-  '800-555-1212'
-end
-
-def test_date
-  '12/25/1997'
 end
