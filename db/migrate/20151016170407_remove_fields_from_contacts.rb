@@ -1,5 +1,9 @@
 class RemoveFieldsFromContacts < ActiveRecord::Migration
-  change_table :contacts do |t|
-    t.remove :media
+  def self.up
+    remove_column :contacts, :media
+  end
+
+  def self.down
+    add_column :contacts, :media, :string, default: ''
   end
 end

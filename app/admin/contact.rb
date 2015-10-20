@@ -10,6 +10,9 @@ ActiveAdmin.register Contact do
   filter    :state
   filter    :status
   filter    :porphyria_type
+  filter    :gift_given_on
+  filter    :doctor_packet_sent_on
+  filter    :patient_packet_sent_on
 
   scope     :all, default: true
 
