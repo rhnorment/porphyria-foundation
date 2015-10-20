@@ -21,12 +21,11 @@
 #  doctor_specialty       :string           default("")
 #  email_address          :string           default("")
 #  fax_number             :string           default("")
-#  first_name             :string           not null
+#  first_name             :string           default("")
 #  gift_amount            :string           default("")
 #  gift_given_on          :string           default("")
 #  home_phone             :string           default("")
-#  last_name              :string           not null
-#  media                  :string           default("")
+#  last_name              :string           default("")
 #  middle_name            :string           default("")
 #  miscellaneous          :string           default("")
 #  name_prefix            :string           default("")
@@ -48,14 +47,6 @@ class Contact < ActiveRecord::Base
   PORPHYRIA_TYPES = %w(AIP VP HCP ADP PCT EPP CEP HEP)
   YES_NO = %w(Yes No)
   YES_NO_MESSAGE = 'Must be either YES or NO'
-
-  # validates     :apf_member,      inclusion: { in: YES_NO, message: YES_NO_MESSAGE }
-  # validates     :email_address,   email: true,  allow_nil: true, allow_blank: true
-  # validates     :first_name,      presence: true
-  # validates     :last_name,       presence: true
-  # validates     :porphyria_type,  inclusion: { in: PORPHYRIA_TYPES,
-  #                                               message: '%{value} is not a valid type',
-  #                                               allow_blank: true }
 
   def full_name
     [name_prefix, first_name, middle_name, last_name, name_suffix].join(' ')

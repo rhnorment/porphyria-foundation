@@ -21,12 +21,11 @@
 #  doctor_specialty       :string           default("")
 #  email_address          :string           default("")
 #  fax_number             :string           default("")
-#  first_name             :string           not null
+#  first_name             :string           default("")
 #  gift_amount            :string           default("")
 #  gift_given_on          :string           default("")
 #  home_phone             :string           default("")
-#  last_name              :string           not null
-#  media                  :string           default("")
+#  last_name              :string           default("")
 #  middle_name            :string           default("")
 #  miscellaneous          :string           default("")
 #  name_prefix            :string           default("")
@@ -47,6 +46,22 @@ require 'rails_helper'
 
 describe Contact, type: :model do
 
+  let(:resource_class) { 'Contact' }
+  let(:all_resources) { ActiveAdmin.application.namespaces[:admin].resources }
+  let(:resource) { all_resources[resource_class] }
+
+  it 'has a valid resource name' do
+    expect(resource.resource_name).to eq('Contact')
+  end
+
+  it 'should display in the menu bar' do
+    expect(resource).to be_include_in_menu
+  end
+
+  it 'has the default set of CRU actions available to it' do
+    expect(resource.defined_actions).to include(:index, :show, :new, :create, :edit, :update, :destroy)
+  end
+
   it 'has a valid factory' do
     expect(build(:contact)).to be_valid
   end
@@ -63,7 +78,7 @@ describe Contact, type: :model do
   it { should have_db_column(:cme).of_type(:string) }
   it { should have_db_column(:company).of_type(:string) }
   it { should have_db_column(:country).of_type(:string) }
-  it { should have_db_column(:date_of_birth).of_type(:string) }
+  it { should have_db_column(:date_of_birth).of_type(:date) }
   it { should have_db_column(:doctor_packet_sent).of_type(:string) }
   it { should have_db_column(:doctor_packet_sent_on).of_type(:string) }
   it { should have_db_column(:doctor_specialty).of_type(:string) }
@@ -74,9 +89,8 @@ describe Contact, type: :model do
   it { should have_db_column(:gift_given_on).of_type(:string) }
   it { should have_db_column(:home_phone).of_type(:string) }
   it { should have_db_column(:last_name).of_type(:string) }
-  it { should have_db_column(:media).of_type(:string) }
   it { should have_db_column(:middle_name).of_type(:string) }
-  it { should have_db_column(:miscellaneous).of_type(:string) }
+  it { should have_db_column(:miscellaneous).of_type(:text) }
   it { should have_db_column(:name_prefix).of_type(:string) }
   it { should have_db_column(:name_suffix).of_type(:string) }
   it { should have_db_column(:patient_packet_sent).of_type(:string) }
@@ -88,16 +102,4 @@ describe Contact, type: :model do
   it { should have_db_column(:waived).of_type(:string) }
   it { should have_db_column(:zip_code).of_type(:string) }
 
-  # it { should validate_inclusion_of(:apf_member).with_message(Contact::YES_NO_MESSAGE) }
-
-  # it { should validate_presence_of(:first_name) }
-  # it { should validate_presence_of(:last_name) }
-
-  # it 'only allows appropriate TYPE data' do
-  #   expect(build(:contact, porphyria_type: 'HUNT')).to_not be_valid
-  # end
-
-  it 'only accepts valid US states'
-
-  it 'properly formats telephone and fax numbers'
 end
