@@ -16,12 +16,22 @@ namespace :import_data do
 
   desc 'migrate 3 birthday fields to 1 date_of_birth field'
   task create_date_of_birth: :environment do
+    counter = 0
+
     Contact.all.each do |contact|
       if birthday_fields_exist?(contact)
-        string_to_parse = contact.birth_year + contact.birth_month + contact.birth_day
-        contact.update(date_of_birth: Date.parse(string_to_parse))
+        begin
+          string_to_parse = contact.birth_year + contact.birth_month + contact.birth_day
+          contact.update(date_of_birth: Date.parse(string_to_parse))
+        rescue Exception => e
+          puts "#{contact.id} failed"
+          puts "#{e.class}: #{e.message}"
+        end
       end
+      counter += 1 unless e
     end
+
+    puts "Updated #{counter} contacts"
   end
 
   private
