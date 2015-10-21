@@ -78,13 +78,13 @@ describe Contact, type: :model do
   it { should have_db_column(:country).of_type(:string) }
   it { should have_db_column(:date_of_birth).of_type(:date) }
   it { should have_db_column(:doctor_packet_sent).of_type(:string) }
-  it { should have_db_column(:doctor_packet_sent_on).of_type(:string) }
+  it { should have_db_column(:doctor_packet_sent_on).of_type(:date) }
   it { should have_db_column(:doctor_specialty).of_type(:string) }
   it { should have_db_column(:email_address).of_type(:string) }
   it { should have_db_column(:fax_number).of_type(:string) }
   it { should have_db_column(:first_name).of_type(:string) }
   it { should have_db_column(:gift_amount).of_type(:string) }
-  it { should have_db_column(:gift_given_on).of_type(:string) }
+  it { should have_db_column(:gift_given_on).of_type(:date) }
   it { should have_db_column(:home_phone).of_type(:string) }
   it { should have_db_column(:last_name).of_type(:string) }
   it { should have_db_column(:middle_name).of_type(:string) }
@@ -92,7 +92,7 @@ describe Contact, type: :model do
   it { should have_db_column(:name_prefix).of_type(:string) }
   it { should have_db_column(:name_suffix).of_type(:string) }
   it { should have_db_column(:patient_packet_sent).of_type(:string) }
-  it { should have_db_column(:patient_packet_sent_on).of_type(:string) }
+  it { should have_db_column(:patient_packet_sent_on).of_type(:date) }
   it { should have_db_column(:porphyria_type).of_type(:string) }
   it { should have_db_column(:state).of_type(:string) }
   it { should have_db_column(:status).of_type(:string) }
