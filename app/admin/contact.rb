@@ -9,6 +9,7 @@ ActiveAdmin.register Contact do
   filter    :company
   filter    :city
   filter    :state
+  filter    :zip_code
   filter    :status
   filter    :porphyria_type
   filter    :gift_given_on
@@ -95,7 +96,7 @@ ActiveAdmin.register Contact do
     column  :last_name
     column  :business_phone
     column  :status
-    column  :porphyria_type
+    column  :state
     actions dropdown: true, defaults: false do |contact|
       item 'View', admin_contact_path(contact)
       item 'Edit', edit_admin_contact_path(contact)
