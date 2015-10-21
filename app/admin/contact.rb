@@ -42,7 +42,8 @@ ActiveAdmin.register Contact do
           f.input   :middle_name
           f.input   :last_name
           f.input   :name_suffix
-          f.input   :date_of_birth
+          f.input   :date_of_birth, order: [:month, :day, :year], start_year: Date.today.year - 70,
+                    end_year: Date.today.year - 10
         end
 
         f.inputs 'Address Information' do
@@ -107,7 +108,7 @@ ActiveAdmin.register Contact do
   show do
     attributes_table do
       row   :full_name
-      row   :birthday
+      row   :date_of_birth
       row   :company
       row   :address_1
       row   :address_2
@@ -161,6 +162,11 @@ ActiveAdmin.register Contact do
     column  :address_2
     column  :city_state_zip
     column  :country
+    column  :home_phone
+    column  :business_phone
+    column  :cell_phone
+    column  :fax_number
+    column  :email
   end
 
 end

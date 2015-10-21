@@ -27,8 +27,8 @@ namespace :import_data do
           puts "#{contact.id} failed"
           puts "#{e.class}: #{e.message}"
         end
+        counter += 1 unless e
       end
-      counter += 1 unless e
     end
 
     puts "Updated #{counter} contacts"
