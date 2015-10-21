@@ -54,8 +54,4 @@ class Contact < ActiveRecord::Base
     [city, state, zip_code].join(' ')
   end
 
-  def birthday
-    [birth_month, birth_day, birth_year].join(' ')
-  end
-
 end
