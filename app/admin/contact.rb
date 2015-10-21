@@ -155,18 +155,4 @@ ActiveAdmin.register Contact do
                   :middle_name, :miscellaneous, :name_prefix, :name_suffix, :patient_packet_sent,
                   :patient_packet_sent_on, :porphyria_type, :state, :status, :waived, :zip_code
 
-  csv do
-    column  :full_name
-    column  :company
-    column  :address_1
-    column  :address_2
-    column  :city_state_zip
-    column  :country
-    column  :home_phone
-    column  :business_phone
-    column  :cell_phone
-    column  :fax_number
-    column  :email
-  end
-
 end
