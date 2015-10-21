@@ -9,9 +9,4 @@ describe 'import_data:contacts' do
   end
 end
 
-describe 'import_data:change_all_dates' do
-  include_context 'rake'
-
-end
-
 
