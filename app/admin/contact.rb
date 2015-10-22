@@ -144,10 +144,6 @@ ActiveAdmin.register Contact do
     end
   end
 
-  sidebar 'Recent Donations', only: :show do
-
-  end
-
 # PRIVATE =============================================================================
   permit_params   :address_1, :address_2, :apf_member, :birth_day, :birth_month, :birth_year,
                   :business_phone, :cell_phone, :city, :cme, :company, :country, :date_of_birth,
