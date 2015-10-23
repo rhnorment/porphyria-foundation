@@ -1,7 +1,5 @@
 ActiveAdmin.register Contact do
 
-  include CSVBuilders
-
   menu priority: 2
 
   config.sort_order = 'last_name_asc'
