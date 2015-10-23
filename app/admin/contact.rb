@@ -1,5 +1,7 @@
 ActiveAdmin.register Contact do
 
+  include CSVBuilders
+
   menu priority: 2
 
   config.sort_order = 'last_name_asc'
@@ -16,14 +18,14 @@ ActiveAdmin.register Contact do
   filter    :doctor_packet_sent_on
   filter    :patient_packet_sent_on
 
-  scope     :all, default: true
-
 # ACTION ITEMS ======================================================================
   action_item :new, only: :show do
     link_to 'Add New Contact', new_admin_contact_path
   end
 
-
+  action_item :export_to_email, only: :index do
+    link_to 'Export to Email', export_to_email_admin_contacts_path
+  end
 
 # CONTROLLER ======================================================================
   controller do
@@ -33,7 +35,15 @@ ActiveAdmin.register Contact do
     end
   end
 
+  collection_action :export_to_email, method: :get do
+    export =  Contact.where('email_address IS NOT NULL')
+    send_data export.to_email_csv, filename: "email-#{Date.today}.csv"
+  end
+
 # FORM ============================================================================
+  PORPHYRIA_TYPES = %w(AIP VP HCP ADP PCT EPP CEP HEP)
+  YES_NO = %w(Yes No)
+
   form do |f|
     f.semantic_errors
 
@@ -110,12 +120,16 @@ ActiveAdmin.register Contact do
 # SHOW =============================================================================
   show do
     attributes_table do
-      row   :full_name
+      row   :full_name do |contact|
+        [contact.name_prefix, contact.first_name, contact.middle_name, contact.last_name, contact.name_suffix].join(' ')
+      end
       row   :date_of_birth
       row   :company
       row   :address_1
       row   :address_2
-      row   :city_state_zip
+      row   :city_state_zip do |contact|
+        [contact.city, contact.state, contact.zip_code].join(' ')
+      end
       row   :country
       row   :home_phone
       row   :business_phone
@@ -154,9 +168,5 @@ ActiveAdmin.register Contact do
                   :middle_name, :miscellaneous, :name_prefix, :name_suffix, :patient_packet_sent,
                   :patient_packet_sent_on, :porphyria_type, :state, :status, :waived, :zip_code
 
-  csv do
-    column  :email_name
-    column  :email_address
-  end
 
 end
