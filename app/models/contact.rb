@@ -50,6 +50,10 @@ class Contact < ActiveRecord::Base
     [name_prefix, first_name, middle_name, last_name, name_suffix].join(' ')
   end
 
+  def email_name
+    [first_name, last_name].join(' ')
+  end
+
   def city_state_zip
     [city, state, zip_code].join(' ')
   end

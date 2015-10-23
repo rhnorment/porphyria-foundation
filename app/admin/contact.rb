@@ -23,6 +23,8 @@ ActiveAdmin.register Contact do
     link_to 'Add New Contact', new_admin_contact_path
   end
 
+
+
 # CONTROLLER ======================================================================
   controller do
     def apply_pagination(chain)
@@ -151,5 +153,10 @@ ActiveAdmin.register Contact do
                   :fax_number, :first_name, :gift_amount, :gift_given_on, :home_phone, :last_name,
                   :middle_name, :miscellaneous, :name_prefix, :name_suffix, :patient_packet_sent,
                   :patient_packet_sent_on, :porphyria_type, :state, :status, :waived, :zip_code
+
+  csv do
+    column  :email_name
+    column  :email_address
+  end
 
 end
