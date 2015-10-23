@@ -42,20 +42,16 @@
 
 class Contact < ActiveRecord::Base
 
-  PORPHYRIA_TYPES = %w(AIP VP HCP ADP PCT EPP CEP HEP)
-  YES_NO = %w(Yes No)
-  YES_NO_MESSAGE = 'Must be either YES or NO'
+  def self.to_email_csv
+    columns = %w(first_name last_name email_address)
 
-  def full_name
-    [name_prefix, first_name, middle_name, last_name, name_suffix].join(' ')
-  end
+    CSV.generate(headers: true) do |csv|
+      csv << columns
 
-  def email_name
-    [first_name, last_name].join(' ')
-  end
-
-  def city_state_zip
-    [city, state, zip_code].join(' ')
+      all.each do |row|
+        csv << row.attributes.values_at(*columns)
+      end
+    end
   end
 
 end
