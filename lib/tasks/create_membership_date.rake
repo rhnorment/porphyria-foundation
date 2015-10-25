@@ -15,8 +15,19 @@ namespace :create_join_date do
   end
 
   desc 'Transpose tenp_contact data to contact data'
-  task transpose_date: :environment do
+  task modify_created_at: :environment do
+    counter = 0
+    temps_to_change = TempContact.where('create_date IS NOT NULL')
 
+    temps_to_change.each do |temp|
+      contact = Contact.find_by_first_name_and_last_name(temp.first_name, temp.last_name)
+      if contact
+        contact.update(created_at: temp.create_date)
+        counter += 1
+      end
+    end
+
+    puts "Modified #{counter} contacts."
   end
 
 end
