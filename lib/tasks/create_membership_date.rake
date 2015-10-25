@@ -21,7 +21,8 @@ namespace :create_join_date do
 
     temps_to_change.each do |temp|
       contact = Contact.find_by_first_name_and_last_name(temp.first_name, temp.last_name)
-      if contact
+
+      if contact.present?
         begin
           contact.update(created_at: temp.create_date)
         rescue Exception => e

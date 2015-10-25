@@ -15,6 +15,7 @@ ActiveAdmin.register Contact do
   filter    :gift_given_on
   filter    :doctor_packet_sent_on
   filter    :patient_packet_sent_on
+  filter    :created_at, label: 'Member Since'
 
 # ACTION ITEMS ======================================================================
   action_item :new, only: :show do
@@ -78,7 +79,6 @@ ActiveAdmin.register Contact do
 
       tab 'APF Information' do
         f.inputs do
-          f.input   :apf_member, as: :radio, collection: Contact::YES_NO
           f.input   :cme, as: :radio, collection: Contact::YES_NO
           f.input   :doctor_packet_sent, as: :radio, collection: Contact::YES_NO
           f.input   :doctor_packet_sent_on, order: [:month, :day, :year], start_year: Date.today.year, end_year: Date.today.year
@@ -143,7 +143,7 @@ ActiveAdmin.register Contact do
 # SIDEBAR =============================================================================
   sidebar 'APF Attributes', only: :show do
     attributes_table do
-      row   :apf_member
+      row('Member since') { contact.created_at }
       row   :cme
       row   :doctor_packet_sent
       row   :doctor_packet_sent_on
@@ -159,12 +159,10 @@ ActiveAdmin.register Contact do
   end
 
 # PRIVATE =============================================================================
-  permit_params   :address_1, :address_2, :apf_member, :birth_day, :birth_month, :birth_year,
-                  :business_phone, :cell_phone, :city, :cme, :company, :country, :date_of_birth,
-                  :doctor_packet_sent, :doctor_packet_sent_on, :doctor_specialty, :email_address,
+  permit_params   :address_1, :address_2, :business_phone, :cell_phone, :city, :cme, :company, :country,
+                  :date_of_birth, :doctor_packet_sent, :doctor_packet_sent_on, :doctor_specialty, :email_address,
                   :fax_number, :first_name, :gift_amount, :gift_given_on, :home_phone, :last_name,
                   :middle_name, :miscellaneous, :name_prefix, :name_suffix, :patient_packet_sent,
                   :patient_packet_sent_on, :porphyria_type, :state, :status, :waived, :zip_code
-
 
 end
