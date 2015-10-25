@@ -40,9 +40,6 @@ ActiveAdmin.register Contact do
   end
 
 # FORM ============================================================================
-  PORPHYRIA_TYPES = %w(AIP VP HCP ADP PCT EPP CEP HEP)
-  YES_NO = %w(Yes No)
-
   form do |f|
     f.semantic_errors
 

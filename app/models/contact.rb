@@ -42,4 +42,7 @@ class Contact < ActiveRecord::Base
 
   include CSVBuilders
 
+  PORPHYRIA_TYPES = %w(AIP VP HCP ADP PCT EPP CEP HEP)
+  YES_NO = %w(Yes No)
+
 end
