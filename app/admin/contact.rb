@@ -96,6 +96,9 @@ ActiveAdmin.register Contact do
   end
 
 # INDEX =============================================================================
+  scope   :all, default: true
+  scope   :with_email_addresses
+
   index do
     selectable_column
     id_column
@@ -135,6 +138,7 @@ ActiveAdmin.register Contact do
       end
       row   :miscellaneous
     end
+
     active_admin_comments
   end
 
@@ -162,5 +166,13 @@ ActiveAdmin.register Contact do
                   :fax_number, :first_name, :gift_amount, :gift_given_on, :home_phone, :last_name,
                   :middle_name, :miscellaneous, :name_prefix, :name_suffix, :patient_packet_sent,
                   :patient_packet_sent_on, :porphyria_type, :state, :status, :waived, :zip_code
+
+  csv do
+    column(:full_name) { |c| [c.name_prefix, c.first_name, c.last_name, c.name_suffix].join(' ') }
+    column  :address_1
+    column  :address_2
+    column(:city_state_zip) { |c| [c.city, c.state, c.zip_code].join(' ') }
+    column  :email_address
+  end
 
 end
