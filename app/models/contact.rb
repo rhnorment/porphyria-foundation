@@ -5,7 +5,6 @@
 #  id                     :integer          not null, primary key
 #  address_1              :string           default("")
 #  address_2              :string           default("")
-#  apf_member             :string           default("")
 #  business_phone         :string           default("")
 #  cell_phone             :string           default("")
 #  city                   :string           default("")

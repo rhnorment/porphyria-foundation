@@ -5,7 +5,6 @@
 #  id                     :integer          not null, primary key
 #  address_1              :string           default("")
 #  address_2              :string           default("")
-#  apf_member             :string           default("")
 #  business_phone         :string           default("")
 #  cell_phone             :string           default("")
 #  city                   :string           default("")
@@ -42,10 +41,6 @@ FactoryGirl.define do
   factory :contact do
     address_1               'Address One'
     address_2               'Address Two'
-    apf_member              'Yes'
-    birth_day               '3'
-    birth_month             'September'
-    birth_year              '1997'
     business_phone          '800-555-1212'
     cell_phone              '800-555-1212'
     city                    'New York'
@@ -73,15 +68,5 @@ FactoryGirl.define do
     state                   'AL'
     waived                  'x'
     zip_code                '55555'
-
-    trait :with_date_of_birth do
-      date_of_birth         '12/25/1997'
-    end
-
-    trait :with_blank_birthday_fields do
-      birth_day             ''
-      birth_month           ''
-      birth_year            ''
-    end
   end
 end

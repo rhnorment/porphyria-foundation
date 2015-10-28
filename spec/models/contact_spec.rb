@@ -5,7 +5,6 @@
 #  id                     :integer          not null, primary key
 #  address_1              :string           default("")
 #  address_2              :string           default("")
-#  apf_member             :string           default("")
 #  business_phone         :string           default("")
 #  cell_phone             :string           default("")
 #  city                   :string           default("")
@@ -64,11 +63,7 @@ describe Contact, type: :model do
 
   it { should have_db_column(:address_1).of_type(:string) }
   it { should have_db_column(:address_2).of_type(:string) }
-  it { should have_db_column(:apf_member).of_type(:string) }
-  it { should have_db_column(:birth_day).of_type(:string) }
-  it { should have_db_column(:birth_month).of_type(:string) }
   it { should have_db_column(:business_phone).of_type(:string) }
-  it { should have_db_column(:birth_year).of_type(:string) }
   it { should have_db_column(:cell_phone).of_type(:string) }
   it { should have_db_column(:city).of_type(:string) }
   it { should have_db_column(:cme).of_type(:string) }
