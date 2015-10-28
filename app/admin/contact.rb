@@ -102,6 +102,7 @@ ActiveAdmin.register Contact do
     column  :first_name
     column  :last_name
     column  :business_phone
+    column  :city
     column  :state
     column  :status
     actions dropdown: true, defaults: false do |contact|
