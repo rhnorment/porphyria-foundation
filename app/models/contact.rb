@@ -5,7 +5,6 @@
 #  id                     :integer          not null, primary key
 #  address_1              :string           default("")
 #  address_2              :string           default("")
-#  apf_member             :string           default("")
 #  business_phone         :string           default("")
 #  cell_phone             :string           default("")
 #  city                   :string           default("")
@@ -44,5 +43,7 @@ class Contact < ActiveRecord::Base
 
   PORPHYRIA_TYPES = %w(AIP VP HCP ADP PCT EPP CEP HEP)
   YES_NO = %w(Yes No)
+
+  scope   :with_email_addresses,    -> { where('email_address IS NOT NULL') }
 
 end
