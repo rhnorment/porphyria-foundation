@@ -60,10 +60,6 @@ ActiveAdmin.setup do |config|
   #
   # To disable/customize for the :admin namespace:
   #
-  config.namespace :admin do |admin|
-     # Only show CSV & CSV_EMAIL options
-     admin.download_links = [:csv, :csv_for_email]
-  end
 
   # == Pagination
   #
@@ -84,3 +80,4 @@ ActiveAdmin.setup do |config|
   #
   # config.filters = true
 end
+
