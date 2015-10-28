@@ -35,7 +35,7 @@ ActiveAdmin.register Contact do
   end
 
   collection_action :export_to_email, method: :get do
-    export =  Contact.where('email_address IS NOT NULL')
+    export =  Contact.with_email_addresses
     send_data export.to_email_csv, filename: "email-#{Date.today}.csv"
   end
 
