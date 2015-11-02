@@ -14,3 +14,7 @@ V1.0  APF Database
   *  No calendar functions
   *  No currency functions
   *  No history beyond last item recorded (non-relational data model)
+
+V1.1  Building mobile-first web site.
+
+
