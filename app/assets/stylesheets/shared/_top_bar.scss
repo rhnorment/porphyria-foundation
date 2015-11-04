@@ -1,11 +1,11 @@
 #top-bar {
-  $darkest-purple: $darkest-purple !default;
+  $dark-purple: $darkest-purple !default;
   $light-purple: $light-purple !default;
   $top-bar-height: 40px;
   $base-spacing: 1.5em !default;
 
   width: 100%;
-  background-color: $darkest-purple;
+  background-color: $dark-purple;
   max-height: $top-bar-height;
 
   p {
