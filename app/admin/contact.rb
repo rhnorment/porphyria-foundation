@@ -10,7 +10,7 @@ ActiveAdmin.register Contact do
   filter    :city
   filter    :state
   filter    :zip_code
-
+  filter    :country
   filter    :status
   filter    :porphyria_type
   filter    :gift_given_on
