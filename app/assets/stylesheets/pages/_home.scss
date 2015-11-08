@@ -1,12 +1,12 @@
-#hero {
+.hero {
   $medium-gray: #999 !default;
   $dark-purple: #0E0866 !default;
   $base-border-radius: 3px !default;
-  $action-color: #477DCA !default;
+  $action-color: #477dca !default;
   $large-screen: em(860) !default;
   $hero-color: $medium-gray;
 
-  background: white no-repeat top;
+  background: #ffffff no-repeat top;
   background-size: cover;
   padding: 2em 0;
 
@@ -33,9 +33,9 @@
 
       p {
         color: $hero-color;
-        line-height: 1.4em;
         font-weight: 300;
-        margin: 0 auto 2em auto;
+        line-height: 1.4em;
+        margin: 0 auto 2em;
 
         @include media($large-screen) {
           font-size: 1.1em;
@@ -45,3 +45,4 @@
     }
   }
 }
+
