@@ -10,10 +10,11 @@
 </head>
 
 <body class="<%= body_class %>">
-    <%= render 'application/flashes' %>
+    <%= render 'shared/top_bar' %>
+    <%= render 'shared/nav' %>
 
-    <%= yield %>
+    <%= render 'shared/large_footer' %>
 
-    <%= render 'application/javascript' %>
+    <%= render 'shared/javascript' %>
 </body>
 </html>

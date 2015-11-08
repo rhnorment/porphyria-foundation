@@ -27,6 +27,7 @@ namespace :import_data do
           puts "#{contact.id} failed"
           puts "#{e.class}: #{e.message}"
         end
+        
         counter += 1 unless e
       end
     end
@@ -39,4 +40,5 @@ namespace :import_data do
     def birthday_fields_exist?(contact)
       !contact.birth_day.blank? && !contact.birth_month.blank? && !contact.birth_year.blank?
     end
+
 end
