@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.1'
+ruby '2.2.3'
 
 gem 'activeadmin', github: 'activeadmin'
 gem 'bourbon', '~> 4.2.0'
@@ -18,7 +18,7 @@ gem 'neat', '~>1.7.0'
 gem 'newrelic_rpm', '>= 3.9.8'
 gem 'normalize-rails', '~> 3.0.0'
 gem 'rack-canonical-host'
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.4'
 gem 'recipient_interceptor'
 gem 'refills'
 gem 'sass-rails', '~> 5.0'
