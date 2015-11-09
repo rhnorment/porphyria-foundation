@@ -1,9 +1,19 @@
 @charset "utf-8";
 
-@import 'normalize-rails';
-@import 'bourbon';
-@import 'base/grid-settings';
-@import 'neat';
-@import 'base/base';
-@import 'refills/flashes';
+@import "normalize-rails";
+@import "bourbon";
+@import "base/grid-settings";
+@import "neat";
+@import "base/base";
+@import "refills/flashes";
+
+// * {  border: 1px solid red !important; }
+
+// Import shared partials
+@import "shared/top_bar";
+@import "shared/nav";
+@import "shared/large_footer";
+@import "shared/small_footer";
+
+@import "pages/home";
 
