@@ -50,7 +50,7 @@ class Contact < ActiveRecord::Base
     all.each do |contact|
       date_to_compare = contact.created_at.to_s.split(' ')[0]
 
-      if date_to_compare.eql?('2005-06-07')
+      if date_to_compare.eql?('2015-10-15')
         contact.update(created_at: '2001-10-15')
       end
     end
