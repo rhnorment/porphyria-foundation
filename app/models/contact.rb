@@ -46,4 +46,14 @@ class Contact < ActiveRecord::Base
 
   scope   :with_email_addresses,    -> { where('email_address IS NOT NULL') }
 
+  def self.reset_create_date
+    all.each do |contact|
+      date_to_compare = contact.created_at.to_s.split(' ')[0]
+
+      if date_to_compare.eql?('2005-06-07')
+        contact.update(created_at: '2001-10-15')
+      end
+    end
+  end
+
 end

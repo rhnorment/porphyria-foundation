@@ -36,4 +36,9 @@ namespace :create_join_date do
     puts "Modified #{counter} contacts."
   end
 
+  desc 'Change created_at datetime to 10/15/2001'
+  task change_created_at: :environment do
+    Contact.all.each { |contact| puts contact.created_at }
+  end
+
 end
