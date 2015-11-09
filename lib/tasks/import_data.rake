@@ -11,7 +11,7 @@ namespace :import_data do
       counter += 1 if contact.persisted?
     end
 
-    puts "Imported #{counter} contacts."
+    uts "Imported #{counter} contacts."
   end
 
   desc 'migrate 3 birthday fields to 1 date_of_birth field'
