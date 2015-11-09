@@ -1,0 +1,48 @@
+.small-footer {
+  $base-spacing: 1.5em !default;
+  $action-color: #477DCA !default;
+  $dark-purple: #0E0866 !default;
+  $purple: #120A6F !default;
+  $light-purple: #5DA2FF !default;
+  $medim-screen: em(640) !default;
+  $large-screen: em(860) !default;
+  $footer-background: $dark-purple;
+  $footer-color: white;
+  $footer-link-color: transparentize($footer-color, 0.6);
+  $footer-disclaimer-color: transparentize($footer-color, 0.6);
+
+  background: $footer-background;
+  padding: $base-spacing;
+  width: 100%;
+  display: inline-block;
+
+  .footer-logo {
+    margin-right: 1em;
+    margin-bottom: 1em;
+    
+    @include media($large-screen) {
+      float: left;
+      margin-botom: 0;
+    }
+    
+    img {
+      height: 1.5em;
+    }
+  }
+
+  ul {
+    line-height: $base-spacing;
+    margin: 0 0 1em 0;
+    padding: 0;
+
+    @include media($large-screen) {
+      float: left;
+      line-height: 1.8em;
+      margin-left: 1em;
+      margin-bottom: 0;
+    }
+  }
+
+
+
+}

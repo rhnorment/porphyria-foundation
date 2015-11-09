@@ -4,6 +4,8 @@
   $dark-purple: #0E0866 !default;
   $purple: #120A6F !default;
   $light-purple: #5DA2FF !default;
+  $medim-screen: em(640) !default;
+  $large-screen: em(860) !default;
   $footer-background: $dark-purple;
   $footer-color: white;
   $footer-link-color: transparentize($footer-color, 0.6);
