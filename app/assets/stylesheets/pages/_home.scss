@@ -1,14 +1,23 @@
-#hero {
-  $medium-gray: #999 !default;
-  $dark-purple: #0E0866 !default;
+.hero {
   $base-border-radius: 3px !default;
-  $action-color: #477DCA !default;
+  $action-color: #477dca !default;
   $large-screen: em(860) !default;
-  $hero-color: $medium-gray;
-
-  background: white no-repeat top;
+  $hero-background-top: #7f99be;
+  $hero-background-bottom: #20392b;
+  $hero-color: white;
+  $gradient-angle: 10deg;
+  
+  // @include background(linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);
+  background-color: #324766;
+  background-position: top;
+  background-repeat: no-repeat;
   background-size: cover;
-  padding: 2em 0;
+  padding-bottom: 3em;
+
+  .hero-logo img {
+    height: 4em;
+    margin-bottom: 1em;
+  }
 
   .hero-inner {
     @include outer-container();
@@ -21,9 +30,9 @@
       text-align: center;
 
       h1 {
-        color: $dark-purple;
+        color: $hero-color;
         font-size: 1.6em;
-        font-weight: 300;
+        // font-weight: 300;
         margin-bottom: 0.5em;
 
         @include media($large-screen) {
@@ -34,8 +43,8 @@
       p {
         color: $hero-color;
         line-height: 1.4em;
-        font-weight: 300;
-        margin: 0 auto 2em auto;
+        // font-weight: 300;
+        margin: 0 auto 3em auto;
 
         @include media($large-screen) {
           font-size: 1.1em;
