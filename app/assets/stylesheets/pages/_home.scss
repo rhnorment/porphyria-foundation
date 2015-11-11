@@ -7,7 +7,7 @@
   $hero-color: white;
   $gradient-angle: 10deg;
   
-  // @include background(linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);
+  // @include background(linear-                gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);
   background-color: #324766;
   background-position: top;
   background-repeat: no-repeat;
@@ -54,3 +54,11 @@
     }
   }
 }
+
+.cards {
+  @include display(flex);
+  @include flex-wrap(wrap);
+  @include justify-content(space-between);
+}
+
+
