@@ -59,6 +59,7 @@
   @include display(flex);
   @include flex-wrap(wrap);
   @include justify-content(space-between);
+  @include padding(6em 3em);
 }
 
 .card {
@@ -124,6 +125,21 @@
     }
   }
 
+  &:focus,
+  &:hover {
+    cursor: pointer;
 
+    img {
+      opacity: $card-image-hover-opacity;
+    }
+  }
+
+  &:active {
+    background-color: $card-background;
+
+    .card-header {
+      background-color: $card-background;
+    }
+  }
 }
 
