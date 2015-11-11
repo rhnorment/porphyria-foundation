@@ -1,14 +1,10 @@
 .hero {
-<<<<<<< HEAD
   $medium-gray: #999 !default;
   $dark-purple: #0E0866 !default;
   $base-border-radius: 3px !default;
   $action-color: #477dca !default;
   $large-screen: em(860) !default;
   $hero-color: $medium-gray;
-
-  background: #ffffff no-repeat top;
-=======
   $base-border-radius: 3px !default;
   $action-color: #477dca !default;
   $large-screen: em(860) !default;
@@ -17,11 +13,10 @@
   $hero-color: white;
   $gradient-angle: 10deg;
 
-  // @include background(linear-                gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);
+  // @include background(linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);
   background-color: #324766;
   background-position: top;
   background-repeat: no-repeat;
->>>>>>> design-layouts
   background-size: cover;
   padding-bottom: 3em;
 
@@ -53,15 +48,12 @@
 
       p {
         color: $hero-color;
-<<<<<<< HEAD
         font-weight: 300;
         line-height: 1.4em;
         margin: 0 auto 2em;
-=======
         line-height: 1.4em;
         // font-weight: 300;
         margin: 0 auto 3em auto;
->>>>>>> design-layouts
 
         @include media($large-screen) {
           font-size: 1.1em;
@@ -72,8 +64,6 @@
   }
 }
 
-<<<<<<< HEAD
-=======
 .cards {
   @include display(flex);
   @include flex-wrap(wrap);
@@ -161,5 +151,3 @@
     }
   }
 }
-
->>>>>>> design-layouts
