@@ -6,17 +6,21 @@ namespace :import_data do
   task research_data: :environment do
     nil_counter = 0
     non_nil_counter = 0
+    contacts_found = 0
     filename = File.join(Rails.root, 'research_test.csv')
 
     CSV.foreach(filename, headers: true) do |row|
       temp_contact = row.to_h
       first_name = temp_contact["first_name"]
-      second_name = temp_contact["second_name"]
+      last_name = temp_contact["second_name"]
       research = temp_contact["research"]
 
       if !research.nil?
-        contact = Contact.find_by(first_name: first_name, last_name: last_name)
-        
+        if contact = Contact.find_by(first_name: first_name, last_name: last_name)
+          contact.update(research: true)
+          contacts_found += 1
+        end
+
         non_nil_counter += 1
       else
         nil_counter += 1
@@ -25,5 +29,6 @@ namespace :import_data do
 
     puts "#{non_nil_counter} non nil records"
     puts "#{nil_counter} nil records"
+    puts "#{contacts_found} contacts found"
   end
 end

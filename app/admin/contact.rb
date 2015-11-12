@@ -79,13 +79,13 @@ ActiveAdmin.register Contact do
         f.inputs do
           f.input   :cme, as: :radio, collection: Contact::YES_NO
           f.input   :doctor_packet_sent, as: :radio, collection: Contact::YES_NO
-          f.input   :doctor_packet_sent_on, order: [:month, :day, :year], start_year: Date.today.year, end_year: Date.today.year
+          f.input   :doctor_packet_sent_on, order: [:month, :day, :year], start_year: Date.today.year - 10, end_year: Date.today.year + 5
           f.input   :doctor_specialty
           f.input   :gift_amount
-          f.input   :gift_given_on, order: [:month, :day, :year], start_year: Date.today.year, end_year: Date.today.year
+          f.input   :gift_given_on, order: [:month, :day, :year], start_year: Date.today.year - 10, end_year: Date.today.year + 5
           f.input   :miscellaneous
           f.input   :patient_packet_sent, as: :radio, collection: Contact::YES_NO
-          f.input   :patient_packet_sent_on, order: [:month, :day, :year], start_year: Date.today.year, end_year: Date.today.year
+          f.input   :patient_packet_sent_on, order: [:month, :day, :year], start_year: Date.today.year - 10, end_year: Date.today.year + 5
           f.input   :porphyria_type, as: :select, collection: Contact::PORPHYRIA_TYPES
           f.input   :status
           f.input   :waived, as: :radio, collection: Contact::YES_NO
