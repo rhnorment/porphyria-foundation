@@ -7,7 +7,7 @@ namespace :import_data do
     nil_counter = 0
     non_nil_counter = 0
     contacts_found = 0
-    filename = File.join(Rails.root, 'research_test.csv')
+    filename = File.join(Rails.root, 'research_data.csv')
 
     CSV.foreach(filename, headers: true) do |row|
       temp_contact = row.to_h
