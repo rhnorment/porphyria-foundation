@@ -12,12 +12,18 @@ namespace :import_data do
     CSV.foreach(filename, headers: true) do |row|
       temp_contact = row.to_h
       first_name = temp_contact["first_name"]
-      last_name = temp_contact["second_name"]
+      last_name = temp_contact["last_name"]
       research = temp_contact["research"]
 
       if !research.nil?
         if contact = Contact.find_by(first_name: first_name, last_name: last_name)
-          contact.update(research: true)
+          begin
+            contact.update(research: true)
+          rescue Exception => e
+             puts "#{contact.id} failed"
+             puts "#{e.class}: #{e.message}"
+          end
+
           contacts_found += 1
         end
 

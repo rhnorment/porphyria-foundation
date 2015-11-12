@@ -87,6 +87,7 @@ ActiveAdmin.register Contact do
           f.input   :patient_packet_sent, as: :radio, collection: Contact::YES_NO
           f.input   :patient_packet_sent_on, order: [:month, :day, :year], start_year: Date.today.year - 10, end_year: Date.today.year + 5
           f.input   :porphyria_type, as: :select, collection: Contact::PORPHYRIA_TYPES
+          f.input   :research, as: :radio
           f.input   :status
           f.input   :waived, as: :radio, collection: Contact::YES_NO
         end
@@ -156,6 +157,7 @@ ActiveAdmin.register Contact do
       row   :patient_packet_sent
       row   :patient_packet_sent_on
       row   :porphyria_type
+      row   :research
       row   :status
       row   :waived
     end
@@ -166,7 +168,7 @@ ActiveAdmin.register Contact do
                   :date_of_birth, :doctor_packet_sent, :doctor_packet_sent_on, :doctor_specialty, :email_address,
                   :fax_number, :first_name, :gift_amount, :gift_given_on, :home_phone, :last_name,
                   :middle_name, :miscellaneous, :name_prefix, :name_suffix, :patient_packet_sent,
-                  :patient_packet_sent_on, :porphyria_type, :state, :status, :waived, :zip_code
+                  :patient_packet_sent_on, :porphyria_type, :research, :state, :status, :waived, :zip_code
 
   csv do
     column(:full_name) { |c| [c.name_prefix, c.first_name, c.last_name, c.name_suffix].join(' ') }
