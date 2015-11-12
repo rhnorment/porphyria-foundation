@@ -12,11 +12,16 @@
 // Font Awesome styles
 @import 'font-awesome';
 
-// Import shared partials
+// Import shared layout partials
 @import "shared/top_bar";
 @import "shared/nav";
 @import "shared/large_footer";
 @import "shared/small_footer";
+
+// Import shared content partials
+@import "shared/article-type-system"
+  
+// Import pages
 
 @import "pages/home";
 
