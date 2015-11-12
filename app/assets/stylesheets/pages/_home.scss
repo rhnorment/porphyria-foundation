@@ -151,3 +151,22 @@
     }
   }
 }
+
+.video {
+  @include padding(6em 3em);
+
+  .video-wrapper {
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%; // use 75% for 4:3
+    position: relative;
+
+    embed,
+    object,
+    iframe {
+      @include position(absolute, 0px null null 0px);
+      @include size(100%);
+    }
+  }
+}
+
