@@ -49,6 +49,48 @@ header.navigation {
 
     // Mobile view
 
+    .navigation-menu-button {
+      color: $navigation-color;
+      display: block;
+      float: right;
+      font-family: sans-serif;
+      font-weight: 700;
+      line-height: $navigation-height;
+      margin: 0;
+      padding-right: 1em;
+      text-transform: uppercase;
+
+      @include media($horizontal-bar-mode) {
+        float: right;
+      }
+
+      &:hover {
+        color: $navigation-color-hover;
+      }
+    }
+
+    // NAVIGATION MENU
+
+    .nav {
+      z-index: 9999999;
+      float: none;
+
+      @include media($horizontal-bar-mode) {
+        float: right;
+      }
+    }
+
+    ul#navigation-menu {
+      -webkit-transform-style: preserve-3d; // stop webkit flicker
+      clear: both;
+      display: none;
+      margin: 0 auto;
+      overflow: visible;
+      padding: 0;
+      width: 100%;
+      z-index: 9999;
+    }
+
 
 
   }
