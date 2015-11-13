@@ -1,0 +1,38 @@
+header.navigation {
+
+  &.headroom--unpinned {
+    transform: translateY(-100%);
+  }
+  &.headroom--pinned {
+    transform: translateY(0%);
+  }
+
+  // VARIABLES
+
+  $navigation-padding: 1em;
+  $navigation-background: darken(white, 5%);
+  $navigation-color: darken(white, 30%);
+  $navigation-color-hover: $highlight;
+  $navigation-height: 6em;
+  $horizontal-bar-mode: $large-screen;
+  $navigation-submenu-padding: 1em;
+  $navigation-submenu-width: 12em;
+
+  &.headroom {
+    position: fixed;
+    background-color: white;
+    border-bottom: 1px solid darken(white, 10%);
+    height: $navigation-height;
+    width: 100%;
+    z-index: 999;
+
+    transition: transform 200ms linear;
+
+    .navigation-wrapper {
+      @include clearfix;
+      @include outer-container;
+    }
+  }
+
+
+}

@@ -1,2 +1,21 @@
+<header id="navigation" class="navigation headroom">
+  <div class="navigation-wrapper">
 
+    <!-- logo -- replace with APF -->
+    <%= link_to image_tag('logo.png'), root_path %>
 
+    <!-- mobile menu toggle -->
+    <%= link_to 'MENU', '', class:'navigation-menu-button', id:'js-mobile-menu' %>
+
+    <nav class="nav">
+      <ul id="navigation-menu">
+        <%= content_tag :li, link_to('Home', '#section-intro'), class:'nav-link active' %>
+        <%= content_tag :li, link_to('Porphyria', '#section-intro'), class:'nav-link active' %>
+        <%= content_tag :li, link_to('Testimonials', '#section-intro'), class:'nav-link active' %>
+        <%= content_tag :li, link_to('Blog', '#section-intro'), class:'nav-link active' %>
+        <%= content_tag :li, link_to('Contact', '#section-intro'), class:'nav-link active' %>
+      </ul>
+    </nav>
+
+  </div>
+</header>
