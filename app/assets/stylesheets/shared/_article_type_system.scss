@@ -1,0 +1,38 @@
+article.type-system-geometric {
+  $base-border-radius: 3px !default;
+  $base-line-height: 1.5em !default;
+  $base-spacing: 1.5em !default;
+  $action-color: #477dca !default;
+  $dark-gray: #333 !default;
+  $light-gray: #ddd !default;
+  $medium-screen: em(640) !default;
+  $base-font-color: $dark-gray !default;
+  $sans-serif: 'Nunito', sans-serif;
+  $sans-serif-2: 'Varela Round', sans-serif;
+  
+  @include clearfix;
+  font-family: sans-serif;
+  text-align: left;
+  
+  h1, h2, h3, p {
+    margin: 0;
+  }
+  
+  hr {
+    border-bottom: 1px solid $light-gray;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    margin: $base-spacing 0;
+  }
+  
+  p {
+    color: $base-font-color;
+    line-height: $base-line-height;
+  }
+  
+  a {
+    color: $action-color;
+    text-decoration: none;
+  }
+}
