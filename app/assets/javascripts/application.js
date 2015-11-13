@@ -14,4 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require holder
-//= require pages
+//= require jquery.stellar.min
+//= require headroom.min
+//= require jquery.headroom
+//= require owl.carousel
+//= require jquery.fitvids
+//= require jquery.flexslider

@@ -15,7 +15,7 @@ blockquote {
 // Layout
 .container {
   @include outer-container;
-  padding 0, .5em;
+  padding: 0, .5em;
 }
 
 html, body, section.intro .split, split-text {
