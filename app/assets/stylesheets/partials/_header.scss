@@ -31,7 +31,26 @@ header.navigation {
     .navigation-wrapper {
       @include clearfix;
       @include outer-container;
+      position: relative;
+      z-index: 9999;
     }
+
+    .logo {
+      float: left;
+      max-height: $navigation-height;
+      padding-left: $navigation-padding;
+      padding-right: $navigation-padding * 2;
+
+      img {
+        max-height: $navigation-height;
+        padding: 1.7em 0;
+      }
+    }
+
+    // Mobile view
+
+
+
   }
 
 
