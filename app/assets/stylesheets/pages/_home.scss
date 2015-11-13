@@ -10,11 +10,11 @@
   $large-screen: em(860) !default;
   $hero-background-top: #7f99be;
   $hero-background-bottom: #20392b;
-  $hero-color: white;
+  $hero-color: $dark-purple;
   $gradient-angle: 10deg;
 
   // @include background(linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);
-  background-color: #324766;
+  background-color: #ffffff;
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -38,7 +38,7 @@
       h1 {
         color: $hero-color;
         font-size: 1.6em;
-        // font-weight: 300;
+        font-weight: 300;
         margin-bottom: 0.5em;
 
         @include media($large-screen) {
