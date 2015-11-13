@@ -1,0 +1,28 @@
+// Typography
+p.lead {
+  font-size: 1.25em;
+  opacity: .5;
+  padding: .8em 0 0 0;
+}
+
+blockquote {
+  font-style: italic;
+  color: lighten($base-font-color, 10%);
+  font-size: 1.1em;
+  border-left: solid 3px $base-border-color;
+}
+
+// Layout
+.container {
+  @include outer-container;
+  padding 0, .5em;
+}
+
+html, body, section.intro .split, split-text {
+  height: 100%;
+}
+
+section {
+  padding: 6em 3em;
+  position: relative;
+}

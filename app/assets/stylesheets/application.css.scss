@@ -12,7 +12,11 @@
 // Font Awesome styles
 @import 'font-awesome';
 
-// Import shared partials
+// Import layout partials
+@import 'partials/globals';
+
+
+// Import page partials
 
 @import "pages/home";
 
