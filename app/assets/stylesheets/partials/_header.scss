@@ -141,6 +141,7 @@ header.navigation {
         }
 
         @include media($large-screen-down) {
+          padding-left: 0;
           display: block;
         }
       }
