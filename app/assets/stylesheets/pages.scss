@@ -1,0 +1,41 @@
+section.intro {
+  $parallax-intro-url: url('http://placehold.it/1200x700&text=use+your+image+here') 0 0 no-repeat;
+  
+  padding: 0;
+  color: white;
+  text-transform: uppercase;
+
+  .image-bg {
+    background: $parallax-intro-url;
+    background-size: cover;
+  }
+
+  .container {
+    @include media($small-screen-up) {
+      position: relative;
+      top: 50;
+      transform: translateY(-50%);
+    }
+
+    @include media($small-screen-down) {
+      padding-top: 8em;
+    }
+  }
+
+  h1 {
+    text-align: center;
+    color: white;
+    padding-bottom: .5em;
+
+    img {
+      max-width: 50%;
+    }
+  }
+
+  h3 {
+    text-align: center;
+    font-size: 1.2em;
+    padding: 0 20%;
+  }
+}
+
