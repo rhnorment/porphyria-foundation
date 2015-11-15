@@ -1,4 +1,16 @@
-// Typography
+// TYPOGRPAHY //
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: lighten(black, 40%);
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+}
+
+
 p.lead {
   font-size: 1.25em;
   opacity: .5;
@@ -12,22 +24,54 @@ blockquote {
   border-left: solid 3px $base-border-color;
 }
 
-// Layout
-.container {
-  @include outer-container;
-  padding: 0, .5em;
+a {
+  color: $highlight;
+
+  &:hover {
+    color: darken($highlight, 5%);
+  }
 }
 
-html, body, section.intro .split, split-text {
+input,
+textarea,
+button {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  color: darken(white, 40%);
+  border: solid 2px darken(white, 8%) !important;
+  box-shadow: none !important;
+
+  @include placeholder {
+    color: darken(white, 25%);
+  }
+
+  &:focus {
+    border: solid 2px darken(white, 20%) !important;
+  }
+}
+
+// LAYOUT //
+
+.container {
+  @include outer-container;
+  padding: 0 .5em;
+}
+
+html, body, section.intro, .split, .split-text {
   height: 100%;
 }
 
 section {
-  padding: 6em 3em;
+  padding: 6em 0 3em;
   position: relative;
 }
 
-// Parallax backgrounds
+// PARLLALAX BACKGROUNDS //
+
 .image-bg {
   position: absolute;
   height: 100%;
