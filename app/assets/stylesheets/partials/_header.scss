@@ -100,22 +100,19 @@ header.navigation {
     // NAVIGATION LINKS
 
     ul li.nav-link {
-      @include media($large-screen-down) {
-        padding-left: 0;
-        text-align: center;
-        border-bottom: solid 1px darken($navigation-background, 5%);
-      }
-
+      padding-left: 0;
+      text-align: center;
+      border-bottom: solid 1px darken($navigation-background, 5%);
       background: $navigation-background;
       display: block;
       line-height: $navigation-height;
       overflow: hidden;
       padding-left: 2em;
-      text-align: right;
       width: 100%;
       z-index: 999;
 
       @include media($horizontal-bar-mode) {
+        border-bottom: none;
         background: transparent;
         display: inline;
         line-height: $navigation-height;
@@ -139,14 +136,7 @@ header.navigation {
         &:hover {
           color: $navigation-color-hover;
         }
-
-        @include media($large-screen-down) {
-          padding-left: 0;
-          display: block;
-        }
       }
     }
   }
-
-
 }
