@@ -27,6 +27,7 @@ gem 'turbolinks'
 gem 'uglifier'
 
 group :development do
+  gem 'faker'
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'web-console'

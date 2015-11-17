@@ -19,4 +19,52 @@
   <%= link_to icon('chevron-down'), '#section-features', class:'jump-down' %>
 </section>
 
+<section class="features" id="section-features">
+  <div class="container">
 
+    <div class="title">
+      <h2>Get Involved</h2>
+      <%= tag :hr, class:'small' %>
+      <p>Welcome to our new site!  Here are a things you can do:</p>
+    </div>
+
+    <div class="feature-items">
+      <div class="feature-item">
+        <%= icon('university') %>
+        <h4>Learn about Porphyria</h4>
+        <p><%= Faker::Lorem.sentence(12) %></p>
+      </div>
+
+      <div class="feature-item">
+        <%= icon('stethoscope') %>
+        <h4>Diagnose Porphyria</h4>
+        <p><%= Faker::Lorem.sentence(12) %></p>
+      </div>
+
+      <div class="feature-item">
+        <%= icon('medkit') %>
+        <h4>Treat Porphyria</h4>
+        <p><%= Faker::Lorem.sentence(12) %></p>
+      </div>
+
+      <div class="feature-item">
+        <%= icon('users') %>
+        <h4>Join the APF</h4>
+        <p><%= Faker::Lorem.sentence(12) %></p>
+      </div>
+
+      <div class="feature-item">
+        <%= icon('credit-card') %>
+        <h4>Donate to the APF</h4>
+        <p><%= Faker::Lorem.sentence(12) %></p>
+      </div>
+
+      <div class="feature-item">
+        <%= icon('support') %>
+        <h4>Visit our Forum</h4>
+        <p><%= Faker::Lorem.sentence(12) %></p>
+      </div>
+    </div>
+
+  </div>
+</section>

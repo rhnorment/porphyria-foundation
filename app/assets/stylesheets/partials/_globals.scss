@@ -8,6 +8,7 @@ body {
 h1, h2, h3, h4, h5 {
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
+  font-weight: 300;
 }
 
 
@@ -92,3 +93,29 @@ section {
   opacity: 0.7;
   z-index: -100;
 }
+
+// SECTION TITLES //
+
+.title {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 3em;
+
+  h2 {
+    font-size: 2em;
+  }
+
+  hr {
+    border: solid 2px rgba(0,0,0,0.1);
+    margin: 1em auto 1.5em;
+
+    &.small {
+      width: 50px;
+    }
+  }
+
+   p {
+     opacity: 0.5;
+     font-size: 1.25em;
+   }
+ }

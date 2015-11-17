@@ -1,3 +1,5 @@
+// INTO SECTION //
+
 section.intro {
   $parallax-intro-url: url('http://placehold.it/1200x700') 0 0 no-repeat;
 
@@ -35,6 +37,7 @@ section.intro {
   h3 {
     text-align: center;
     font-size: 1.2em;
+    line-height: 1.25em;
     font-weight: 300;
     padding: 0 20%;
   }
@@ -62,4 +65,51 @@ section.intro {
     }
   }
 }
+
+// FEATURES SECTION //
+
+section.features {
+  .feature-item {
+    @include media($large-screen-up) {
+      @include span-columns(4);
+      @include omega(3n);
+    }
+
+    @include media($large-screen-down) {
+      @include span-columns(6);
+      @include omega(2n);
+    }
+
+    @include media($small-screen-down) {
+      @include span-columns(12);
+      @include omega(1n);
+    }
+
+    padding: 3em 0 2em;
+    text-align: center;
+
+    h4 {
+      text-transform: uppercase;
+      font-size: 1.3em;
+      padding-bottom: .5em;
+    }
+
+    p {
+      color: darken(white, 50%);
+    }
+
+    i {
+      font-size: 4em;
+      color: darken(white, 20%);
+      margin-bottom: .3em;
+      transition: color .2s;
+
+      &:hover {
+        color: $highlight;
+      }
+    }
+
+  }
+}
+
 
