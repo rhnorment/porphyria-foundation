@@ -1,7 +1,8 @@
 // INTO SECTION //
 
 section.intro {
-  $parallax-intro-url: url('http://placehold.it/1200x700') 0 0 no-repeat;
+  $parallax-intro-url:
+  url('http://placehold.it/1200x700&text=american+porphyria+foundation') 0 0 no-repeat;
 
   padding: 0;
   color: white;
@@ -108,8 +109,54 @@ section.features {
         color: $highlight;
       }
     }
-
   }
 }
 
+// NEWSlETTER FORM SECTION //
 
+section.newsletter {
+  $parallax-newsletter-url:
+  url('http://placehold.it/1200x700&text=american+porphyria+foundation') 0 0 no-repeat;
+  
+  padding: 5em 0;
+  color: white;
+
+  image-bg {
+    background: $parallax-newsletter-url;
+    background-size: cover;
+  }
+
+  .nl-text,
+  .nl-form {
+    @include span-columns(6);
+
+    @include media($large-screen-down) {
+      @include span-columns(12);
+      @include pad(1em 5%);
+    }
+
+    .nl-text {
+      p {
+        margin-bottom: 0;
+      }
+    }
+
+    .nl-form {
+      input[type="email"] {
+        @include media($medium-screen-down) {
+          @include span-columns(4);
+          width: 100%;
+          border-radius: 3px;
+        }
+        
+        @include span-columns(4 of 6);
+        padding: 0 1em;
+        box-shadow: none;
+        border: none !important;
+        border-radius: 3px 0 0 3px;
+        height: 3em;
+        margin: 0;
+      }
+    }
+  }
+}

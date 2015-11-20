@@ -68,3 +68,28 @@
 
   </div>
 </section>
+
+<section class="newsletter">
+  <div class="image-bg" data-stellar-background-ratio="0.5"></div>
+  <%= content_tag :div, nil, class:'color-overlay' %>
+  
+  <div class="container">
+    <div class="nl-text">
+      <p>
+        Register for our monthly newsletter and receive 
+        notifications when important news about Porphyria occurs!
+      </p>
+    </div>
+
+    <div class="nl-form">
+      <!-- newsletter form -->
+      <form id="newsletter" novalidate>
+        <input type="email" name="email" id="email" placeholder="Your email address" required>
+        <input type="submit" class="button" value="Submit">
+      </form>
+      
+      <%= content_tag :div, nil, class:'newsletter-error' %>
+    </div>
+  </div>
+</section>
+
