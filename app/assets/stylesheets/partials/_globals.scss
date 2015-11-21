@@ -119,3 +119,43 @@ section {
      font-size: 1.25em;
    }
  }
+
+ // BUTTONS //
+
+ a.button.alt,
+ a.button.large.alt {
+   background: $highlight-2;
+
+   &:hover {
+     background: lighten($highlight-2, 8%);
+   }
+ }
+
+ a.button.large {
+   background: $highlight;
+   text-transform: uppercase;
+   margin-top: 1em;
+   padding: 1em 2em;
+
+   &:hover {
+     background: lighten($highlight, 8%);
+   }
+ }
+
+// OWL CAROUSEL STYLES //
+
+.owl-theme .owl-dots .owl-dot span {
+  height: 14px;
+  width: 14px;
+}
+
+.owl-theme .owl-nav [class*='owl-'] {
+  padding: .5em 1em;
+}
+
+.owl-carousel {
+  cursor: none;
+}
+
+
+
