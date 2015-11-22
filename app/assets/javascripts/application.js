@@ -18,6 +18,5 @@
 //= require jquery.headroom
 //= require owl.carousel
 //= require jquery.fitvids
-//= require jquery.flexslider
 //= require home
 //= require turbolinks

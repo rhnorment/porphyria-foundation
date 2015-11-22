@@ -70,9 +70,5 @@
       items: 1
       autoPlay: true
 
-    # FLEXSLIDER
-
-    $('#gallery-slider').flexslider()
-
 
 ) jQuery
