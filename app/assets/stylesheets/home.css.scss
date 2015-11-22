@@ -1,11 +1,10 @@
 // INTRO SECTION //
 
 section.intro {
-  $parallax-intro-url:
-  url('http://placehold.it/1200x700&text=american+porphyria+foundation') 0 0 no-repeat;
+  $parallax-intro-url: url('http://placehold.it/1200x700&text=american+porphyria+foundation') 0 0 no-repeat;
 
-  padding: 0;
   color: white;
+  padding: 0;
   text-transform: uppercase;
 
   .image-bg {
@@ -26,9 +25,9 @@ section.intro {
   }
 
   h1 {
-    text-align: center;
     color: white;
     padding-bottom: .5em;
+    text-align: center;
 
     img {
       max-width: 50%;
@@ -36,27 +35,27 @@ section.intro {
   }
 
   h3 {
-    text-align: center;
     font-size: 1.2em;
-    line-height: 1.25em;
     font-weight: 300;
+    line-height: 1.25em;
     padding: 0 20%;
+    text-align: center;
   }
 
   a.jump-down {
-    position: absolute;
     bottom: 4em;
-    left: 20%;
-    right: 20%;
-    margin: 2em auto 0;
     display: block;
-    width: 4em;
+    left: 20%;
+    margin: 2em auto 0;
+    position: absolute;
+    right: 20%;
     text-align: center;
+    width: 4em;
 
     i {
       color: white;
-      opacity: 0.5;
       font-size: 3.5em;
+      opacity: 0.5;
       text-align: center;
       transition: opacity 0.2s;
     
@@ -90,9 +89,9 @@ section.features {
     text-align: center;
 
     h4 {
-      text-transform: uppercase;
       font-size: 1.3em;
       padding-bottom: .5em;
+      text-transform: uppercase;
     }
 
     p {
@@ -100,8 +99,8 @@ section.features {
     }
 
     i {
-      font-size: 4em;
       color: darken(white, 20%);
+      font-size: 4em;
       margin-bottom: .3em;
       transition: color .2s;
 
@@ -117,9 +116,9 @@ section.features {
 section.newsletter {
   $parallax-newsletter-url:
   url('http://placehold.it/1200x700&text=american+porphyria+foundation') 0 0 no-repeat;
-  
-  padding: 5em 0;
+
   color: white;
+  padding: 5em 0;
 
   image-bg {
     background: $parallax-newsletter-url;
@@ -146,34 +145,34 @@ section.newsletter {
     input[type="email"] {
       @include media($medium-screen-down) {
         @include span-columns(4);
-        width: 100%;
         border-radius: 3px;
+        width: 100%;
       }
 
       @include span-columns(4 of 6);
-      padding: 0 1em;
-      box-shadow: none;
       border: none !important;
       border-radius: 3px 0 0 3px;
+      box-shadow: none;
       height: 3em;
       margin: 0;
+      padding: 0 1em;
     }
 
     input[type="submit"] {
       @include media($medium-screen-down) {
         @include span-columns(4);
-        width: 100;
-        margin-top: 1em;
         border-radius: 3px;
+        margin-top: 1em;
+        width: 100;
       }
 
       @include span-columns(2 of 6);
       @include omega;
-      height: 3em;
-      border-radius: 0 3px 3px 0;
       background: darken($highlight, 10%);
-      text-transform: uppercase;
+      border-radius: 0 3px 3px 0;
+      height: 3em;
       margin: 0;
+      text-transform: uppercase;
 
       &:hover {
         background: darken($highlight, 5%);
@@ -203,8 +202,8 @@ section.showcase {
       @include media($large-screen-down) {
         @include span-columns(12);
         @include pad(1em 3em);
-        text-align: center;
         float: none !important;
+        text-align: center;
       }
 
       @include media($small-screen-down) {
@@ -227,11 +226,11 @@ section.showcase {
     }
 
     .split-media {
-      #member-stories-slider .item img {
-        display: block;
-        width: 100%;
-        height: auto;
+      #showcase-slider .item img {
         cursor: move;
+        display: block;
+        height: auto;
+        width: 100%;
       }
     }
 

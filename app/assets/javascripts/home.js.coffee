@@ -64,4 +64,15 @@
             return false
           return
 
+    # OWL CAROUSEL SLIDERS
+
+    $('#showcase-slider').owlCarousel
+      items: 1
+      autoPlay: true
+
+    # FLEXSLIDER
+
+    $('#gallery-slider').flexslider()
+
+
 ) jQuery

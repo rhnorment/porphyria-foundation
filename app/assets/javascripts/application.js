@@ -11,9 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
-//= require holder
 //= require jquery.stellar.min
 //= require headroom.min
 //= require jquery.headroom
@@ -21,3 +20,4 @@
 //= require jquery.fitvids
 //= require jquery.flexslider
 //= require home
+//= require turbolinks
