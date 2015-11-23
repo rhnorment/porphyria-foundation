@@ -157,4 +157,55 @@
   </div>
 </section>
 
+<section class="showcase">
+  <div class="container">
+    <div class="split">
+      <div class="split-left split-text">
+        <h4>Scientific Advisory Board</h4>
+
+        <p class="lead"><%= Faker::Lorem.sentence(12) %></p>
+
+        <p><%= Faker::Lorem.sentence(12) %></p>
+      </div>
+
+      <div class="split-right split-media">
+        <%= image_tag 'advisory_board.jpg' %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quote">
+  <div class="image-bg" data-stellar-background-ratio="0.5"></div>
+  <%= content_tag :div, nil, class:'color-overlay' %>
+
+  <div class="container">
+    <div id="quote-slider" class="owl-carousel owl-theme">
+      <div class="item">
+        <!-- quote text -->
+        <blockquote>
+          <%= Faker::Lorem.paragraph %>
+          <!-- quote author -->
+          <cite>
+            <%= Faker::Name.name %>,
+            <%= link_to Faker::Company.name, 'javascript:void(0)' %>
+          </cite>
+        </blockquote>
+      </div>
+
+      <div class="item">
+        <!-- quote text -->
+        <blockquote>
+          <%= Faker::Lorem.paragraph %>
+          <!-- quote author -->
+          <cite>
+            <%= Faker::Name.name %>,
+            <%= link_to Faker::Company.name, 'javascript:void(0)' %>
+          </cite>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
 

@@ -65,7 +65,7 @@ $(document).ready ->
 
   # OWL CAROUSEL SLIDERS
 
-  $('#showcase-slider').owlCarousel
+  $('#showcase-slider, #quote-slider').owlCarousel
     items: 1
     loop: true
     autoPlay: true
