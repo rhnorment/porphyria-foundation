@@ -245,3 +245,35 @@ section.showcase {
 .showcase.gray {
   background: darken(white, 5%);
 }
+
+section.quote {
+  $parallax-quote-url: url('http://placehold.it/1200x700&text=american+porphyria+foundation') 0 0 no-repeat;
+
+  padding: 6em 0;
+
+  .image-bg {
+    background: $parallax-quote-url;
+    background-size: cover;
+  }
+
+  #quote-slider {
+    .owl-dots {
+      margin-top: 2em;
+
+      .owl-dot {
+        span {
+          background-color: white;
+          opacity: 0.4;
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+
+        &:active span {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
