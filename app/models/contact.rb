@@ -44,6 +44,7 @@ class Contact < ActiveRecord::Base
   PORPHYRIA_TYPES = %w(AIP VP HCP ADP PCT EPP CEP HEP)
   YES_NO = %w(Yes No)
 
+  scope   :international_members,   -> { where.not(country: 'USA') }
   scope   :with_email_addresses,    -> { where('email_address IS NOT NULL') }
 
   def self.reset_create_date
