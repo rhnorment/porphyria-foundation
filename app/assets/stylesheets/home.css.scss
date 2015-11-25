@@ -276,4 +276,43 @@ section.quote {
       }
     }
   }
+
+  blockquote {
+    @include media($medium-screen-down) {
+      @include pad(0 10px);
+      font-size: 1.6em;
+    }
+
+    @include media($small-screen-down) {
+      font-size: 1.3em;
+    }
+
+    border: 0;
+    color: white;
+    cursor: move;
+    font-size: 2em;
+    font-style: normal;
+    margin: 0;
+    padding-left: 0;
+    text-align: center;
+
+    cite {
+      @include media($medium-screen-down) {
+        font-size: .7em;
+      }
+
+      color: white;
+      display: block;
+      font-size: 1.5em;
+      padding-top: 1.5em;
+
+      a {
+        color: darken($highlight, 20%);
+
+        &:hover {
+          color: darken($highlight, 30%);
+        }
+      }
+    }
+  }
 }
