@@ -99,6 +99,7 @@ ActiveAdmin.register Contact do
 
 # INDEX =============================================================================
   scope   :all, default: true
+  scope   :international_members
   scope   :with_email_addresses
 
   index do
