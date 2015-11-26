@@ -61,6 +61,7 @@ $(document).ready ->
         return
 
   # RESPONSIVE VIDEOS - FITVIDS
+
   $('.fitvids').fitVids()
 
   # OWL CAROUSEL SLIDERS
@@ -70,4 +71,15 @@ $(document).ready ->
     loop: true
     autoPlay: true
     autoplayTimeout: 4000
+
+  $('#blog-teasers').owlCarousel
+    items: 3
+    video: true
+    autoplay: true
+    autoplayTimeout: 4000
+    autoplayHoverPause: true
+    responsive:
+      1: items: 1
+      540: items: 2
+      767: items 3
 

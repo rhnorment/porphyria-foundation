@@ -230,7 +230,7 @@
       </p>
     </div>
 
-    <div id="blog-teasers" class="owl-carousel owl-theme">
+    <div id="blog-teasers">
       <!-- standard post format -->
       <div class="blog-item">
         <%= link_to image_tag('http://placehold.it/800x600'), 'javascript:void(0)', class:'featured-image' %>
@@ -243,7 +243,7 @@
             on <span class="date"><%= link_to Faker::Date.backward(23), '' %></span>
           </div>
 
-          <p class="excerpt"><%= Faker::Lorem.words(12) %></p>
+          <p class="excerpt"><%= Faker::Lorem.sentence(12) %></p>
 
           <%= link_to 'Read more &raquo;', '', class:'read-more' %>
         </div>
@@ -260,7 +260,7 @@
             on <span class="date"><%= link_to Faker::Date.backward(23), '' %></span>
           </div>
 
-          <p class="excerpt"><%= Faker::Lorem.words(12) %></p>
+          <p class="excerpt"><%= Faker::Lorem.sentence(12) %></p>
 
           <%= link_to 'Read more &raquo;', '', class:'read-more' %>
         </div>
@@ -281,7 +281,7 @@
             on <span class="date"><%= link_to Faker::Date.backward(23), '' %></span>
           </div>
 
-          <p class="excerpt"><%= Faker::Lorem.words(12) %></p>
+          <p class="excerpt"><%= Faker::Lorem.sentence(12) %></p>
 
           <%= link_to 'Read more &raquo;', '', class:'read-more' %>
         </div>
