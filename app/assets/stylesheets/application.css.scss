@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-@import 'partials/reset';
+@import 'normalize-rails';
 @import 'bourbon';
 @import 'base/grid-settings';
 @import 'neat';
@@ -13,8 +13,7 @@
 @import 'font-awesome';
 
 // Owl Carousel + Flexslider styles
-@import 'owl-flexslider';
-@import 'owl-theme';
+@import 'owl.carousel';
 
 // Import layout partials
 @import 'partials/globals';

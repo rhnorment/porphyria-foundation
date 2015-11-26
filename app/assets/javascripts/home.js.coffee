@@ -69,7 +69,7 @@ $(document).ready ->
   $('#showcase-slider, #quote-slider').owlCarousel
     items: 1
     loop: true
-    autoPlay: true
+    autoplay: true
     autoplayTimeout: 4000
 
   $('#blog-teasers').owlCarousel

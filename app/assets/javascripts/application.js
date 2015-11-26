@@ -16,7 +16,7 @@
 //= require jquery.stellar.min
 //= require headroom.min
 //= require jquery.headroom
-//= require owl.carousel
+//= require owl.carousel.min
 //= require jquery.fitvids
 //= require home
 //= require turbolinks

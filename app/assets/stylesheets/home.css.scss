@@ -348,11 +348,12 @@ section.blog {
 
       a.featured-image {
         display: block;
+        margin-bottom: -7px; // FIX UPSTREAM
 
         img {
-          margin: 0;
           transition: all 0.5s;
           -webkit-backface-visibility: hidden;
+          width: 100%;
         }
       }
 
