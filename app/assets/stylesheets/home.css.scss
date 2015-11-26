@@ -316,3 +316,34 @@ section.quote {
     }
   }
 }
+
+section.blog {
+  background: darken(white, 5%);
+  text-align: center;
+
+  #blog-teasers {
+    .blog-item {
+      cursor: move;
+      margin-bottom: 1em;
+      padding: 0 1em;
+
+      &:hover {
+        a.featured-image {
+          background: $highlight;
+        }
+
+        .blog-teaser {
+          background: darken(white, 1%);
+        }
+
+        img {
+          opacity: 0.8;
+        }
+
+        .flexslider img {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
