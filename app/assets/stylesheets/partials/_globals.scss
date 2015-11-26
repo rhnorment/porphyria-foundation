@@ -161,12 +161,12 @@ section {
 
 // OWL CAROUSEL STYLES //
 
-.owl-dots .owl-dot span {
+.owl-theme .owl-dots .owl-dot span {
 	height: 14px;
 	width: 14px;
 }
 
-.owl-nav [class*='owl-'] {
+owl-theme .owl-nav [class*='owl-'] {
 	padding: .5em 1em;
 }
 
