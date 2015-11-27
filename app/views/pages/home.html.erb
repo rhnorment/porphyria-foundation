@@ -291,3 +291,50 @@
     <%= link_to 'View all Items', 'javascript:void(0)', class:'button' %>
   </div>
 </section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="title">
+      <h2>Contact</h2>
+      <%= tag :hr, class:'small' %>
+      <p><%= Faker::Lorem.sentence(12) %></p>
+    </div>
+
+    <div class="contact-form">
+      <form id="contact-form" novalidate>
+        <div class="form">
+          <div class="form-left">
+            <p>
+              <label for="name">Name</label>
+              <input type="text" name="name" id="name" placeholder="Name">
+            </p>
+
+            <p>
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" placeholder="Email address">
+            </p>
+
+            <p>
+              <label for="phone">Phone</label>
+              <input type="text" name="phone" id="phone" placeholder="Phone number">
+            </p>
+          </div>
+
+          <div class="form-right">
+            <p>
+              <label for="message">Message</label>
+              <textarea name="message" id="message" rows="10" placeholder="Your message"></textarea>
+            </p>
+          </div>
+        </div>
+
+        <%= content_tag :div, nil, id:'contact-error' %>
+
+        <p class="submit">
+          <input class="button" type="submit" value="submit">
+        </p>
+      </form>
+    </div>
+
+  </div>
+</section>
