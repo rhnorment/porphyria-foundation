@@ -322,6 +322,7 @@ section.blog {
   text-align: center;
 
   #blog-teasers {
+    margin-bottom: $base-spacing;
 
     .blog-item {
       cursor: move;
@@ -348,7 +349,6 @@ section.blog {
 
       a.featured-image {
         display: block;
-        margin-bottom: -7px; // FIX UPSTREAM
 
         img {
           transition: all 0.5s;

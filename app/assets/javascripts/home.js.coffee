@@ -15,8 +15,8 @@ $(document).ready ->
   # MOBILE NAVIGATION MENU DROPDOWN
 
   menu = $('#navigation-menu')
-  menuToggle = $('#js-mobile-menu')
   menuLink = $('.navigation .nav-link a')
+  menuToggle = $('#js-mobile-menu')
 
   $(menuToggle).on 'click', (e) ->
     e.preventDefault()
@@ -67,19 +67,19 @@ $(document).ready ->
   # OWL CAROUSEL SLIDERS
 
   $('#showcase-slider, #quote-slider').owlCarousel
+    autoplay: true
+    autoplayTimeout: 4000
     items: 1
     loop: true
-    autoplay: true
-    autoplayTimeout: 4000
 
   $('#blog-teasers').owlCarousel
-    items: 3
-    video: true
     autoplay: true
-    autoplayTimeout: 4000
     autoplayHoverPause: true
+    autoplayTimeout: 4000
+    items: 3
     responsive:
       1: items: 1
       540: items: 2
-      767: items 3
+      767: items: 3
+    video: true
 
