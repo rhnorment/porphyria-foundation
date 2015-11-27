@@ -1,18 +1,31 @@
 @charset "utf-8";
 
-@import "normalize-rails";
-@import "bourbon";
-@import "base/grid-settings";
-@import "neat";
-@import "base/base";
-@import "refills/flashes";
+@import 'normalize-rails';
+@import 'bourbon';
+@import 'base/grid-settings';
+@import 'neat';
+@import 'base/base';
+@import 'refills/flashes';
 
 // * {  border: 1px solid red !important; }
 
 // Font Awesome styles
 @import 'font-awesome';
 
+<<<<<<< HEAD
 
 // Import pages
 @import "pages/home";
+=======
+// Owl Carousel + Flexslider styles
+@import 'owl.carousel';
+@import 'owl-theme';
 
+// Import layout partials
+@import 'partials/globals';
+@import 'partials/header';
+@import 'partials/footer';
+>>>>>>> feature/mobile-layout
+
+// Import page partials
+@import 'home';

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-copy">
@@ -6,6 +7,354 @@
         The APF is dedicated to improving the health and well-being of
         individuals and families affected by Porphyria.
       </p>
+=======
+<!-- /// INTRO SECTION /// -->
+
+<section class="intro" id="section-intro">
+  <div class="image-bg" data-stellar-background-ratio="0.2"></div>
+  <%= content_tag :div, nil, class:'color-overlay' %>
+
+  <div class="container">
+    <div class="logo">
+      <h1><%= image_tag 'logo-white.png', alt:'logo' %></h1>
+>>>>>>> feature/mobile-layout
+    </div>
+
+    <h3>
+      The APF is dedicated to improving the health and well-being of individuals and families affected by Porphyria.
+    </h3>
+  </div>
+<<<<<<< HEAD
+</section>
+=======
+
+  <!-- the 'jump' button to scroll to the next section -->
+
+  <%= link_to icon('chevron-down'), '#section-features', class:'jump-down' %>
+</section>
+
+<!-- ///// FEATURES SECTION ///// -->
+
+<section class="features" id="section-features">
+  <div class="container">
+
+    <div class="title">
+      <h2>Get Involved</h2>
+      <%= tag :hr, class:'small' %>
+      <p>Welcome to our new site!  Here are a things you can do:</p>
+    </div>
+
+    <div class="feature-items">
+      <div class="feature-item">
+        <%= icon('university') %>
+        <h4>Learn about Porphyria</h4>
+        <p><%= Faker::Lorem.sentence(12) %></p>
+      </div>
+
+      <div class="feature-item">
+        <%= icon('stethoscope') %>
+        <h4>Diagnose Porphyria</h4>
+        <p><%= Faker::Lorem.sentence(12) %></p>
+      </div>
+
+      <div class="feature-item">
+        <%= icon('medkit') %>
+        <h4>Treat Porphyria</h4>
+        <p><%= Faker::Lorem.sentence(12) %></p>
+      </div>
+
+      <div class="feature-item">
+        <%= icon('users') %>
+        <h4>Join the APF</h4>
+        <p><%= Faker::Lorem.sentence(12) %></p>
+      </div>
+
+      <div class="feature-item">
+        <%= icon('credit-card') %>
+        <h4>Donate to the APF</h4>
+        <p><%= Faker::Lorem.sentence(12) %></p>
+      </div>
+
+      <div class="feature-item">
+        <%= icon('support') %>
+        <h4>Visit our Forum</h4>
+        <p><%= Faker::Lorem.sentence(12) %></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ///// NEWSLETTER FORM SECTION ///// -->
+
+<section class="newsletter">
+  <div class="image-bg" data-stellar-background-ratio="0.5"></div>
+  <%= content_tag :div, nil, class:'color-overlay' %>
+  
+  <div class="container">
+    <div class="nl-text">
+      <p>
+        Register for our monthly newsletter and receive 
+        notifications when important news about Porphyria occurs!
+      </p>
+    </div>
+
+    <div class="nl-form">
+      <!-- newsletter form -->
+      <form id="newsletter" novalidate>
+        <input type="email" name="email" id="email" placeholder="Your email address" required>
+        <input type="submit" class="button" value="Submit">
+      </form>
+      
+      <%= content_tag :div, nil, class:'newsletter-error' %>
     </div>
   </div>
 </section>
+
+<!-- ///// SHOWCASE SECTION ///// -->
+
+<section class="showcase" id="section-showcase">
+  <div class="container">
+    <div class="title">
+      <h2>APF Showcase</h2>
+      <%= tag :hr, class:'small' %>
+      <p><%= Faker::Lorem.sentence(12) %></p>
+    </div>
+
+    <!-- image slider -->
+    <div class="split">
+      <div class="split-left split-text">
+        <h4>Check out our member stories!</h4>
+        <p class="lead"><%= Faker::Lorem.sentence(12) %></p>
+        
+        <p>&nbsp;</p>  <!-- fix spacing in home.css.scss -->
+
+        <%= link_to 'Join APF', 'javascript:void(0)', class:'button large' %>
+        &nbsp;
+        <%= link_to 'Donate', 'javascript:void(0)', class:'button large alt' %>
+      </div>
+
+      <div class="split-right split-media">
+        <div id="showcase-slider" class="owl-carousel owl-theme">
+          <!-- slider items -->
+          <div class="item">
+            <%= image_tag 'http://placehold.it/800x550&amp;text=use+your+image+here' %>
+          </div>
+          
+          <div class="item">
+            <%= image_tag 'http://placehold.it/800x550&amp;text=use+your+image+here' %>
+          </div>
+         
+          <div class="item">
+            <%= image_tag 'http://placehold.it/800x550&amp;text=use+your+image+here' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="showcase gray">
+  <div class="container">
+    <div class="split">
+      <div class="split-left split-text float-right">
+        <h4>Dateline NBC: <i>Out of the Shadows</i></h4>
+
+        <p class="lead">
+          Watch the full episode of EPP featured on Dateline NBC.
+        </p>
+
+        <p><%= Faker::Lorem.sentence(12) %></p>
+      </div>
+
+      <div class="split-right split-media float-left">
+        <div class="fitvids">
+          <!-- responsive video iframe -->
+          <iframe src="https://player.vimeo.com/video/131585885?portrait=0" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ///// ADIVSORY BOARD SECTION ///// -->
+
+<section class="showcase">
+  <div class="container">
+    <div class="split">
+      <div class="split-left split-text">
+        <h4>Scientific Advisory Board</h4>
+
+        <p class="lead"><%= Faker::Lorem.sentence(12) %></p>
+
+        <p><%= Faker::Lorem.sentence(12) %></p>
+      </div>
+
+      <div class="split-right split-media">
+        <%= image_tag 'advisory_board.jpg' %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ///// QUOTE SECTION ///// -->
+
+<section class="quote">
+  <div class="image-bg" data-stellar-background-ratio="0.5"></div>
+  <%= content_tag :div, nil, class:'color-overlay' %>
+
+  <div class="container">
+    <div id="quote-slider" class="owl-carousel owl-theme">
+      <div class="item">
+        <!-- quote text -->
+        <blockquote>
+          <%= Faker::Lorem.paragraph %>
+          <!-- quote author -->
+          <cite>
+            <%= Faker::Name.name %>,
+            <%= link_to Faker::Company.name, 'javascript:void(0)' %>
+          </cite>
+        </blockquote>
+      </div>
+
+      <div class="item">
+        <!-- quote text -->
+        <blockquote>
+          <%= Faker::Lorem.paragraph %>
+          <!-- quote author -->
+          <cite>
+            <%= Faker::Name.name %>,
+            <%= link_to Faker::Company.name, 'javascript:void(0)' %>
+          </cite>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ///// BLOG SECTION ////// -->
+
+<section class="blog" id="section-blog">
+  <div class="container">
+    <div class="title">
+      <h2>Latest News</h2>
+      <%= tag :hr, class:'small' %>
+      <p>
+        Check back often for exciting news and announcements.
+      </p>
+    </div>
+
+    <div id="blog-teasers" class="owl-carousel owl-theme">
+      <!-- standard post format -->
+      <div class="blog-item">
+        <%= link_to image_tag('http://placehold.it/800x600'), '#', class:'featured-image' %>
+
+        <div class="blog-teaser">
+          <h4 class="post-title"><%= link_to Faker::Book.title, 'javascript:void(0)' %></h4>
+
+          <div class="meta">
+            by <span class="author"><%= link_to 'admin', '' %></span>
+            on <span class="date"><%= link_to Faker::Date.backward(23), '' %></span>
+          </div>
+
+          <p class="excerpt"><%= Faker::Lorem.sentence(12) %></p>
+
+          <%= link_to 'Read more', 'javascript:void(0)', class:'read-more' %>
+        </div>
+      </div>
+
+      <div class="blog-item">
+        <%= link_to image_tag('http://placehold.it/800x600'), 'javascript:void(0)', class:'featured-image' %>
+
+        <div class="blog-teaser">
+          <h4 class="post-title"><%= link_to Faker::Book.title, 'javascript:void(0)' %></h4>
+
+          <div class="meta">
+            by <span class="author"><%= link_to 'admin', '' %></span>
+            on <span class="date"><%= link_to Faker::Date.backward(23), '' %></span>
+          </div>
+
+          <p class="excerpt"><%= Faker::Lorem.sentence(12) %></p>
+
+          <%= link_to 'Read more', 'javascript:void(0)', class:'read-more' %>
+        </div>
+      </div>
+
+      <!-- video post format -->
+      <div class="blog-item">
+        <div class="fitvids">
+          <!-- responsive video iframe -->
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/zmM3HSH8dDk" allowfullscreen></iframe>
+        </div>
+
+        <div class="blog-teaser">
+          <h4 class="post-title"><%= link_to Faker::Book.title, 'javascript:void(0)' %></h4>
+
+          <div class="meta">
+            by <span class="author"><%= link_to 'admin', '' %></span>
+            on <span class="date"><%= link_to Faker::Date.backward(23), '' %></span>
+          </div>
+
+          <p class="excerpt"><%= Faker::Lorem.sentence(12) %></p>
+
+          <%= link_to 'Read more', 'javascript:void(0)', class:'read-more' %>
+        </div>
+      </div>
+    </div>
+
+    <%= link_to 'View all Items', 'javascript:void(0)', class:'button' %>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="title">
+      <h2>Contact</h2>
+      <%= tag :hr, class:'small' %>
+      <p><%= Faker::Lorem.sentence(12) %></p>
+    </div>
+
+    <div class="contact-form">
+      <form id="contact-form" novalidate>
+        <div class="form">
+          <div class="form-left">
+            <p>
+              <label for="name">Name</label>
+              <input type="text" name="name" id="name" placeholder="Name">
+            </p>
+
+            <p>
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" placeholder="Email address">
+            </p>
+
+            <p>
+              <label for="phone">Phone</label>
+              <input type="text" name="phone" id="phone" placeholder="Phone number">
+            </p>
+          </div>
+
+          <div class="form-right">
+            <p>
+              <label for="message">Message</label>
+              <textarea name="message" id="message" rows="10" placeholder="Your message"></textarea>
+            </p>
+          </div>
+        </div>
+
+        <%= content_tag :div, nil, id:'contact-error' %>
+
+        <p class="submit">
+          <input class="button" type="submit" value="submit">
+        </p>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+>>>>>>> feature/mobile-layout
