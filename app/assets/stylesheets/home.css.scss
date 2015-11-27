@@ -412,3 +412,52 @@ section.blog {
   }
 }
 
+section.contact {
+
+  .form {
+    @include clearfix;
+    padding-bottom: 1em;
+
+    .form-left,
+    .form-right {
+      @include span-columns(6);
+
+      @include media($large-screen-down) {
+        @include span-columns(12);
+        @include pad(0 5%);
+      }
+    }
+
+    label {
+      display: none;
+    }
+
+    input {
+      height: 3em;
+      margin-bottom: 1em;
+      padding: 0 1em;
+    }
+
+    textarea {
+      height: 11em;
+      padding: 1em;
+    }
+  }
+
+  p.submit {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+
+    input {
+      background: $highlight;
+      padding: 1.5em 6em;
+      text-transform: uppercase;
+
+      &:hover {
+        background: lighten($highlight, 5%);
+      }
+    }
+  }
+}
+
