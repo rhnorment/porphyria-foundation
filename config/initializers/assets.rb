@@ -1,1 +1,1 @@
-Rails.application.config.assets.precompile += %w(pages.css pages.js)
+Rails.application.config.assets.precompile += ['pages.css']
