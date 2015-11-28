@@ -1,0 +1,64 @@
+.blog-single {
+  padding: 9em 0 3em;
+}
+
+article.article-column,
+.main-column {
+  @include span-columns(9);
+  @include media($large-screen-down) {
+    @include span-columns(12);
+  }
+
+  .title {
+    margin-bottom: 0;
+    text-align: left;
+
+    h2 {
+      padding-bottom: .4em;
+    }
+  }
+
+  .meta {
+    border-bottom: solid 3px darken(white, 5%);
+    border-top: solid 3px darken(white, 5%);
+    color: darken(white, 30%);
+    font-size: .9em;
+    margin-bottom: 1em;
+    padding: .5em 0;
+
+    a {
+      color: $go-green;
+    }
+  }
+
+  .post-intro {
+    color: darken(white, 30%);
+    font-size: 1.4em;
+    text-transform: uppercase;
+  }
+
+  blockquote {
+    color: darken(white, 40%);
+    margin: $base-spacing auto;
+    padding-left: 0.75em;
+  }
+}
+
+aside.sidebar {
+  @include span-columns(3);
+
+  @include media($large-screen-down) {
+    @include span-columns(12);
+    @include pad(1em 20% 0);
+  }
+
+  @include media($small-screen-down) {
+    @include span-columns(12);
+    @include pad(1em 3% 0);
+  }
+
+  .widget-wrapper {
+
+  }
+
+}
