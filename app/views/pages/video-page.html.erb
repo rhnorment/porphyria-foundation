@@ -1,0 +1,88 @@
+<div class="blog-single">
+  <div class="container">
+
+    <!-- //// MAIN COLUMN ///// -->
+
+    <article class="article-column">
+
+      <!-- image, title, meta, and excerpt -->
+
+      <div class="media">
+        <%= image_tag('http://placehold.it/800x600') %>
+      </div>
+
+      <div class="title">
+        <h2><%= Faker::Book.title %></h2>
+      </div>
+
+      <div class="meta">
+        by <span class="author"><%= link_to 'admin', '' %></span>
+        on <span class="date"><%= link_to Faker::Date.backward(23) %></span>
+      </div>
+
+      <p class="post-intro"><%= Faker::Lorem.sentence(12) %></p>
+
+      <!-- the content -->
+
+      <p><%= Faker::Lorem.paragraph %></p>
+
+      <p><%= Faker::Lorem.paragraph %></p>
+
+      <blockquote><%= Faker::Lorem.paragraph %></blockquote>
+
+      <p><%= Faker::Lorem.paragraph %></p>
+    </article>
+
+    <!-- ///// SIDEBAR ///// -->
+
+    <aside class="sidebar">
+
+      <!-- submenu widget -->
+
+      <div class="widget-wrapper">
+        <div class="widget-title">
+          <h4>Categories</h4>
+        </div>
+
+        <ul class="blog-categories">
+          <%= content_tag :li, link_to('News', 'javascript:void(0)') %>
+          <%= content_tag :li, link_to('Blog', 'javascript:void(0)') %>
+          <%= content_tag :li, link_to('Member Stories', 'javascript:void(0)') %>
+          <%= content_tag :li, link_to('Get Involved', 'javascript:void(0)') %>
+        </ul>
+      </div>
+
+      <!-- search widget -->
+
+      <div class="widget-wrapper">
+        <div class="widget-title">
+          <h4>Search</h4>
+        </div>
+
+        <form>
+          <input class="search-widget" type="text" name="search" id="search" placeholder="Type query and hit enter...">
+        </form>
+      </div>
+
+      <!-- tags widget -->
+
+      <div class="widget-wrapper">
+        <div class="widget-title">
+          <h4>Hot Topics</h4>
+        </div>
+
+        <div class="blog-tags">
+          <%= content_tag :span, link_to('Hot Topic 1', '#') %>
+          <%= content_tag :span, link_to('Hot Topic 2', '#') %>
+          <%= content_tag :span, link_to('Hot Topic 3', '#') %>
+          <%= content_tag :span, link_to('Hot Topic 4', '#') %>
+          <%= content_tag :span, link_to('Hot Topic 5', '#') %>
+          <%= content_tag :span, link_to('Hot Topic 6', '#') %>
+          <%= content_tag :span, link_to('Hot Topic 7', '#') %>
+          <%= content_tag :span, link_to('Hot Topic 8', '#') %>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
