@@ -58,7 +58,37 @@ aside.sidebar {
   }
 
   .widget-wrapper {
+    margin-bottom: 3em;
 
+    .widget-title {
+      border-bottom: solid 4px darken(white, 5%);
+      margin-bottom: 1em;
+      padding-bottom: 0;
+
+      h4 {
+        margin-bottom: .5em;
+      }
+    }
+
+    ul.blog-categories li {
+      border-bottom: solid 1px darken(white, 5%);
+
+      &:before {
+        content: '\f105';
+        float: left;
+        font-family: 'Fontawesome';
+        padding: .5em;
+      }
+
+      &:hover {
+        background: darken(white, 3%);
+      }
+
+      a {
+        color: lighten(black, 40%);
+
+      }
+    }
   }
 
 }

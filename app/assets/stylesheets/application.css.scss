@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-@import 'normalize-rails';
+@import 'partials/reset';
 @import 'bourbon';
 @import 'base/grid-settings';
 @import 'neat';
@@ -20,7 +20,7 @@
 @import 'partials/globals';
 @import 'partials/header';
 @import 'partials/footer';
+@import 'partials/blog-single';
 
 // Import page partials
 @import 'home';
-@import 'blog-single';
