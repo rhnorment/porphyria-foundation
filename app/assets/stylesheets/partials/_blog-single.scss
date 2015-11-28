@@ -14,6 +14,7 @@ article.article-column,
     text-align: left;
 
     h2 {
+      margin-bottom: 0;
       padding-bottom: .4em;
     }
   }
@@ -35,6 +36,10 @@ article.article-column,
     color: darken(white, 30%);
     font-size: 1.4em;
     text-transform: uppercase;
+  }
+
+  .media {
+    margin-bottom: 2em;
   }
 
   blockquote {
