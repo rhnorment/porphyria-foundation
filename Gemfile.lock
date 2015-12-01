@@ -38,9 +38,6 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    activeadmin-axlsx (2.0.1)
-      activeadmin (>= 0.5.0)
-      axlsx
     activejob (4.2.4)
       activesupport (= 4.2.4)
       globalid (>= 0.3.0)
@@ -63,10 +60,6 @@ GEM
     arel (6.0.3)
     ast (2.1.0)
     awesome_print (1.6.1)
-    axlsx (2.0.1)
-      htmlentities (~> 4.3.1)
-      nokogiri (>= 1.4.1)
-      rubyzip (~> 1.0.0)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -147,7 +140,6 @@ GEM
     highline (1.7.8)
     holder_rails (2.8.0)
       railties (>= 3.1.0)
-    htmlentities (4.3.4)
     i18n (0.7.0)
     i18n-tasks (0.9.1)
       activesupport (>= 4.0.2)
@@ -269,7 +261,6 @@ GEM
       rspec-mocks (~> 3.3.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
-    rubyzip (1.0.0)
     safe_yaml (1.0.4)
     sass (3.4.19)
     sass-rails (5.0.4)
@@ -334,7 +325,6 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
-  activeadmin-axlsx
   awesome_print
   bourbon (~> 4.2.0)
   bundler-audit
