@@ -29,8 +29,20 @@ ActiveAdmin.register Contact do
 
 # CONTROLLER ======================================================================
   controller do
+    def index
+      index! do |format|
+        format.csv { super }
+        format.json { super }
+        
+        format.xls {
+          spreadsheet = XLSBuilders::ContactsSpreadsheet.new(@contacts)
+          send_data spreadsheet.generate_xls, filename: 'contacts.xls'
+        }
+      end
+    end
+    
     def apply_pagination(chain)
-      chain = super unless formats.include?([:csv, :xml, :json])
+      chain = super unless formats.include?([:csv, :json, :xls])
       chain
     end
   end

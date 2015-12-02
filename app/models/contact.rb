@@ -40,21 +40,12 @@
 class Contact < ActiveRecord::Base
 
   include CSVBuilders
+  include XLSBuilders
 
   PORPHYRIA_TYPES = %w(AIP VP HCP ADP PCT EPP CEP HEP)
   YES_NO = %w(Yes No)
 
   scope   :international_members,   -> { where.not(country: 'USA') }
   scope   :with_email_addresses,    -> { where('email_address IS NOT NULL') }
-
-  def self.reset_create_date
-    all.each do |contact|
-      date_to_compare = contact.created_at.to_s.split(' ')[0]
-
-      if date_to_compare.eql?('2015-10-15')
-        contact.update(created_at: '2001-10-15')
-      end
-    end
-  end
 
 end

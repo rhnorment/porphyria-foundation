@@ -59,8 +59,9 @@ ActiveAdmin.setup do |config|
   # or customize the formats shown per namespace/globally
   #
   # To disable/customize for the :admin namespace:
-  #
-
+  config.download_links = [:csv, :json, :xls]  
+  
+  
   # == Pagination
   #
   # Pagination is enabled by default for all resources.
