@@ -42,7 +42,7 @@ ActiveAdmin.register Contact do
     end
     
     def apply_pagination(chain)
-      chain = super unless formats.include?([:csv, :json, :xls])
+      chain = super unless formats.include?(:csv) || formats.include(:json) || formats.include?(:xls)
       chain
     end
   end
