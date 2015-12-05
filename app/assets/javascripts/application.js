@@ -11,7 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery.stellar.min
+//= require headroom.min
+//= require jquery.headroom
+//= require owl.carousel.min
+//= require jquery.fitvids
+//= require home
 //= require turbolinks
-//= require holder
-//= require pages
