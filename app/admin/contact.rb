@@ -29,8 +29,20 @@ ActiveAdmin.register Contact do
 
 # CONTROLLER ======================================================================
   controller do
+    def index
+      index! do |format|
+        format.csv { super }
+        format.json { super }
+        
+        format.xls {
+          spreadsheet = XLSBuilders::ContactsSpreadsheet.new(@contacts)
+          send_data spreadsheet.generate_xls, filename: 'contacts.xls'
+        }
+      end
+    end
+    
     def apply_pagination(chain)
-      chain = super unless formats.include?([:csv, :xml, :json])
+      chain = super unless formats.include?([:csv, :json, :xls])
       chain
     end
   end
@@ -172,10 +184,10 @@ ActiveAdmin.register Contact do
                   :patient_packet_sent_on, :porphyria_type, :research, :state, :status, :waived, :zip_code
 
   csv do
-    column(:full_name) { |c| [c.name_prefix, c.first_name, c.last_name, c.name_suffix].join(' ') }
+    column  :full_name
     column  :address_1
     column  :address_2
-    column(:city_state_zip) { |c| [c.city, c.state, c.zip_code].join(' ') }
+    column  :city_state_zip
     column  :email_address
   end
 
