@@ -47,5 +47,13 @@ class Contact < ActiveRecord::Base
 
   scope   :international_members,   -> { where.not(country: 'USA') }
   scope   :with_email_addresses,    -> { where('email_address IS NOT NULL') }
+  
+  def city_state_zip
+    [city, state, zip_code].join(' ')
+  end
+  
+  def full_name
+    [name_prefix, first_name, middle_name, last_name, name_suffix].join(' ')
+  end
 
 end

@@ -184,10 +184,10 @@ ActiveAdmin.register Contact do
                   :patient_packet_sent_on, :porphyria_type, :research, :state, :status, :waived, :zip_code
 
   csv do
-    column(:full_name) { |c| [c.name_prefix, c.first_name, c.last_name, c.name_suffix].join(' ') }
+    column  :full_name
     column  :address_1
     column  :address_2
-    column(:city_state_zip) { |c| [c.city, c.state, c.zip_code].join(' ') }
+    column  :city_state_zip
     column  :email_address
   end
 
