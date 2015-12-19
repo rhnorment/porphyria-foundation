@@ -12,7 +12,8 @@ ActiveAdmin.register Contact do
   filter    :zip_code
   filter    :country
   filter    :status
-  filter    :porphyria_type
+  filter    :porphyria_type, as: :select, collection: Contact::PORPHYRIA_TYPES
+  filter    :gift_amount
   filter    :gift_given_on
   filter    :doctor_packet_sent_on
   filter    :patient_packet_sent_on
@@ -165,7 +166,7 @@ ActiveAdmin.register Contact do
       row   :doctor_packet_sent
       row   :doctor_packet_sent_on
       row   :doctor_specialty
-      row   :gift_amount
+      row('Gift Amount') { number_to_currency(contact.gift_amount) }   
       row   :gift_given_on
       row   :patient_packet_sent
       row   :patient_packet_sent_on
