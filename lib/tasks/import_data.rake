@@ -50,7 +50,7 @@ namespace :import_data do
       temp_contact = row.to_h
       temp_first_name = temp_contact["first_name"]
       temp_last_name = temp_contact["last_name"]
-      temp_gift_amount = temp_contact["research"].to_f
+      temp_gift_amount = temp_contact["research"]
 
       if !temp_gift_amount.nil?
         if contact = Contact.find_by(first_name: temp_first_name, last_name: temp_last_name)
