@@ -37,4 +37,41 @@ namespace :import_data do
     puts "#{nil_counter} nil records"
     puts "#{contacts_found} contacts found"
   end
+  
+  desc 'Import donation data into Contacts table'
+
+  task gift_amount: :environment do
+    nil_counter = 0
+    non_nil_counter = 0
+    contacts_found = 0
+    filename = File.join(Rails.root, 'donations.csv')
+
+    CSV.foreach(filename, headers: true) do |row|
+      temp_contact = row.to_h
+      temp_first_name = temp_contact["first_name"]
+      temp_last_name = temp_contact["last_name"]
+      temp_gift_amount = temp_contact["research"].to_f
+
+      if !temp_gift_amount.nil?
+        if contact = Contact.find_by(first_name: temp_first_name, last_name: temp_last_name)
+          begin
+            contact.update(gift_amount: temp_gift_amount)
+          rescue Exception => e
+             puts "#{contact.id} failed"
+             puts "#{e.class}: #{e.message}"
+          end
+
+          contacts_found += 1
+        end
+
+        non_nil_counter += 1
+      else
+        nil_counter += 1
+      end
+    end
+
+    puts "#{non_nil_counter} non nil records"
+    puts "#{nil_counter} nil records"
+    puts "#{contacts_found} contacts found"
+  end
 end
