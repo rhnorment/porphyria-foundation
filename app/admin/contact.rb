@@ -13,7 +13,7 @@ ActiveAdmin.register Contact do
   filter    :country
   filter    :status
   filter    :porphyria_type, as: :select, collection: Contact::PORPHYRIA_TYPES
-  filter    :gift_amount
+  filter    :gift_amount, as: :numeric_range
   filter    :gift_given_on
   filter    :doctor_packet_sent_on
   filter    :patient_packet_sent_on
