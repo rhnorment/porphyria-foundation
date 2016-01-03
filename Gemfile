@@ -4,6 +4,7 @@ ruby '2.2.3'
 
 gem 'activeadmin', github: 'activeadmin'
 gem 'bourbon', '~> 4.2.0'
+gem 'chosen_rails'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'delayed_job_active_record'
 gem 'email_validator'
@@ -60,5 +61,6 @@ group :staging, :production do
   gem 'pg'
   gem 'puma'
 end
+
 
 
