@@ -1,4 +1,3 @@
-# == Schema Information
 #
 # Table name: contacts
 #
@@ -16,7 +15,6 @@
 #  email_address          :string           default("")
 #  fax_number             :string           default("")
 #  first_name             :string           default("")
-#  gift_amount            :string           default("")
 #  home_phone             :string           default("")
 #  last_name              :string           default("")
 #  middle_name            :string           default("")
@@ -35,6 +33,8 @@
 #  gift_given_on          :date
 #  doctor_packet_sent_on  :date
 #  patient_packet_sent_on :date
+#  research               :boolean          default(FALSE)
+#  gift_amount            :decimal(8, 2)
 #
 
 FactoryGirl.define do
@@ -47,15 +47,15 @@ FactoryGirl.define do
     cme                     'Yes'
     company                 'Example Company'
     country                 'Example Country'
-    date_of_birth           ''
+    date_of_birth           Date.new(11/12/1955)
     doctor_packet_sent      'x'
-    doctor_packet_sent_on   '12/25/1997'
+    doctor_packet_sent_on   Date.new(11/12/1955)
     doctor_specialty        'Diabetes'
     email_address           'user@example.com'
     fax_number              '800-555-1212'
     first_name              'Example'
-    gift_amount             '50'
-    gift_given_on           '12/25/1997'
+    gift_amount             25.50
+    gift_given_on           Date.new(11/12/1955)
     home_phone              '800-555-1212'
     last_name               'User'
     middle_name             'Middle'
@@ -63,7 +63,7 @@ FactoryGirl.define do
     name_prefix             'Mr.'
     name_suffix             'MD'
     patient_packet_sent      'x'
-    patient_packet_sent_on  '12/25/1997'
+    patient_packet_sent_on  Date.new(11/12/1955)
     porphyria_type          'HEP'
     state                   'AL'
     waived                  'x'

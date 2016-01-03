@@ -16,7 +16,6 @@
 #  email_address          :string           default("")
 #  fax_number             :string           default("")
 #  first_name             :string           default("")
-#  gift_amount            :string           default("")
 #  home_phone             :string           default("")
 #  last_name              :string           default("")
 #  middle_name            :string           default("")
@@ -35,6 +34,8 @@
 #  gift_given_on          :date
 #  doctor_packet_sent_on  :date
 #  patient_packet_sent_on :date
+#  research               :boolean          default(FALSE)
+#  gift_amount            :decimal(8, 2)
 #
 
 require 'rails_helper'
@@ -76,7 +77,7 @@ describe Contact, type: :model do
   it { should have_db_column(:email_address).of_type(:string) }
   it { should have_db_column(:fax_number).of_type(:string) }
   it { should have_db_column(:first_name).of_type(:string) }
-  it { should have_db_column(:gift_amount).of_type(:string) }
+  it { should have_db_column(:gift_amount).of_type(:decimal) }
   it { should have_db_column(:gift_given_on).of_type(:date) }
   it { should have_db_column(:home_phone).of_type(:string) }
   it { should have_db_column(:last_name).of_type(:string) }
