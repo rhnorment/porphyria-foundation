@@ -18,7 +18,7 @@ ActiveAdmin.register Contact do
   filter    :doctor_packet_sent_on
   filter    :patient_packet_sent_on
   filter    :created_at, label: 'Member Since'
-  filter    :keep, as: :check_boxes, label: 'Keep?'
+  filter    :keep
 
 # ACTION ITEMS ======================================================================
   action_item :new, only: :show do
