@@ -36,6 +36,7 @@
 #  patient_packet_sent_on :date
 #  research               :boolean          default(FALSE)
 #  gift_amount            :decimal(8, 2)
+#  keep                   :boolean          default(FALSE)
 #
 
 class Contact < ActiveRecord::Base

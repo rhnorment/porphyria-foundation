@@ -36,6 +36,7 @@
 #  patient_packet_sent_on :date
 #  research               :boolean          default(FALSE)
 #  gift_amount            :decimal(8, 2)
+#  keep                   :boolean          default(FALSE)
 #
 
 require 'rails_helper'
@@ -80,6 +81,7 @@ describe Contact, type: :model do
   it { should have_db_column(:gift_amount).of_type(:decimal) }
   it { should have_db_column(:gift_given_on).of_type(:date) }
   it { should have_db_column(:home_phone).of_type(:string) }
+  it { should have_db_column(:keep).of_type(:boolean) }
   it { should have_db_column(:last_name).of_type(:string) }
   it { should have_db_column(:middle_name).of_type(:string) }
   it { should have_db_column(:miscellaneous).of_type(:text) }

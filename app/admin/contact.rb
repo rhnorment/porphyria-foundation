@@ -18,6 +18,7 @@ ActiveAdmin.register Contact do
   filter    :doctor_packet_sent_on
   filter    :patient_packet_sent_on
   filter    :created_at, label: 'Member Since'
+  filter    :keep, as: :check_boxes, label: 'Keep?'
 
 # ACTION ITEMS ======================================================================
   action_item :new, only: :show do
@@ -96,6 +97,7 @@ ActiveAdmin.register Contact do
           f.input   :doctor_specialty
           f.input   :gift_amount
           f.input   :gift_given_on, order: [:month, :day, :year], start_year: Date.today.year - 10, end_year: Date.today.year + 5
+          f.input   :keep, label: 'Keep?'
           f.input   :miscellaneous
           f.input   :patient_packet_sent, as: :radio, collection: Contact::YES_NO
           f.input   :patient_packet_sent_on, order: [:month, :day, :year], start_year: Date.today.year - 10, end_year: Date.today.year + 5
@@ -168,6 +170,7 @@ ActiveAdmin.register Contact do
       row   :doctor_specialty
       row('Gift Amount') { number_to_currency(contact.gift_amount) }   
       row   :gift_given_on
+      row   :keep
       row   :patient_packet_sent
       row   :patient_packet_sent_on
       row   :porphyria_type
@@ -180,7 +183,7 @@ ActiveAdmin.register Contact do
 # PRIVATE =============================================================================
   permit_params   :address_1, :address_2, :business_phone, :cell_phone, :city, :cme, :company, :country,
                   :date_of_birth, :doctor_packet_sent, :doctor_packet_sent_on, :doctor_specialty, :email_address,
-                  :fax_number, :first_name, :gift_amount, :gift_given_on, :home_phone, :last_name,
+                  :fax_number, :first_name, :gift_amount, :gift_given_on, :home_phone, :keep, :last_name, 
                   :middle_name, :miscellaneous, :name_prefix, :name_suffix, :patient_packet_sent,
                   :patient_packet_sent_on, :porphyria_type, :research, :state, :status, :waived, :zip_code
 
