@@ -55,7 +55,7 @@ describe Contact, type: :model do
     expect(resource).to be_include_in_menu
   end
 
-  it 'has the default set of CRU actions available to it' do
+  it 'has the default set of CRUD actions available to it' do
     expect(resource.defined_actions).to include(:index, :show, :new, :create, :edit, :update, :destroy)
   end
 
