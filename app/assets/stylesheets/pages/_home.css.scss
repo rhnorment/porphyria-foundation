@@ -14,6 +14,7 @@ section.intro {
 
   .container {
     @include media($small-screen-up) {
+      //padding-top: 5em;
       position: relative;
       top: 50%;
       transform: translateY(-50%);
@@ -81,7 +82,7 @@ section.features {
     }
 
     @include media($small-screen-down) {
-      @include span-columns(12);
+      @include span-columns(4);
       @include omega(1n);
     }
 
@@ -121,7 +122,7 @@ section.newsletter {
   color: white;
   padding: 5em 0;
 
-  image-bg {
+  .image-bg {
     background: $parallax-newsletter-url;
     background-size: cover;
   }
@@ -164,7 +165,7 @@ section.newsletter {
         @include span-columns(4);
         border-radius: 3px;
         margin-top: 1em;
-        width: 100;
+        width: 100%;
       }
 
       @include span-columns(2 of 6);
