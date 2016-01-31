@@ -90,22 +90,23 @@ section.features {
 
     h4 {
       font-size: 1.3em;
+      opacity: 0.7;
       padding-bottom: .5em;
       text-transform: uppercase;
     }
 
     p {
-      color: darken(white, 50%);
+      color: darken(white, 40%);
     }
 
     i {
-      color: darken(white, 20%);
+      color: $purple;
       font-size: 4em;
       margin-bottom: .3em;
       transition: color .2s;
 
       &:hover {
-        color: $highlight;
+        color: $light-purple;
       }
     }
   }
@@ -168,7 +169,7 @@ section.newsletter {
 
       @include span-columns(2 of 6);
       @include omega;
-      background: darken($highlight, 10%);
+      background: darken($purple, 10%);
       border-radius: 0 3px 3px 0;
       height: 3em;
       margin: 0;
@@ -211,13 +212,21 @@ section.showcase {
       }
     }
 
-    .split-left.float-right {
-      float: right;
-       
-      &.split-text {
-        @include media($large-screen-up) {
-          padding-left: 1.5em;
-        }
+    .split-left.split-text {
+      h4 {
+        color: darken(white, 50%);
+      }
+
+      p {
+        color: darken(white, 30%);
+      }
+
+      @include media($large-screen-up) {
+        padding-left: 1.5em;
+      }
+
+      &.float-right {
+        float: right;
       }
     }
 
@@ -242,7 +251,7 @@ section.showcase {
   }
 }
 
-.showcase.gray {
+.gray {
   background: darken(white, 5%);
 }
 
