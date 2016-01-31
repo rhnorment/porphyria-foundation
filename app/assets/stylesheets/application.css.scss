@@ -21,7 +21,7 @@
 @import 'partials/globals';
 @import 'partials/header';
 @import 'partials/footer';
-@import 'partials/blog-single';
 
 // Import page partials
-@import 'home';
+@import 'pages/home';
+@import 'pages/blog-single';

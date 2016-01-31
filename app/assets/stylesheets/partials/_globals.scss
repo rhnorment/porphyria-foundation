@@ -1,7 +1,7 @@
 // TYPOGRPAHY //
 
 body {
-  color: lighten(black, 40%);
+  color: lighten($purple, 40%);
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -42,10 +42,10 @@ blockquote {
 }
 
 a {
-  color: $highlight;
+  color: $dark-purple;
 
   &:hover {
-    color: darken($highlight, 5%);
+    color: darken($dark-purple, 5%);
   }
 }
 
@@ -100,7 +100,8 @@ section {
 }
 
 .color-overlay {
-  background-color: $highlight;position: absolute;
+  background-color: $purple;
+  position: absolute;
   height: 100%;
   left: 0;
   opacity: 0.7;

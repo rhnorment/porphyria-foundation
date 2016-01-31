@@ -35,4 +35,34 @@ RSpec.describe Post, type: :model do
   it { should validate_presence_of(:author) }
   it { should validate_presence_of(:body) }
   it { should validate_presence_of(:title) }
+
+  it { should validate_uniqueness_of(:post_url) }
+
+  it 'should scope to published posts'
+
+  it 'should scope to unpublished posts'
+
+  describe '#published?' do
+    context 'when post if published' do
+      it 'should return true'
+    end
+
+    context 'when post is not published' do
+      it 'should not return true'
+    end
+  end
+
+  describe '#create_permalink' do
+    context 'when post if published' do
+      it 'should return a properly formatted URL'
+
+      it 'should be a unique URL'
+
+      it 'should not start with a /'
+    end
+
+    context 'when post is not published' do
+      it 'should be blank'
+    end
+  end
 end
