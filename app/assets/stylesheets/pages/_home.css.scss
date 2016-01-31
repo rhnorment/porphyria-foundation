@@ -196,7 +196,6 @@ section.showcase {
     @include clearfix;
     margin: 5em 0 0 0;
 
-
     .split-left,
     .split-right {
       @include span-columns(6);
@@ -220,6 +219,10 @@ section.showcase {
 
       p {
         color: darken(white, 30%);
+
+        &.lead {
+          padding-bottom: 1em;
+        }
       }
 
       @include media($large-screen-up) {
