@@ -4,6 +4,7 @@ section.intro {
   $parallax-intro-url: url('http://placehold.it/1200x700&text=american+porphyria+foundation') 0 0 no-repeat;
 
   color: white;
+  min-height: 600px;
   padding: 0;
   text-transform: uppercase;
 
@@ -14,7 +15,6 @@ section.intro {
 
   .container {
     @include media($small-screen-up) {
-      //padding-top: 5em;
       position: relative;
       top: 50%;
       transform: translateY(-50%);
