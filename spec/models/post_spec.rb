@@ -18,8 +18,9 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
 
-  it 'is valid with example attributes' do
-    expect(Post.new(post_attributes)).to be_valid
+  it 'has a valid factory' do
+    expect(build(:post)).to be_valid
+    expect(build(:published_post)).to be_valid
   end
 
   it { should have_db_column(:author).of_type(:string) }
@@ -38,9 +39,28 @@ RSpec.describe Post, type: :model do
 
   it { should validate_uniqueness_of(:post_url) }
 
-  it 'should scope to published posts'
+  let(:unpublished_post)  { create(:post) }
+  let(:published_post)    { create(:published_post) }
 
-  it 'should scope to unpublished posts'
+  describe 'should scope to published posts' do
+    it 'should list published posts' do
+      expect(Post.published).to include(published_post)
+    end
+
+    it 'should not list unpublished posts' do
+      expect(Post.published).to_not include(unpublished_post)
+    end
+  end
+
+  describe 'should scope to unpublished posts' do
+    it 'should list unpublished posts' do
+      expect(Post.unpublished).to include(unpublished_post)
+    end
+
+    it 'should not list published posts' do
+      expect(Post.unpublished).to_not include(published_post)
+    end
+  end
 
   describe '#published?' do
     context 'when post if published' do

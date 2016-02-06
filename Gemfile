@@ -40,6 +40,7 @@ group :development, :test do
   gem 'bundler-audit', require: false
   gem 'byebug'
   gem 'dotenv-rails'
+  gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.3.0'
   gem 'sqlite3'
 end

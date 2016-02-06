@@ -14,18 +14,19 @@
 #  updated_at   :datetime         not null
 #
 
-class Post < ActiveRecord::Base
+FactoryGirl.define do
+  factory :post do
+    author        'Example Blogger'
+    body          'This is the body of the post.'
+    image         'post_image.jpg'
+    post_url      '2016/example-blog-title'
+    published     false
+    title         'Example Blog Title'
 
-  scope             :published,   -> { where(published: true) }
-  scope             :unpublished, -> { where(published: false) }
+    factory :published_post do
+      published     true
+      published_at  Time.now
+    end
 
-  validates         :author,    presence: true
-  validates         :body,      presence: true
-  validates         :post_url,  uniqueness: true
-  validates         :title,     presence: true
-
-  def published?
-    published
   end
-
 end
