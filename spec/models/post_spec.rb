@@ -63,26 +63,38 @@ RSpec.describe Post, type: :model do
   end
 
   describe '#published?' do
-    context 'when post if published' do
-      it 'should return true'
+    context 'when post is published' do
+      it 'should return true' do
+        expect(published_post.published?).to be_truthy
+      end
+
+      it 'should not return false' do
+        expect(published_post.published?).to_not be_falsey
+      end
     end
 
     context 'when post is not published' do
-      it 'should not return true'
+      it 'should return false' do
+        expect(unpublished_post.published?).to be_falsey
+      end
+
+      it 'should not return true' do
+        expect(unpublished_post.published?).to_not be_truthy
+      end
     end
   end
 
-  describe '#create_permalink' do
-    context 'when post if published' do
-      it 'should return a properly formatted URL'
-
-      it 'should be a unique URL'
-
-      it 'should not start with a /'
-    end
-
-    context 'when post is not published' do
-      it 'should be blank'
+  describe '#generate_post_url' do
+    it 'should return a properly formatted URL automatically with title and year if none is provided' do
+      post = create(:post, title: 'Blog With TItle')
+      expect(post.post_url).to eql('2016/blog-with-title')
     end
   end
+
+  describe '#post_url_does_not_start_with_slash' do
+    it 'should not allow the creation of a post with a URL starting with /' do
+      expect { create(:post, post_url: '/wrong') }.to raise_error(ActiveRecord::RecordInvalid)
+    end
+  end
+
 end
