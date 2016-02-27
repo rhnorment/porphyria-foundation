@@ -19,7 +19,7 @@ class Post < ActiveRecord::Base
   scope             :published,   -> { where(published: true).where("published_at <= ?", DateTime.now) }
   scope             :unpublished, -> { where(published: false) }
 
-  before_validation :generate_post_url
+  before_save       :generate_post_url
 
   validates         :author,    presence: true
   validates         :body,      presence: true

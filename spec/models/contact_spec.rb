@@ -44,7 +44,7 @@ require 'rails_helper'
 describe Contact, type: :model do
 
   let(:resource_class) { 'Contact' }
-  let(:all_resources) { ActiveAdmin.application.namespaces[:admin].resources }
+  let(:all_resources)  { ActiveAdmin.application.namespaces[:admin].resources }
   let(:resource) { all_resources[resource_class] }
 
   it 'has a valid resource name' do

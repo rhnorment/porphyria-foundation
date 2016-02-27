@@ -18,6 +18,22 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
 
+  let(:resource_class) { 'Post' }
+  let(:all_resources)  { ActiveAdmin.application.namespaces[:admin].resources }
+  let(:resource)       { all_resources[resource_class] }
+
+  it 'has a valid resource name' do
+    expect(resource.resource_name).to eql('Post')
+  end
+
+  it 'should display in the menu bar' do
+    expect(resource).to be_include_in_menu
+  end
+
+  it 'has the default set of CRUD actions available to it' do
+    expect(resource.defined_actions).to include(:index, :show, :new, :create, :edit, :update, :destroy)
+  end
+
   it 'has a valid factory' do
     expect(build(:post)).to be_valid
     expect(build(:published_post)).to be_valid
