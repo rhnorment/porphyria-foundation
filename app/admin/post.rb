@@ -11,7 +11,7 @@ ActiveAdmin.register Post do
       f.input   :author
       f.input   :title
       f.input   :post_url, label: 'Post URL'
-      f.input   :body, label: 'Content'
+      f.input   :body, as: :html_editor, label: 'Content'
       f.input   :image, as: :file, label: 'Primary Image'
     end
 
@@ -47,7 +47,9 @@ ActiveAdmin.register Post do
     attributes_table do
       row   :title
       row   :post_url
-      row   :body
+      row   :body do
+        raw(post.body)
+      end
       row   :image do
         cl_image_tag(post.image, width: 800, height: 600)
       end

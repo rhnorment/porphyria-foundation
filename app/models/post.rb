@@ -21,25 +21,42 @@ class Post < ActiveRecord::Base
   scope             :published,   -> { where(published: true).where("published_at <= ?", DateTime.now) }
   scope             :unpublished, -> { where(published: false) }
 
-  before_save       :generate_post_url
+  before_validation :generate_post_url
 
   validates         :author,    presence: true
   validates         :body,      presence: true
-  validates         :post_url,  uniqueness: true
+  validates         :post_url,  uniqueness: { case_sensitive: false }
   validates         :title,     presence: true
 
   validate          :post_url_does_not_start_with_slash
 
-  def published?
+  def is_not_published?
+    !published
+  end
+
+  def is_published?
     published
+  end
+
+  def publish
+    return if is_published?
+
+    update_attributes(published: true, published_at: Time.now)
+  end
+
+  def unpublish
+    return if is_not_published?
+
+    update_attributes(published: false, published_at: nil)
   end
 
   protected
 
     def generate_post_url
       return unless self.post_url.blank?
+
       year = self.created_at.class == ActiveSupport::TimeWithZone ? self.created_at.year : DateTime.now.year
-      self.post_url = "#{year}/#{self.title.parameterize}"
+      self.post_url = "#{year}/#{self.title.parameterize if title}"
     end
 
     def post_url_does_not_start_with_slash

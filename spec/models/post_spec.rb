@@ -53,7 +53,7 @@ RSpec.describe Post, type: :model do
   it { should validate_presence_of(:body) }
   it { should validate_presence_of(:title) }
 
-  it { should validate_uniqueness_of(:post_url) }
+  it { should validate_uniqueness_of(:post_url).case_insensitive }
 
   let(:unpublished_post)  { create(:post) }
   let(:published_post)    { create(:published_post) }
@@ -78,24 +78,46 @@ RSpec.describe Post, type: :model do
     end
   end
 
-  describe '#published?' do
+  describe '#is_published?' do
     context 'when post is published' do
       it 'should return true' do
-        expect(published_post.published?).to be_truthy
+        expect(published_post.is_published?).to be_truthy
       end
 
       it 'should not return false' do
-        expect(published_post.published?).to_not be_falsey
+        expect(published_post.is_published?).to_not be_falsey
       end
     end
 
     context 'when post is not published' do
       it 'should return false' do
-        expect(unpublished_post.published?).to be_falsey
+        expect(unpublished_post.is_published?).to be_falsey
       end
 
       it 'should not return true' do
-        expect(unpublished_post.published?).to_not be_truthy
+        expect(unpublished_post.is_published?).to_not be_truthy
+      end
+    end
+  end
+
+  describe '#is_not_published' do
+    context 'when post is published' do
+      it 'should return false' do
+        expect(published_post.is_not_published?).to be_falsey
+      end
+
+      it 'should return not true' do
+        expect(published_post.is_not_published?).to_not be_truthy
+      end
+    end
+
+    context 'when post is not published' do
+      it 'should be true' do
+        expect(unpublished_post.is_not_published?).to be_truthy
+      end
+
+      it 'should not be false' do
+        expect(unpublished_post.is_not_published?).to_not be_falsey
       end
     end
   end
@@ -110,6 +132,34 @@ RSpec.describe Post, type: :model do
   describe '#post_url_does_not_start_with_slash' do
     it 'should not allow the creation of a post with a URL starting with /' do
       expect { create(:post, post_url: '/wrong') }.to raise_error(ActiveRecord::RecordInvalid)
+    end
+  end
+
+  describe '#publish' do
+    context 'when a post is not published' do
+      it 'should publish the post' do
+        expect(unpublished_post.publish).to be_truthy
+      end
+    end
+
+    context 'when a post is published' do
+      it 'should not publish the post' do
+        expect(published_post.publish).to be_falsey
+      end
+    end
+  end
+
+  describe '#unpublish?' do
+    context 'when the post is not published' do
+      it 'should not publish the post' do
+        expect(unpublished_post.unpublish).to be_falsey
+      end
+    end
+
+    context 'when the post is published' do
+      it 'should publish the post' do
+        expect(published_post.unpublish).to be_truthy
+      end
     end
   end
 
