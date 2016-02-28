@@ -1,8 +1,19 @@
 ActiveAdmin.register AdminUser do
 
-  menu priority: 3
+  filter :email
+  filter :current_sign_in_at
+  filter :sign_in_count
+  filter :created_at
 
-  permit_params :email, :password, :password_confirmation
+  form do |f|
+    f.inputs 'Admin Details' do
+      f.input :name
+      f.input :email
+      f.input :password
+      f.input :password_confirmation
+    end
+    f.actions
+  end
 
   index do
     selectable_column
@@ -16,18 +27,18 @@ ActiveAdmin.register AdminUser do
     actions
   end
 
-  filter :email
-  filter :current_sign_in_at
-  filter :sign_in_count
-  filter :created_at
+  menu priority: 4
 
-  form do |f|
-    f.inputs 'Admin Details' do
-      f.input :email
-      f.input :password
-      f.input :password_confirmation
+  permit_params :email, :name, :password, :password_confirmation
+
+  show do
+    attributes_table do
+      row   :name
+      row   :email
+      row   :current_sign_in_at
+      row   :sign_in_count
+      row   :created_at
     end
-    f.actions
   end
 
 end

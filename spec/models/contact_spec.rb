@@ -44,7 +44,7 @@ require 'rails_helper'
 describe Contact, type: :model do
 
   let(:resource_class) { 'Contact' }
-  let(:all_resources) { ActiveAdmin.application.namespaces[:admin].resources }
+  let(:all_resources)  { ActiveAdmin.application.namespaces[:admin].resources }
   let(:resource) { all_resources[resource_class] }
 
   it 'has a valid resource name' do
@@ -55,7 +55,7 @@ describe Contact, type: :model do
     expect(resource).to be_include_in_menu
   end
 
-  it 'has the default set of CRU actions available to it' do
+  it 'has the default set of CRUD actions available to it' do
     expect(resource.defined_actions).to include(:index, :show, :new, :create, :edit, :update, :destroy)
   end
 

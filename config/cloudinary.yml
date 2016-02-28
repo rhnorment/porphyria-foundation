@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: hnlhubw8y
+  api_key: '847786995546231'
+  api_secret: AmM12vdzG5gn1rAREl8fHR29QXU
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: hnlhubw8y
+  api_key: '847786995546231'
+  api_secret: AmM12vdzG5gn1rAREl8fHR29QXU
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: hnlhubw8y
+  api_key: '847786995546231'
+  api_secret: AmM12vdzG5gn1rAREl8fHR29QXU
+  enhance_image_tag: true
+  static_image_support: false
