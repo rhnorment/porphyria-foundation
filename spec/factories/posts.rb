@@ -19,6 +19,9 @@ FactoryGirl.define do
     author        'Example Blogger'
     body          'This is the body of the post.'
     image         'post_image.jpg'
+    post_url      ''
+    published     false
+    published_at  nil
     title         'Example Blog Title'
 
     factory :published_post do

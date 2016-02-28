@@ -2,6 +2,7 @@ ActiveAdmin.register Post do
 
   menu  priority: 5
 
+
   # FORM ==========================================================
   form do |f|
     f.semantic_errors
@@ -16,6 +17,7 @@ ActiveAdmin.register Post do
 
     f.actions
   end
+
 
   # INDEX =========================================================
   config.sort_order = 'published_at_desc'
@@ -38,6 +40,19 @@ ActiveAdmin.register Post do
   scope   :all, default: true
   scope   :published
   scope   :unpublished
+
+
+  # SHOW ==========================================================
+  show do
+    attributes_table do
+      row   :title
+      row   :post_url
+      row   :body
+      row   :image do
+        cl_image_tag(post.image, width: 800, height: 600)
+      end
+    end
+  end
 
 
   # PRIVATE =======================================================

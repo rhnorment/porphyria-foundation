@@ -16,6 +16,8 @@
 
 class Post < ActiveRecord::Base
 
+  mount_uploader    :image, ImageUploader
+
   scope             :published,   -> { where(published: true).where("published_at <= ?", DateTime.now) }
   scope             :unpublished, -> { where(published: false) }
 

@@ -102,7 +102,7 @@ RSpec.describe Post, type: :model do
 
   describe '#generate_post_url' do
     it 'should return a properly formatted URL automatically with title and year if none is provided' do
-      post = create(:post, title: 'Blog With TItle')
+      post = create(:post, title: 'Blog With Title')
       expect(post.post_url).to eql('2016/blog-with-title')
     end
   end
