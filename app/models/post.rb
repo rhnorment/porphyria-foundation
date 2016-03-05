@@ -44,6 +44,10 @@ class Post < ActiveRecord::Base
     update_attributes(published: true, published_at: Time.now)
   end
 
+  def to_param
+    post_url
+  end
+
   def unpublish
     return if is_not_published?
 
