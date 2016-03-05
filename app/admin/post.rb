@@ -11,7 +11,7 @@ ActiveAdmin.register Post do
       f.input   :author
       f.input   :title
       f.input   :post_url, label: 'Post URL'
-      f.input   :body, as: :html_editor, label: 'Content'
+      f.input   :body, label: 'Content'
       f.input   :image, as: :file, label: 'Primary Image'
     end
 
@@ -53,11 +53,17 @@ ActiveAdmin.register Post do
       row   :image do
         cl_image_tag(post.image, width: 800, height: 600)
       end
+      row   :published
+      row   :published_at
     end
   end
 
 
   # PRIVATE =======================================================
+  action_item :view, only: :show do
+    link_to 'View on site', ''
+  end
+
   permit_params   :author, :body, :image, :post_url, :published, :published_at, :title
 
 end
