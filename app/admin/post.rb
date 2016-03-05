@@ -10,7 +10,6 @@ ActiveAdmin.register Post do
     f.inputs do
       f.input   :author
       f.input   :title
-      f.input   :post_url, label: 'Post URL'
       f.input   :body, label: 'Content'
       f.input   :image, as: :file, label: 'Primary Image'
     end
@@ -61,7 +60,7 @@ ActiveAdmin.register Post do
 
   # PRIVATE =======================================================
   action_item :view, only: :show do
-    link_to 'View on site', ''
+    link_to 'View on site', post_path(post) if post.is_published?
   end
 
   permit_params   :author, :body, :image, :post_url, :published, :published_at, :title

@@ -6,7 +6,7 @@
 #  author       :string           default("")
 #  body         :text             default("")
 #  image        :string           default("")
-#  post_url     :string           default("")
+#  slug         :string           default("")
 #  published    :boolean          default(FALSE)
 #  published_at :datetime
 #  title        :string           default("")
@@ -42,18 +42,16 @@ RSpec.describe Post, type: :model do
   it { should have_db_column(:author).of_type(:string) }
   it { should have_db_column(:body).of_type(:text) }
   it { should have_db_column(:image).of_type(:string) }
-  it { should have_db_column(:post_url).of_type(:string) }
+  it { should have_db_column(:slug).of_type(:string) }
   it { should have_db_column(:published).of_type(:boolean) }
   it { should have_db_column(:published_at).of_type(:datetime) }
   it { should have_db_column(:title).of_type(:string) }
-
-  it { should have_db_index(:post_url)}
 
   it { should validate_presence_of(:author) }
   it { should validate_presence_of(:body) }
   it { should validate_presence_of(:title) }
 
-  it { should validate_uniqueness_of(:post_url).case_insensitive }
+  it { should validate_uniqueness_of(:slug).case_insensitive }
 
   let(:unpublished_post)  { create(:post) }
   let(:published_post)    { create(:published_post) }
@@ -119,19 +117,6 @@ RSpec.describe Post, type: :model do
       it 'should not be false' do
         expect(unpublished_post.is_not_published?).to_not be_falsey
       end
-    end
-  end
-
-  describe '#generate_post_url' do
-    it 'should return a properly formatted URL automatically with title and year if none is provided' do
-      post = create(:post, title: 'Blog With Title')
-      expect(post.post_url).to eql('2016/blog-with-title')
-    end
-  end
-
-  describe '#post_url_does_not_start_with_slash' do
-    it 'should not allow the creation of a post with a URL starting with /' do
-      expect { create(:post, post_url: '/wrong') }.to raise_error(ActiveRecord::RecordInvalid)
     end
   end
 

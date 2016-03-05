@@ -6,7 +6,7 @@
 #  author       :string           default("")
 #  body         :text             default("")
 #  image        :string           default("")
-#  post_url     :string           default("")
+#  slug         :string           default("")
 #  published    :boolean          default(FALSE)
 #  published_at :datetime
 #  title        :string           default("")
@@ -16,17 +16,19 @@
 
 FactoryGirl.define do
   factory :post do
+    title         'Unpublished Blog Title'
     author        'Example Blogger'
     body          'This is the body of the post.'
     image         'post_image.jpg'
+    slug          { title.parameterize }
     published     false
     published_at  nil
-    title         'Unpublished Blog Title'
 
     factory :published_post do
+      title         'Published Blog Title'
+      slug          { title.parameterize }
       published     true
       published_at  Time.now
-      title         'Published Blog Title'
     end
 
   end

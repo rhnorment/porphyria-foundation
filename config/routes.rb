@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get   '/422' => 'errors#unprocessable'
   get   '/500' => 'errors#server_error'
 
-  resources   :posts, only: [:index, :show]
+  resources   :posts, only: [:index, :show], path: '/blog'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
