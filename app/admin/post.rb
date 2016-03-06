@@ -45,7 +45,7 @@ ActiveAdmin.register Post do
   show do
     attributes_table do
       row   :title
-      row   :post_url
+      row   :slug
       row   :body do
         raw(post.body)
       end
@@ -61,6 +61,14 @@ ActiveAdmin.register Post do
   # PRIVATE =======================================================
   action_item :view, only: :show do
     link_to 'View on site', post_path(post) if post.is_published?
+  end
+
+  action_item :publish_post, only: :show do
+    link_to 'Publish post', '' if post.is_not_published?
+  end
+
+  action_item :unpublish_post, only: :show do
+    link_to 'Publish post', '' if post.is_published?
   end
 
   permit_params   :author, :body, :image, :post_url, :published, :published_at, :title

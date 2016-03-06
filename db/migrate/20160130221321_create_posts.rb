@@ -4,7 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string    :author,        default: ''
       t.text      :body,          default: ''
       t.string    :image,         default: ''
-      t.string    :post_url,      default: ''
+      t.string    :slug,          default: nil
       t.boolean   :published,     default: false
       t.datetime  :published_at,  default: nil
       t.string    :title,         default: ''
@@ -12,6 +12,6 @@ class CreatePosts < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :posts, :post_url
+    add_index :posts, :slug
   end
 end

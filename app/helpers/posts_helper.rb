@@ -6,7 +6,7 @@
 #  author       :string           default("")
 #  body         :text             default("")
 #  image        :string           default("")
-#  slug         :string           default("")
+#  slug         :string
 #  published    :boolean          default(FALSE)
 #  published_at :datetime
 #  title        :string           default("")

@@ -6,7 +6,7 @@
 #  author       :string           default("")
 #  body         :text             default("")
 #  image        :string           default("")
-#  slug         :string           default("")
+#  slug         :string
 #  published    :boolean          default(FALSE)
 #  published_at :datetime
 #  title        :string           default("")
@@ -42,7 +42,7 @@ RSpec.describe PostsController, type: :controller do
     context 'post is published' do
       before { get :show, id: published_post }
 
-      it { should route(:get, '/blog/1').to(action: :show, id: published_post) }
+      it { should route(:get, '/blog/1-published-post-title').to(action: :show, id: published_post) }
       it { should respond_with(:success) }
       it { should render_with_layout(:application) }
       it { should render_template(:show) }
@@ -51,7 +51,7 @@ RSpec.describe PostsController, type: :controller do
     context 'post is not published' do
       before { get :show, id: unpublished_post }
 
-      it { should_not route(:get, 'blog/2').to(action: :show, id: unpublished_post) }
+      it { should_not route(:get, 'blog/2-unpublished-post-title').to(action: :show, id: unpublished_post) }
       it { should redirect_to(posts_url) }
     end
   end

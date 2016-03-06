@@ -6,7 +6,7 @@
 #  author       :string           default("")
 #  body         :text             default("")
 #  image        :string           default("")
-#  slug         :string           default("")
+#  slug         :string
 #  published    :boolean          default(FALSE)
 #  published_at :datetime
 #  title        :string           default("")
@@ -18,15 +18,17 @@ class Post < ActiveRecord::Base
 
   mount_uploader    :image, ImageUploader
 
-  scope             :published,   -> { where(published: true).where("published_at <= ?", DateTime.now) }
-  scope             :unpublished, -> { where(published: false) }
+  to_param          :slug
 
-  before_validation :generate_slug
+  scope             :published,   -> { where(published: true).where('published_at <= ?', DateTime.now) }
+  scope             :unpublished, -> { where(published: false) }
 
   validates         :author,    presence: true
   validates         :body,      presence: true
-  validates         :slug,      uniqueness: { case_sensitive: false }
-  validates         :title,     presence: true
+  validates         :slug,      uniqueness: true
+  validates         :title,     uniqueness: true
+
+  before_validation :generate_slug
 
   def is_not_published?
     !published
@@ -48,10 +50,10 @@ class Post < ActiveRecord::Base
     update_attributes(published: false, published_at: nil)
   end
 
-  protected
+  def generate_slug
+    return unless slug.blank?
 
-    def generate_slug
-      self.slug ||= title.parameterize if title
-    end
+    self.slug ||= title.parameterize if title
+  end
 
 end
