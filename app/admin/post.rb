@@ -42,7 +42,6 @@ ActiveAdmin.register Post do
   scope   :published
   scope   :unpublished
 
-
   # SHOW ==========================================================
   show do
     attributes_table do
@@ -52,7 +51,8 @@ ActiveAdmin.register Post do
         raw(post.body)
       end
       row   :image do
-        post.image.blank? ? 'No image to display' : cl_image_tag(post.image_url)
+        image_tag 'advisory_board.jpg'
+        # post.image.blank? ? 'No image to display' : cl_image_tag(post.image_url)
       end
       row('Published?') { |post| status_tag(post.published) }
       row   :published_at

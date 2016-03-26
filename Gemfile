@@ -43,6 +43,8 @@ group :development, :test do
   gem 'byebug'
   gem 'dotenv-rails'
   gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'populator'
   gem 'rspec-rails', '~> 3.3.0'
   gem 'sqlite3'
 end
