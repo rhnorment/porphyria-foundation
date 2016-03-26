@@ -1,5 +1,7 @@
 ActiveAdmin.register AdminUser do
 
+  menu priority: 2
+
   filter :email
   filter :current_sign_in_at
   filter :sign_in_count
