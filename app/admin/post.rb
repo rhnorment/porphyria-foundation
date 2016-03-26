@@ -32,7 +32,7 @@ ActiveAdmin.register Post do
     column('Title') { |post| link_to post.title, admin_post_path(post) }
     column  :author
     column('Published?') { |post| status_tag(post.published) }
-    column  :published_on
+    column  :published_at
     actions
   end
 
