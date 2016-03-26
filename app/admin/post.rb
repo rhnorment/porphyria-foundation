@@ -50,25 +50,35 @@ ActiveAdmin.register Post do
         raw(post.body)
       end
       row   :image do
-        cl_image_tag(post.image, width: 800, height: 600)
+        post.image.blank? ? 'No image to display' : cl_image_tag(post.image, width: 800, height: 600)
       end
-      row   :published
+      row('Published?') { |post| status_tag(post.published) }
       row   :published_at
     end
   end
 
 
   # PRIVATE =======================================================
+  member_action :publish, method: :put do
+    resource.publish
+    redirect_to admin_post_path(resource), notice: 'Your post was successfully published!!'
+  end
+
+  member_action :unpublish, method: :put do
+    resource.unpublish
+    redirect_to admin_post_path(resource), alert: 'Your post was unpublished.'
+  end
+
   action_item :view, only: :show do
     link_to 'View on site', post_path(post) if post.is_published?
   end
 
   action_item :publish_post, only: :show do
-    link_to 'Publish post', '' if post.is_not_published?
+    link_to 'Publish post', publish_admin_post_path(post), method: :put if post.is_not_published?
   end
 
   action_item :unpublish_post, only: :show do
-    link_to 'Publish post', '' if post.is_published?
+    link_to 'Unublish post', unpublish_admin_post_path(post), method: :put  if post.is_published?
   end
 
   permit_params   :author, :body, :image, :post_url, :published, :published_at, :title
