@@ -6,7 +6,7 @@
 #  author       :string           default("")
 #  body         :text             default("")
 #  image        :string           default("")
-#  post_url     :string           default("")
+#  slug         :string
 #  published    :boolean          default(FALSE)
 #  published_at :datetime
 #  title        :string           default("")
@@ -17,33 +17,43 @@
 class Post < ActiveRecord::Base
 
   mount_uploader    :image, ImageUploader
+  paginates_per     10
+  to_param          :slug
 
-  scope             :published,   -> { where(published: true).where("published_at <= ?", DateTime.now) }
+  scope             :published,   -> { where(published: true).where('published_at <= ?', DateTime.now).order(published_at: :desc) }
   scope             :unpublished, -> { where(published: false) }
-
-  before_save       :generate_post_url
 
   validates         :author,    presence: true
   validates         :body,      presence: true
-  validates         :post_url,  uniqueness: true
-  validates         :title,     presence: true
+  validates         :slug,      uniqueness: true
+  validates         :title,     uniqueness: true
 
-  validate          :post_url_does_not_start_with_slash
+  before_validation :generate_slug
 
-  def published?
+  def is_not_published?
+    !published
+  end
+
+  def is_published?
     published
   end
 
-  protected
+  def publish
+    return if is_published?
 
-    def generate_post_url
-      return unless self.post_url.blank?
-      year = self.created_at.class == ActiveSupport::TimeWithZone ? self.created_at.year : DateTime.now.year
-      self.post_url = "#{year}/#{self.title.parameterize}"
-    end
+    update_attributes(published: true, published_at: Time.now)
+  end
 
-    def post_url_does_not_start_with_slash
-      errors.add(:post_url, I18n.t('activerecord.errors.models.post.attributes.post_url.start_with_slash')) if self.post_url.start_with?('/')
-    end
+  def unpublish
+    return if is_not_published?
+
+    update_attributes(published: false, published_at: nil)
+  end
+
+  def generate_slug
+    return unless slug.blank?
+
+    self.slug ||= title.parameterize if title
+  end
 
 end

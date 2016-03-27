@@ -14,21 +14,18 @@
 #  updated_at   :datetime         not null
 #
 
-FactoryGirl.define do
-  factory :post do
-    title         'Unpublished Post Title'
-    author        'Example Blogger'
-    body          'This is the body of the post.'
-    image         'post_image.jpg'
-    slug          { title.parameterize }
-    published     false
-    published_at  nil
+class PostsController < ApplicationController
+  def index
+    @posts = Post.published.page params[:page]
+  end
 
-    factory :published_post do
-      title         'Published Post Title'
-      slug          { title.parameterize }
-      published     true
-      published_at  Time.now
+  def show
+    post = Post.find(params[:id])
+
+    if post.is_published?
+      @post = post
+    else
+      redirect_to posts_url
     end
 
   end

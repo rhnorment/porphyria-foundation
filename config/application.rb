@@ -15,9 +15,16 @@ require 'sprockets/railtie'
 Bundler.require(*Rails.groups)
 
 module RailsApp
+
   class Application < Rails::Application
+    console do
+      ActiveRecord::Base.connection
+    end
+
     config.action_controller.action_on_unpermitted_parameters = :raise
     config.active_record.raise_in_transactional_callbacks = true
+    config.exceptions_app = self.routes
     config.i18n.enforce_available_locales = true
   end
+
 end

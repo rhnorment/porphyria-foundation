@@ -14,22 +14,5 @@
 #  updated_at   :datetime         not null
 #
 
-FactoryGirl.define do
-  factory :post do
-    title         'Unpublished Post Title'
-    author        'Example Blogger'
-    body          'This is the body of the post.'
-    image         'post_image.jpg'
-    slug          { title.parameterize }
-    published     false
-    published_at  nil
-
-    factory :published_post do
-      title         'Published Post Title'
-      slug          { title.parameterize }
-      published     true
-      published_at  Time.now
-    end
-
-  end
+module PostsHelper
 end
