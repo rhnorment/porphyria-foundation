@@ -45,17 +45,17 @@ ActiveAdmin.register Post do
   # SHOW ==========================================================
   show do
     attributes_table do
-      row   :title
-      row   :slug
-      row   :body do
+      row :title
+      row :author
+      row :slug
+      row :body do
         raw(post.body)
       end
-      row   :image do
-        image_tag 'advisory_board.jpg'
-        # post.image.blank? ? 'No image to display' : cl_image_tag(post.image_url)
+      row :image do
+        post.image.blank? ? 'No image to display' : cl_image_tag(post.image_url)
       end
       row('Published?') { |post| status_tag(post.published) }
-      row   :published_at
+      row :published_at
     end
   end
 
@@ -63,7 +63,7 @@ ActiveAdmin.register Post do
   # PRIVATE =======================================================
   member_action :publish, method: :put do
     resource.publish
-    redirect_to admin_post_path(resource), notice: 'Your post was successfully published!!'
+    redirect_to admin_post_path(resource), notice: 'This post was successfully published!!'
   end
 
   member_action :remove_image, method: :put do
@@ -74,7 +74,7 @@ ActiveAdmin.register Post do
 
   member_action :unpublish, method: :put do
     resource.unpublish
-    redirect_to admin_post_path(resource), alert: 'Your post was unpublished.'
+    redirect_to admin_post_path(resource), alert: 'This post was unpublished.'
   end
 
   action_item :view, only: :show do
