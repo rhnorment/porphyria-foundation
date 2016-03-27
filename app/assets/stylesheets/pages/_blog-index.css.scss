@@ -17,7 +17,7 @@
     .media {
       @include span-columns(4 of 9);
       @include media($medium-screen-down) {
-        @include span-columns(12);
+        @include span-columns(4);
       }
 
       transition: all 0.2s;
@@ -30,7 +30,7 @@
     .blog-teaser {
       @include span-columns(5 of 9);
       @include media($medium-screen-down) {
-        @include span-columns(12);
+        @include span-columns(4);
       }
 
       .post-title a {
@@ -39,6 +39,12 @@
 
       .meta {
         margin-top: .8em;
+      }
+
+      .author,
+      .date,
+      a.read-more {
+        color: $go-green;
       }
     }
   }

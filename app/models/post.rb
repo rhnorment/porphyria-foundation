@@ -17,10 +17,10 @@
 class Post < ActiveRecord::Base
 
   mount_uploader    :image, ImageUploader
-
+  paginates_per     10
   to_param          :slug
 
-  scope             :published,   -> { where(published: true).where('published_at <= ?', DateTime.now) }
+  scope             :published,   -> { where(published: true).where('published_at <= ?', DateTime.now).order(published_at: :desc) }
   scope             :unpublished, -> { where(published: false) }
 
   validates         :author,    presence: true

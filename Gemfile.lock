@@ -379,6 +379,7 @@ DEPENDENCIES
   i18n-tasks
   jquery-rails
   jquery-turbolinks
+  kaminari
   launchy
   neat (~> 1.7.0)
   newrelic_rpm (>= 3.9.8)
