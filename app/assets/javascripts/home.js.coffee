@@ -1,3 +1,5 @@
+# COMPARE WITH MASTER BRANCH
+
 $(document).ready ->
 
   # PARALLAX BACKGROUNDS
@@ -62,7 +64,7 @@ $(document).ready ->
 
   # RESPONSIVE VIDEOS - FITVIDS
 
-  $('.fitvids').fitVids()
+  $('#shadows-video').fitVids()
 
   # OWL CAROUSEL SLIDERS
 

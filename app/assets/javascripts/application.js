@@ -18,5 +18,5 @@
 //= require jquery.headroom
 //= require owl.carousel.min
 //= require jquery.fitvids
-//= require home
+//= require scripts
 //= require turbolinks

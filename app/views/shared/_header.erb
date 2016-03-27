@@ -9,7 +9,6 @@
 
     <!-- render either Blog menu or Main menu -->
     <% if params[:controller] == 'posts' %>
-
       <nav class="nav">
         <ul id="navigation-menu">
           <%= content_tag :li, link_to('Back to Home', root_path), class:'nav-link active' %>
@@ -28,7 +27,6 @@
           <%= content_tag :li, link_to('Contact', '#section-contact'), class:'nav-link' %>
         </ul>
       </nav>
-
      <% end %>
 
   </div>
