@@ -22,7 +22,7 @@
 @import 'partials/header';
 @import 'partials/footer';
 
-// Import page partials
-@import 'pages/home';
-@import 'pages/blog-index';
-@import 'pages/blog-single';
+// Import resource styles
+@import 'pages';
+@import 'posts';
+@import 'errors';

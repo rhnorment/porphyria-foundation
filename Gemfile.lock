@@ -160,7 +160,6 @@ GEM
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
     hashdiff (0.3.0)
-    high_voltage (2.4.0)
     highline (1.7.8)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
@@ -375,7 +374,6 @@ DEPENDENCIES
   flutie
   font-awesome-sass
   formulaic
-  high_voltage
   i18n-tasks
   jquery-rails
   jquery-turbolinks

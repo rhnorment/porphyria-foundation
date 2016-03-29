@@ -101,7 +101,6 @@
 
 <section class="showcase" id="section-showcase">
   <div class="container">
-
     <div class="title">
       <h2>APF Showcase</h2>
       <%= tag :hr, class:'small' %>
@@ -114,7 +113,10 @@
         <h4>Check out our member stories!</h4>
         <p class="lead"><%= Faker::Lorem.sentence(12) %></p>
 
+        <p>&nbsp;</p>  <!-- fix spacing in home.css.scss -->
+
         <%= link_to 'Join APF', 'javascript:void(0)', class:'button large' %>
+        &nbsp;
         <%= link_to 'Donate', 'javascript:void(0)', class:'button large alt' %>
       </div>
 
@@ -124,11 +126,11 @@
           <div class="item">
             <%= image_tag 'http://placehold.it/800x550&amp;text=use+your+image+here' %>
           </div>
-          
+
           <div class="item">
             <%= image_tag 'http://placehold.it/800x550&amp;text=use+your+image+here' %>
           </div>
-         
+
           <div class="item">
             <%= image_tag 'http://placehold.it/800x550&amp;text=use+your+image+here' %>
           </div>
