@@ -1,4 +1,4 @@
-$(document).ready = ->
+$(document).ready ->
 
 # PARALLAX BACKGROUNDS
 
@@ -34,51 +34,15 @@ $(document).ready = ->
 
   # ADD ACTIVE CLASS TO NAV ITEM WHEN CLICKED
 
-  $('#navigation').on 'click', ->
+  $('#navigation a').on 'click', ->
     $('.navigation li').removeClass 'active'
     $(this).closest('li').addClass 'active'
     return
 
   # SMOOTH SCROLLING BETWEEN SECTIONS
 
-  $('a[href*=#section-]').on 'click', ->
-    navHeight = $('header#navigation').height()
-    top = $(document).scrollTop()
-
-    if location.pathname.replace(/^\//, '') == @pathname.replace(/^\//, '') or location.hostname == @hostname
-      target = $(@hash)
-      target = if target.length then target else $('[name=' + @hash.slice(1) + ']')
-
-      if target.length
-        if $(@hash).offset().top < top
-# scroll section includes nav-height
-          $('html,body').animate { scrollTop: target.offset().top - navHeight }, 600
-          return false
-        else
-# scroll position without nav-height
-          $('html,body').animate { scrollTop: target.offset().top + 2 }, 600
-          return false
-        return
-
-  # RESPONSIVE VIDEOS - FITVIDS
-
+  # RESPONSIVE VIDEOS
   $('.fitvids').fitVids()
 
   # OWL CAROUSEL SLIDERS
-
-  $('#showcase-slider, #quote-slider').owlCarousel
-    autoplay: true
-    autoplayTimeout: 4000
-    items: 1
-    loop: true
-
-  $('#blog-teasers').owlCarousel
-    autoplay: true
-    autoplayHoverPause: true
-    autoplayTimeout: 4000
-    items: 3
-    responsive:
-      1: items: 1
-      540: items: 2
-      767: items: 3
-    video: true
+  

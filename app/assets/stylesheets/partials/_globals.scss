@@ -101,10 +101,10 @@ section {
 
 .color-overlay {
   background-color: $purple;
-  position: absolute;
   height: 100%;
   left: 0;
   opacity: 0.7;
+  position: absolute;
   top: 0;
   width: 100%;
   z-index: -100;

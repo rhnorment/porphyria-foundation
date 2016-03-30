@@ -216,7 +216,7 @@ section.showcase {
     .split-left.float-right {
       float: right;
 
-      &.split-left {
+      &.split-text {
         @include media($large-screen-up) {
           padding-left: 1.5em;
         }
