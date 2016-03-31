@@ -32,9 +32,24 @@ $(document).ready ->
 
 
   # SMOOTH SCROLLING BETWEEN SECTIONS
+  $('a[href*="#section-"]').on 'click', ->
+    console.log('click')
+    navHeight = $('header#navigation').height()
+    top = $(document).scrollTop()
 
+    if location.pathname.replace(/^\//, '') == @pathname.replace(/^\//, '') or location.hostname == @hostname
+      target = $(@hash)
+      target = if target.length then target else $('[name=' + @hash.slice(1) + ']')
 
-
+      if target.length
+        if $(@hash).offset().top < top
+          # scroll section includes nav-height
+          $('html,body').animate { scrollTop: target.offset().top - navHeight }, 600
+          false
+        else
+          # scroll position without nav-height
+          $('html,body').animate { scrollTop: target.offset().top + 2 }, 600
+          false
 
   # RESPONSIVE VIDEOS
   $('.fitvids').fitVids()
