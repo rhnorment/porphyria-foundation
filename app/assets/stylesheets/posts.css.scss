@@ -139,7 +139,9 @@ article.article-column,
     margin-bottom: 1em;
     padding: .5em 0;
 
-    a {
+    .author,
+    .date,
+    a.read-more {
       color: $go-green;
     }
   }

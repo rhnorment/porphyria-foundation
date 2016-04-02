@@ -223,7 +223,7 @@
 <section class="blog" id="section-blog">
   <div class="container">
     <div class="title">
-      <h2>Latest News</h2>
+      <h2>Latest Blog Posts</h2>
       <%= tag :hr, class:'small' %>
       <p>
         Check back often for exciting news and announcements.
@@ -231,64 +231,10 @@
     </div>
 
     <div id="blog-teasers" class="owl-carousel owl-theme">
-      <!-- standard post format -->
-      <div class="blog-item">
-        <%= link_to image_tag('http://placehold.it/800x600'), '#', class:'featured-image' %>
-
-        <div class="blog-teaser">
-          <h4 class="post-title"><%= link_to Faker::Book.title, 'javascript:void(0)' %></h4>
-
-          <div class="meta">
-            by <span class="author"><%= link_to 'admin', '' %></span>
-            on <span class="date"><%= link_to Faker::Date.backward(23), '' %></span>
-          </div>
-
-          <p class="excerpt"><%= Faker::Lorem.sentence(12) %></p>
-
-          <%= link_to 'Read more', 'javascript:void(0)', class:'read-more' %>
-        </div>
-      </div>
-
-      <div class="blog-item">
-        <%= link_to image_tag('http://placehold.it/800x600'), 'javascript:void(0)', class:'featured-image' %>
-
-        <div class="blog-teaser">
-          <h4 class="post-title"><%= link_to Faker::Book.title, 'javascript:void(0)' %></h4>
-
-          <div class="meta">
-            by <span class="author"><%= link_to 'admin', '' %></span>
-            on <span class="date"><%= link_to Faker::Date.backward(23), '' %></span>
-          </div>
-
-          <p class="excerpt"><%= Faker::Lorem.sentence(12) %></p>
-
-          <%= link_to 'Read more', 'javascript:void(0)', class:'read-more' %>
-        </div>
-      </div>
-
-      <!-- video post format -->
-      <div class="blog-item">
-        <div class="fitvids">
-          <!-- responsive video iframe -->
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/zmM3HSH8dDk" allowfullscreen></iframe>
-        </div>
-
-        <div class="blog-teaser">
-          <h4 class="post-title"><%= link_to Faker::Book.title, 'javascript:void(0)' %></h4>
-
-          <div class="meta">
-            by <span class="author"><%= link_to 'admin', '' %></span>
-            on <span class="date"><%= link_to Faker::Date.backward(23), '' %></span>
-          </div>
-
-          <p class="excerpt"><%= Faker::Lorem.sentence(12) %></p>
-
-          <%= link_to 'Read more', 'javascript:void(0)', class:'read-more' %>
-        </div>
-      </div>
+      <%= render @posts %>
     </div>
 
-    <%= link_to 'View all Items', 'javascript:void(0)', class:'button' %>
+    <%= link_to 'View all Posts', posts_path, class:'button' %>
   </div>
 </section>
 

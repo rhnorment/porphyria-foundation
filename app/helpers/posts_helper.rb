@@ -15,4 +15,15 @@
 #
 
 module PostsHelper
+
+  def image_for(post)
+    unless post.image.blank?
+      content_tag :div, image_tag(post.image_url), class: 'media'
+    end
+  end
+
+  def intro_for(post)
+    content_tag :p, Faker::Lorem.sentence(12), class: 'post-intro'
+  end
+
 end
