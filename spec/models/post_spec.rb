@@ -42,6 +42,7 @@ RSpec.describe Post, type: :model do
   it { should have_db_column(:author).of_type(:string) }
   it { should have_db_column(:body).of_type(:text) }
   it { should have_db_column(:image).of_type(:string) }
+  it { should have_db_column(:intro).of_type(:string) }
   it { should have_db_column(:slug).of_type(:string) }
   it { should have_db_column(:published).of_type(:boolean) }
   it { should have_db_column(:published_at).of_type(:datetime) }
