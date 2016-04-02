@@ -150,12 +150,6 @@ article.article-column,
     margin-bottom: 2em;
   }
 
-  blockquote {
-    color: $light-purple;
-    margin: $base-spacing auto;
-    padding-left: 0.75em;
-  }
-
   p {
     color: darken(white, 30%);
 
@@ -165,7 +159,42 @@ article.article-column,
       text-transform: uppercase;
     }
   }
+
+  .post-tags {
+    border-bottom:  solid 4px darken(white, 5%);
+    border-top: solid 4px darken(white, 5%);
+    margin: 2em 0;
+    padding: 1em 0;
+
+    h3 {
+      color: darken(white, 60%);
+      float: left;
+      font-size: 1em;
+      padding-right: 1em;
+      padding-top: .6em;
+    }
+
+    span {
+      display: inline-block;
+      margin-bottom: .2em;
+
+      a {
+        background: darken(white, 5%);
+        color: lighten(black, 40%);
+        display: block;
+        font-size: .9em;
+        padding: .5em;
+
+        &:hover {
+          background: darken(white, 10%);
+        }
+      }
+    }
+
+  }
 }
+
+/* blog sidebar */
 
 aside.sidebar {
   @include span-columns(3);
