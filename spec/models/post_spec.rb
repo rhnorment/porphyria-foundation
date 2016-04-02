@@ -48,11 +48,18 @@ RSpec.describe Post, type: :model do
   it { should have_db_column(:published_at).of_type(:datetime) }
   it { should have_db_column(:title).of_type(:string) }
 
+  it { should have_db_index(:slug) }
+
   it { should validate_presence_of(:author) }
   it { should validate_presence_of(:body) }
   it { should validate_presence_of(:title) }
 
-  it { should validate_uniqueness_of(:slug).case_insensitive }
+  it { should validate_uniqueness_of(:slug) }
+
+  it { should respond_to(:publish) }
+  it { should respond_to(:unpublish) }
+  it { should respond_to(:is_published?) }
+  it { should respond_to(:is_not_published?) }
 
   let(:unpublished_post)  { create(:post) }
   let(:published_post)    { create(:published_post) }

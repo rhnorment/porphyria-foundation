@@ -26,7 +26,7 @@ class Post < ActiveRecord::Base
   validates         :author,    presence: true
   validates         :body,      presence: true
   validates         :slug,      uniqueness: true
-  validates         :title,     uniqueness: true
+  validates         :title,     presence: true, uniqueness: true
 
   before_validation :generate_slug
 

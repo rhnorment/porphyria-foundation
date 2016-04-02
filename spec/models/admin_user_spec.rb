@@ -24,7 +24,7 @@ RSpec.describe AdminUser, type: :model do
 
   let(:resource_class)  { 'AdminUser' }
   let(:all_resources)   { ActiveAdmin.application.namespaces[:admin].resources }
-  let(:resource)        { all_resources(resource_class) }
+  let(:resource)        { all_resources[resource_class] }
 
   it 'has a valid resource name' do
     expect(resource.resource_name).to eql('AdminUser')
@@ -35,7 +35,22 @@ RSpec.describe AdminUser, type: :model do
   end
 
   it 'has the default set of CRUD actions available to it' do
-
+    expect(resource.defined_actions).to include(:index, :show, :new, :create, :edit, :update, :destroy)
   end
+
+  it { should have_db_column(:email).of_type(:string) }
+  it { should have_db_column(:encrypted_password).of_type(:string) }
+  it { should have_db_column(:reset_password_token).of_type(:string) }
+  it { should have_db_column(:remember_created_at).of_type(:datetime) }
+  it { should have_db_column(:sign_in_count).of_type(:integer) }
+  it { should have_db_column(:current_sign_in_at).of_type(:datetime) }
+  it { should have_db_column(:last_sign_in_at).of_type(:datetime) }
+  it { should have_db_column(:current_sign_in_ip).of_type(:string) }
+  it { should have_db_column(:last_sign_in_ip).of_type(:string) }
+  it { should have_db_column(:name).of_type(:string) }
+  it { should have_db_column(:bio).of_type(:text) }
+
+  it { should have_db_index(:email).unique }
+  it { should have_db_index(:reset_password_token).unique }
 
 end
