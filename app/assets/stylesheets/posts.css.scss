@@ -139,19 +139,15 @@ article.article-column,
     margin-bottom: 1em;
     padding: .5em 0;
 
-    a {
+    .author,
+    .date,
+    a.read-more {
       color: $go-green;
     }
   }
 
   .media {
     margin-bottom: 2em;
-  }
-
-  blockquote {
-    color: $light-purple;
-    margin: $base-spacing auto;
-    padding-left: 0.75em;
   }
 
   p {
@@ -163,7 +159,69 @@ article.article-column,
       text-transform: uppercase;
     }
   }
+
+  .post-tags {
+    border-bottom:  solid 4px darken(white, 5%);
+    border-top: solid 4px darken(white, 5%);
+    margin: 2em 0;
+    padding: 1em 0;
+
+    h3 {
+      color: darken(white, 60%);
+      float: left;
+      font-size: 1em;
+      padding-right: 1em;
+      padding-top: .6em;
+    }
+
+    span {
+      display: inline-block;
+      margin-bottom: .2em;
+
+      a {
+        background: darken(white, 5%);
+        color: lighten(black, 40%);
+        display: block;
+        font-size: .9em;
+        padding: .5em;
+
+        &:hover {
+          background: darken(white, 10%);
+        }
+      }
+    }
+  }
+
+  .author-box {
+    background: darken(white, 5%);
+    margin-bottom: 2em;
+    padding: 1.5em;
+
+    .author-avatar {
+      float: left;
+
+      img {
+        border-radius: 3px;
+      }
+    }
+
+    .author-bio {
+      margin-left: 6.5em;
+
+      h3 {
+        color: lighten(black, 40%);
+        font-size: 1.2em;
+        padding-bottom: .5em;
+      }
+
+      p {
+        color: lighten(black, 40%);
+      }
+    }
+  }
 }
+
+/* blog sidebar */
 
 aside.sidebar {
   @include span-columns(3);
