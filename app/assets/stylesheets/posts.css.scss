@@ -190,7 +190,34 @@ article.article-column,
         }
       }
     }
+  }
 
+  .author-box {
+    background: darken(white, 5%);
+    margin-bottom: 2em;
+    padding: 1.5em;
+
+    .author-avatar {
+      float: left;
+
+      img {
+        border-radius: 3px;
+      }
+    }
+
+    .author-bio {
+      margin-left: 6.5em;
+
+      h3 {
+        color: lighten(black, 40%);
+        font-size: 1.2em;
+        padding-bottom: .5em;
+      }
+
+      p {
+        color: lighten(black, 40%);
+      }
+    }
   }
 }
 
