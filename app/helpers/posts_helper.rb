@@ -12,6 +12,7 @@
 #  title        :string           default("")
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  intro        :string           default("")
 #
 
 module PostsHelper

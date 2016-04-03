@@ -16,9 +16,12 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  name                   :string
+#  bio                    :text             default("")
 #
 
 class AdminUser < ActiveRecord::Base
 
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
+
+  has_many  :posts
 end
