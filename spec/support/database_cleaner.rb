@@ -3,12 +3,9 @@ RSpec.configure do |config|
     DatabaseCleaner.clean_with(:deletion)
   end
 
-  config.before(:each) do
-    DatabaseCleaner.strategy = :transaction
-  end
-
-  config.before(:each, js: true) do
-    DatabaseCleaner.strategy = :deletion
+  config.before(:each) do |example|
+    DatabaseCleaner.strategy = example.metadata[:js] ? :truncation : :transaction
+    DatabaseCleaner.start
   end
 
   config.before(:each) do

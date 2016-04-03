@@ -16,21 +16,36 @@
 #
 
 FactoryGirl.define do
-  factory :post do
-    title         'Unpublished Post Title'
-    author        'Example Blogger'
-    body          'This is the body of the post.'
+  factory :published_post, class: 'Post' do
+    title         'Published Post Title'
+    association :author, factory: :admin_user, strategy: :build
+    body          'This is the body of the published post.'
     image         'post_image.jpg'
+    intro         'This is the intro to the published post'
+    slug          { title.parameterize }
+    published     true
+    published_at  Time.now
+  end
+
+  factory :unpublished_post, class: 'Post' do
+    title         'Unpublished Post Title'
+    association :author, factory: :admin_user, strategy: :build
+    body          'This is the body of the unpublished post.'
+    image         'post_image.jpg'
+    intro         'This is the intro to the unpublished post'
     slug          { title.parameterize }
     published     false
     published_at  nil
+  end
 
-    factory :published_post do
-      title         'Published Post Title'
-      slug          { title.parameterize }
-      published     true
-      published_at  Time.now
-    end
-
+  factory :post_without_image, class: 'Post' do
+    title         'Post Without Image'
+    association :author, factory: :admin_user, strategy: :build
+    body          'This is the body of the post without an image.'
+    image         nil
+    intro         'This is the intro to the post without an image'
+    slug          { title.parameterize }
+    published     true
+    published_at  Time.now
   end
 end

@@ -19,8 +19,8 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
 
-  let(:unpublished_post) { create(:post) }
   let(:published_post) { create(:published_post) }
+  let(:unpublished_post) { create(:unpublished_post) }
 
   describe 'GET :index' do
     before { get :index }

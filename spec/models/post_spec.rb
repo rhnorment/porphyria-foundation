@@ -36,8 +36,9 @@ RSpec.describe Post, type: :model do
   end
 
   it 'has a valid factory' do
-    expect(build(:post)).to be_valid
     expect(build(:published_post)).to be_valid
+    expect(build(:unpublished_post)).to be_valid
+    expect(build(:post_without_image)).to be_valid
   end
 
   it { should have_db_column(:admin_user_id).of_type(:integer) }
@@ -77,8 +78,8 @@ RSpec.describe Post, type: :model do
   it { should respond_to(:publish) }
   it { should respond_to(:unpublish) }
 
-  let(:unpublished_post)  { create(:post) }
   let(:published_post)    { create(:published_post) }
+  let(:unpublished_post)  { create(:unpublished_post) }
 
   describe 'should scope to published posts' do
     it 'should list published posts' do
