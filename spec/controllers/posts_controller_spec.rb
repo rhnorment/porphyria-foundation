@@ -12,14 +12,15 @@
 #  title        :string           default("")
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  intro        :string           default("")
 #
 
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
 
-  let(:unpublished_post) { create(:post) }
   let(:published_post) { create(:published_post) }
+  let(:unpublished_post) { create(:unpublished_post) }
 
   describe 'GET :index' do
     before { get :index }

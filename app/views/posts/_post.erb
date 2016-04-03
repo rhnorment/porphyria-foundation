@@ -1,7 +1,6 @@
-<div class="blog-item">
-  <div class="media">
-    <%= link_to cl_image_tag(post.image_url), post, class:'featured-image' %>
-  </div>
+<div class="blog-item" id="<%= post.id %>">
+  <!-- call image_for helper -->
+  <%= image_for(post) %>
 
   <div class="blog-teaser">
     <h4 class="blog-title">

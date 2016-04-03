@@ -12,6 +12,7 @@
 #  title        :string           default("")
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  intro        :string           default("")
 #
 
 require 'rails_helper'
@@ -35,10 +36,12 @@ RSpec.describe Post, type: :model do
   end
 
   it 'has a valid factory' do
-    expect(build(:post)).to be_valid
     expect(build(:published_post)).to be_valid
+    expect(build(:unpublished_post)).to be_valid
+    expect(build(:post_without_image)).to be_valid
   end
 
+  it { should have_db_column(:admin_user_id).of_type(:integer) }
   it { should have_db_column(:author).of_type(:string) }
   it { should have_db_column(:body).of_type(:text) }
   it { should have_db_column(:image).of_type(:string) }
@@ -48,14 +51,35 @@ RSpec.describe Post, type: :model do
   it { should have_db_column(:published_at).of_type(:datetime) }
   it { should have_db_column(:title).of_type(:string) }
 
+  it { should have_db_index(:slug) }
+  it { should have_db_index(:admin_user_id) }
+
+  it { should belong_to(:admin_user) }
+
   it { should validate_presence_of(:author) }
   it { should validate_presence_of(:body) }
   it { should validate_presence_of(:title) }
 
-  it { should validate_uniqueness_of(:slug).case_insensitive }
+  it { should validate_uniqueness_of(:slug) }
 
-  let(:unpublished_post)  { create(:post) }
+  it { should respond_to(:admin_user_id) }
+  it { should respond_to(:author) }
+  it { should respond_to(:body) }
+  it { should respond_to(:id) }
+  it { should respond_to(:image) }
+  it { should respond_to(:intro) }
+  it { should respond_to(:slug) }
+  it { should respond_to(:published) }
+  it { should respond_to(:published_at) }
+  it { should respond_to(:title) }
+
+  it { should respond_to(:is_not_published?) }
+  it { should respond_to(:is_published?) }
+  it { should respond_to(:publish) }
+  it { should respond_to(:unpublish) }
+
   let(:published_post)    { create(:published_post) }
+  let(:unpublished_post)  { create(:unpublished_post) }
 
   describe 'should scope to published posts' do
     it 'should list published posts' do

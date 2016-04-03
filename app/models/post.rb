@@ -12,6 +12,7 @@
 #  title        :string           default("")
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  intro        :string           default("")
 #
 
 class Post < ActiveRecord::Base
@@ -23,10 +24,12 @@ class Post < ActiveRecord::Base
   scope             :published,   -> { where(published: true).where('published_at <= ?', DateTime.now).order(published_at: :desc) }
   scope             :unpublished, -> { where(published: false) }
 
+  belongs_to        :admin_user
+
   validates         :author,    presence: true
   validates         :body,      presence: true
   validates         :slug,      uniqueness: true
-  validates         :title,     uniqueness: true
+  validates         :title,     presence: true, uniqueness: true
 
   before_validation :generate_slug
 

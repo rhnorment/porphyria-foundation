@@ -19,9 +19,12 @@
 #  bio                    :text             default("")
 #
 
-class AdminUser < ActiveRecord::Base
-
-  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
-
-  has_many  :posts
+FactoryGirl.define do
+  factory :admin_user, aliases: [:author]  do
+    email                     'admin@example.com'
+    password                  'password'
+    password_confirmation     'password'
+    name                      'Admin User Name'
+    bio                       'I am Admin User Name and this is my bio.'
+  end
 end

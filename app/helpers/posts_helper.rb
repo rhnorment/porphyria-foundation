@@ -12,18 +12,17 @@
 #  title        :string           default("")
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  intro        :string           default("")
 #
 
 module PostsHelper
 
   def image_for(post)
-    unless post.image.blank?
-      content_tag :div, image_tag(post.image_url), class: 'media'
-    end
+    content_tag :div, image_tag(post.image_url), class: 'media' unless post.image.nil?
   end
 
   def intro_for(post)
-    content_tag :p, Faker::Lorem.sentence(12), class: 'post-intro'
+    content_tag :p, post.intro, class: 'post-intro' unless post.intro.blank?
   end
 
 end

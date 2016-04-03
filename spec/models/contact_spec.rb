@@ -42,7 +42,6 @@
 require 'rails_helper'
 
 describe Contact, type: :model do
-
   let(:resource_class) { 'Contact' }
   let(:all_resources)  { ActiveAdmin.application.namespaces[:admin].resources }
   let(:resource) { all_resources[resource_class] }
@@ -94,4 +93,36 @@ describe Contact, type: :model do
   it { should have_db_column(:status).of_type(:string) }
   it { should have_db_column(:waived).of_type(:string) }
   it { should have_db_column(:zip_code).of_type(:string) }
+
+  it { should respond_to(:address_1) }
+  it { should respond_to(:address_2) }
+  it { should respond_to(:business_phone) }
+  it { should respond_to(:cell_phone) }
+  it { should respond_to(:city) }
+  it { should respond_to(:cme) }
+  it { should respond_to(:company) }
+  it { should respond_to(:country) }
+  it { should respond_to(:date_of_birth) }
+  it { should respond_to(:doctor_packet_sent) }
+  it { should respond_to(:doctor_packet_sent_on) }
+  it { should respond_to(:doctor_specialty) }
+  it { should respond_to(:email_address) }
+  it { should respond_to(:fax_number) }
+  it { should respond_to(:first_name) }
+  it { should respond_to(:gift_amount) }
+  it { should respond_to(:gift_given_on) }
+  it { should respond_to(:home_phone) }
+  it { should respond_to(:keep) }
+  it { should respond_to(:last_name) }
+  it { should respond_to(:middle_name) }
+  it { should respond_to(:miscellaneous) }
+  it { should respond_to(:name_prefix) }
+  it { should respond_to(:name_suffix) }
+  it { should respond_to(:patient_packet_sent) }
+  it { should respond_to(:patient_packet_sent_on) }
+  it { should respond_to(:porphyria_type) }
+  it { should respond_to(:state) }
+  it { should respond_to(:status) }
+  it { should respond_to(:waived) }
+  it { should respond_to(:zip_code) }
 end
