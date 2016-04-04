@@ -13,7 +13,7 @@ describe 'view home page', type: :feature do
         expect(page).to have_selector('div.media')
 
         expect(page).to have_text(post.title)
-        expect(page).to have_text(post.author)
+        expect(page).to have_text(post.admin_user.name)
         expect(page).to have_text(post.published_at.to_date)
         expect(page).to have_text(post.body)
 
@@ -28,7 +28,7 @@ describe 'view home page', type: :feature do
         expect(page).to have_selector('div.media')
 
         expect(page).to have_text(post_without_image.title)
-        expect(page).to have_text(post_without_image.author)
+        expect(page).to have_text(post_without_image.admin_user.name)
         expect(page).to have_text(post_without_image.published_at.to_date)
         expect(page).to have_text(post_without_image.body)
 

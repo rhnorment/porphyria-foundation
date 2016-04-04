@@ -2,17 +2,17 @@
 #
 # Table name: posts
 #
-#  id           :integer          not null, primary key
-#  author       :string           default("")
-#  body         :text             default("")
-#  image        :string           default("")
-#  slug         :string
-#  published    :boolean          default(FALSE)
-#  published_at :datetime
-#  title        :string           default("")
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  intro        :string           default("")
+#  id            :integer          not null, primary key
+#  body          :text             default("")
+#  image         :string           default("")
+#  slug          :string
+#  published     :boolean          default(FALSE)
+#  published_at  :datetime
+#  title         :string           default("")
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  admin_user_id :integer
+#  intro         :string           default("")
 #
 
 require 'rails_helper'
@@ -42,7 +42,6 @@ RSpec.describe Post, type: :model do
   end
 
   it { should have_db_column(:admin_user_id).of_type(:integer) }
-  it { should have_db_column(:author).of_type(:string) }
   it { should have_db_column(:body).of_type(:text) }
   it { should have_db_column(:image).of_type(:string) }
   it { should have_db_column(:intro).of_type(:string) }
@@ -56,14 +55,13 @@ RSpec.describe Post, type: :model do
 
   it { should belong_to(:admin_user) }
 
-  it { should validate_presence_of(:author) }
+  it { should validate_presence_of(:admin_user_id) }
   it { should validate_presence_of(:body) }
   it { should validate_presence_of(:title) }
 
   it { should validate_uniqueness_of(:slug) }
 
   it { should respond_to(:admin_user_id) }
-  it { should respond_to(:author) }
   it { should respond_to(:body) }
   it { should respond_to(:id) }
   it { should respond_to(:image) }

@@ -11,6 +11,7 @@ ActiveAdmin.register AdminUser do
     f.inputs 'Admin Details' do
       f.input :name
       f.input :email
+      f.input :bio
       f.input :password
       f.input :password_confirmation
     end
@@ -31,12 +32,13 @@ ActiveAdmin.register AdminUser do
 
   menu priority: 4
 
-  permit_params :email, :name, :password, :password_confirmation
+  permit_params :bio, :email, :name, :password, :password_confirmation
 
   show do
     attributes_table do
       row   :name
       row   :email
+      row   :bio
       row   :current_sign_in_at
       row   :sign_in_count
       row   :created_at
