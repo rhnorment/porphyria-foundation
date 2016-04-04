@@ -2,8 +2,9 @@ require 'rails_helper'
 
 describe 'list posts', type: :feature do
 
-  let!(:post) { create(:published_post) }
-  let!(:post_without_image) { create(:post_without_image) }
+  let!(:admin_user) { create(:admin_user) }
+  let!(:post) { create(:published_post, admin_user_id: admin_user.id) }
+  let!(:post_without_image) { create(:post_without_image, admin_user_id: admin_user.id) }
 
   before { visit posts_url }
 
@@ -13,7 +14,7 @@ describe 'list posts', type: :feature do
         expect(page).to have_selector('div.media')
 
         expect(page).to have_text(post.title)
-        expect(page).to have_text(post.author)
+        expect(page).to have_text(post.admin_user.name)
         expect(page).to have_text(post.published_at.to_date)
         expect(page).to have_text(post.body)
 
@@ -28,7 +29,7 @@ describe 'list posts', type: :feature do
         expect(page).to have_selector('div.media')
 
         expect(page).to have_text(post_without_image.title)
-        expect(page).to have_text(post_without_image.author)
+        expect(page).to have_text(post_without_image.admin_user.name)
         expect(page).to have_text(post_without_image.published_at.to_date)
         expect(page).to have_text(post_without_image.body)
 

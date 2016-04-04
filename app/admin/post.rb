@@ -2,13 +2,12 @@ ActiveAdmin.register Post do
 
   menu  priority: 4
 
-
   # FORM ==========================================================
   form do |f|
     f.semantic_errors
 
     f.inputs do
-      f.input :author
+      f.input :admin_user, as: :select, collection: AdminUser.all, prompt: 'Select one'
       f.input :title
       f.input :body, label: 'Content'
       f.input :image, as: :file, hint: cl_image_tag(post.image_url)
@@ -23,7 +22,7 @@ ActiveAdmin.register Post do
   # INDEX =========================================================
   config.sort_order = 'published_at_desc'
 
-  filter    :author
+  filter    :admin_user
   filter    :title
   filter    :body
   filter    :published
@@ -32,7 +31,7 @@ ActiveAdmin.register Post do
   index do
     selectable_column
     column('Title') { |post| link_to post.title, admin_post_path(post) }
-    column  :author
+    column('Author') { |post| post.admin_user.name }
     column('Published?') { |post| status_tag(post.published) }
     column  :published_at
     actions
@@ -46,7 +45,7 @@ ActiveAdmin.register Post do
   show do
     attributes_table do
       row :title
-      row :author
+      row('Author') { |post| post.admin_user.name }
       row :slug
       row :body do
         raw(post.body)
@@ -89,6 +88,6 @@ ActiveAdmin.register Post do
     link_to 'Unublish post', unpublish_admin_post_path(post), method: :put  if post.is_published?
   end
 
-  permit_params   :author, :body, :image, :post_url, :published, :published_at, :title, :image_cache
+  permit_params   :admin_user, :body, :image, :intro, :published, :published_at, :title, :image_cache
 
 end

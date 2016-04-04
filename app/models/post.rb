@@ -2,18 +2,20 @@
 #
 # Table name: posts
 #
-#  id           :integer          not null, primary key
-#  author       :string           default("")
-#  body         :text             default("")
-#  image        :string           default("")
-#  slug         :string
-#  published    :boolean          default(FALSE)
-#  published_at :datetime
-#  title        :string           default("")
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  intro        :string           default("")
+#  id            :integer          not null, primary key
+#  body          :text             default("")
+#  image         :string           default("")
+#  slug          :string
+#  published     :boolean          default(FALSE)
+#  published_at  :datetime
+#  title         :string           default("")
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  admin_user_id :integer
+#  intro         :string           default("")
 #
+
+#####  TODO:  change author field to admin_user
 
 class Post < ActiveRecord::Base
 
@@ -26,10 +28,10 @@ class Post < ActiveRecord::Base
 
   belongs_to        :admin_user
 
-  validates         :author,    presence: true
-  validates         :body,      presence: true
-  validates         :slug,      uniqueness: true
-  validates         :title,     presence: true, uniqueness: true
+  validates         :admin_user_id,   presence: true
+  validates         :body,            presence: true
+  validates         :slug,            uniqueness: true
+  validates         :title,           presence: true, uniqueness: true
 
   before_validation :generate_slug
 

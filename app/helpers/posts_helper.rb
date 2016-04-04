@@ -2,17 +2,17 @@
 #
 # Table name: posts
 #
-#  id           :integer          not null, primary key
-#  author       :string           default("")
-#  body         :text             default("")
-#  image        :string           default("")
-#  slug         :string
-#  published    :boolean          default(FALSE)
-#  published_at :datetime
-#  title        :string           default("")
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  intro        :string           default("")
+#  id            :integer          not null, primary key
+#  body          :text             default("")
+#  image         :string           default("")
+#  slug          :string
+#  published     :boolean          default(FALSE)
+#  published_at  :datetime
+#  title         :string           default("")
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  admin_user_id :integer
+#  intro         :string           default("")
 #
 
 module PostsHelper
