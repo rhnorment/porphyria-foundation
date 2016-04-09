@@ -17,11 +17,11 @@
 
 class PostsController < ApplicationController
   def index
-    @posts = Post.published.page params[:page]
+    @posts = Post.published.includes(:admin_user).page params[:page]
   end
 
   def show
-    post = Post.find(params[:id])
+    post = Post.find_by(id: params[:id])
 
     if post.is_published?
       @post = post

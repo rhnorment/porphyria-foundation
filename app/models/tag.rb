@@ -12,4 +12,15 @@ class Tag < ActiveRecord::Base
 
   validates   :name, presence: true, uniqueness: true
 
+  has_many    :taggings
+  has_many    :posts, through: :taggings
+
+  def frequency
+    posts_with_tag.size
+  end
+
+  def posts_with_tag
+    self.posts.published
+  end
+
 end

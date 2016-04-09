@@ -36,8 +36,19 @@ RSpec.describe Tag, type: :model do
 
   it { should have_db_index(:name) }
 
+  it { should have_many(:posts).through(:taggings) }
+
   it { should validate_presence_of(:name) }
 
   it { should validate_uniqueness_of(:name) }
+
+  it { should respond_to(:id) }
+  it { should respond_to(:name) }
+  it { should respond_to(:posts_with_tag) }
+  it { should respond_to(:frequency) }
+
+  describe '#posts_with_tag'
+
+  describe '#frequency'
 
 end
