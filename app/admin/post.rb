@@ -15,6 +15,12 @@ ActiveAdmin.register Post do
       li link_to 'Remove Image', remove_image_admin_post_path(post), method: :put if post.image?
     end
 
+    f.inputs do
+      f.has_many :taggings, new_record: 'Add Tag' do |t|
+        t.input :tag, label: 'Tag'
+      end
+    end
+
     f.actions
   end
 
@@ -32,6 +38,7 @@ ActiveAdmin.register Post do
     selectable_column
     column('Title') { |post| link_to post.title, admin_post_path(post) }
     column('Author') { |post| post.admin_user.name }
+    column('Tags') { |post| post.tags.size }
     column('Published?') { |post| status_tag(post.published) }
     column  :published_at
     actions
@@ -53,6 +60,7 @@ ActiveAdmin.register Post do
       row :image do
         post.image.blank? ? 'No image to display' : cl_image_tag(post.image_url)
       end
+      row('Tags') { |post| (post.tag_list) }
       row('Published?') { |post| status_tag(post.published) }
       row :published_at
     end
@@ -88,6 +96,5 @@ ActiveAdmin.register Post do
     link_to 'Unublish post', unpublish_admin_post_path(post), method: :put  if post.is_published?
   end
 
-  permit_params   :admin_user, :body, :image, :intro, :published, :published_at, :title, :image_cache
-
+  permit_params   :admin_user_id, :body, :image, :intro, :published, :published_at, :title, :image_cache
 end
