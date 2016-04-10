@@ -18,7 +18,7 @@
     <!-- sidebar column -->
     <aside class="sidebar">
       <!-- call submenu partial -->
-      <%= render 'sidebar' %>
+      <%= render partial: 'sidebar', locals: { tags: @tags } %>
     </aside>
 
   </div>

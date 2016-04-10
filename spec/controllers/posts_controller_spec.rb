@@ -21,6 +21,8 @@ RSpec.describe PostsController, type: :controller do
 
   let(:published_post) { create(:published_post) }
   let(:unpublished_post) { create(:unpublished_post) }
+  let(:tag1) { create(:tag, name: 'Tag 1') }
+  let(:tag2) { create(:tag, name: 'Tag 2') }
 
   describe 'GET :index' do
     before { get :index }
@@ -36,6 +38,10 @@ RSpec.describe PostsController, type: :controller do
 
     it 'should not set @posts to include the unpublished post' do
       expect(assigns(:posts)).to_not include(unpublished_post)
+    end
+
+    it 'should set @tags to include all tags' do
+      expect(assigns(:tags)).to include(tag1, tag2)
     end
   end
 

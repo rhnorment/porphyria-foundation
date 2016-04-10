@@ -18,6 +18,12 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.published.includes(:admin_user).page params[:page]
+    @tags = Tag.all
+
+    if params[:tags].present?
+      tags = Tag.where(name: params[:tags].split(', ')).pluck(:id)
+      @posts = @posts.joins(:taggings).where('taggings.tag_id in (?)', tags )
+    end
   end
 
   def show
@@ -25,6 +31,7 @@ class PostsController < ApplicationController
 
     if post.is_published?
       @post = post
+      @tags = Tag.all
     else
       redirect_to posts_url
     end

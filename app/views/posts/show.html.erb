@@ -26,9 +26,10 @@
       <!-- post tags -->
       <div class="post-tags">
         <h3>Tags: </h3>
-        <span><%= link_to 'Tag 1', '#' %></span>
-        <span><%= link_to 'Tag 2', '#' %></span>
-        <span><%= link_to 'Tag 3', '#' %></span>
+
+        <% @post.tags.each do |tag| %>
+          <span><%= link_to tag.name, '#' %></span>
+        <% end %>
       </div>
 
       <!-- author box -->
@@ -46,7 +47,7 @@
     </article>
 
     <aside class="sidebar">
-      <%= render 'sidebar' %>
+      <%= render partial: 'sidebar', locals: { tags: @tags } %>
     </aside>
 
   </div>
