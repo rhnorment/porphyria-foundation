@@ -47,8 +47,71 @@ RSpec.describe Tag, type: :model do
   it { should respond_to(:posts_with_tag) }
   it { should respond_to(:frequency) }
 
-  describe '#posts_with_tag'
+  # Instance methods:
+  let!(:tag_1)               { create(:tag, name: 'Tag 1') }
+  let!(:tag_2)               { create(:tag, name: 'Tag 2') }
+  let!(:tag_3)               { create(:tag, name: 'Tag 3') }
+  let!(:published_post_1)    { create(:published_post, title: 'Published Post 1') }
+  let!(:published_post_2)    { create(:published_post, title: 'Published Post 2') }
+  let!(:unpublished_post)    { create(:unpublished_post, title: 'Unpublished Post', published: false) }
 
-  describe '#frequency'
+  describe '#posts_with_tag' do
+    before do
+      published_post_1.tags << [tag_1, tag_2]
+      published_post_2.tags << [tag_3]
+      unpublished_post.tags << [tag_2]
+    end
+
+    it 'should list the posts associated with each tag' do
+      expect(tag_1.posts_with_tag).to include(published_post_1)
+      expect(tag_2.posts_with_tag).to include(published_post_1)
+      expect(tag_3.posts_with_tag).to include(published_post_2)
+    end
+
+    it 'should not list the posts not associated with each tag' do
+      expect(tag_1.posts_with_tag).to_not include(published_post_2)
+      expect(tag_2.posts_with_tag).to_not include(published_post_2)
+      expect(tag_3.posts_with_tag).to_not include(published_post_1)
+    end
+
+    it 'should not associated tags with the unpublished post' do
+      expect(tag_2.posts_with_tag).to_not include(unpublished_post)
+    end
+  end
+
+  describe '#frequency' do
+    before do
+      published_post_1.tags << [tag_1, tag_2]
+      published_post_2.tags << [tag_3]
+      unpublished_post.tags << [tag_2]
+    end
+
+    it 'should display the correct frequency for each tag' do
+      expect(tag_1.frequency).to eql(1)
+      expect(tag_2.frequency).to eql(1)   # does not the include the unpublished post
+      expect(tag_3.frequency).to eql(1)
+    end
+  end
+
+  # class methods
+  describe '.with_posts' do
+    before do
+      published_post_1.tags << [tag_1]
+      published_post_2.tags << []
+      unpublished_post.tags << [tag_3]
+    end
+
+    it 'return tags that are associated with published posts' do
+      expect(Tag.with_posts).to include(tag_1)
+    end
+
+    it 'should not return tags that are not associated with published posts' do
+      expect(Tag.with_posts).to_not include(tag_2)
+    end
+
+    it 'should not return tags that are associated with unpublished posts' do
+      expect(Tag.with_posts).to_not include(tag_3)
+    end
+  end
 
 end

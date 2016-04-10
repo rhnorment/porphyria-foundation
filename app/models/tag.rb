@@ -23,4 +23,8 @@ class Tag < ActiveRecord::Base
     self.posts.published
   end
 
+  def self.with_posts
+    select { |tag| tag.frequency > 0 }
+  end
+
 end
