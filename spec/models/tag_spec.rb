@@ -94,7 +94,7 @@ RSpec.describe Tag, type: :model do
   end
 
   # class methods
-  describe '.with_posts' do
+  describe '.with_posts scope' do
     before do
       published_post_1.tags << [tag_1]
       published_post_2.tags << []

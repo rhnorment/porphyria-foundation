@@ -10,6 +10,8 @@
 
 class Tag < ActiveRecord::Base
 
+  scope       :with_posts,    -> { select { |tag| tag.frequency > 0 } }
+
   validates   :name, presence: true, uniqueness: true
 
   has_many    :taggings
@@ -21,10 +23,6 @@ class Tag < ActiveRecord::Base
 
   def posts_with_tag
     self.posts.published
-  end
-
-  def self.with_posts
-    select { |tag| tag.frequency > 0 }
   end
 
 end
