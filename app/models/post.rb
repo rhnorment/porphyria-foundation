@@ -30,8 +30,6 @@ class Post < ActiveRecord::Base
   has_many          :taggings
   has_many          :tags,        -> { order(id: :asc) }, through: :taggings, dependent: :destroy
 
-  accepts_nested_attributes_for   :taggings
-
   validates         :admin_user_id,   presence: true
   validates         :body,            presence: true
   validates         :slug,            uniqueness: true

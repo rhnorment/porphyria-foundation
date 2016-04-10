@@ -13,12 +13,7 @@ ActiveAdmin.register Post do
       f.input :image, as: :file, hint: cl_image_tag(post.image_url)
       f.input :image_cache, as: :hidden
       li link_to 'Remove Image', remove_image_admin_post_path(post), method: :put if post.image?
-    end
-
-    f.inputs do
-      f.has_many :taggings, new_record: 'Add Tag' do |t|
-        t.input :tag, label: 'Tag'
-      end
+      f.input :tag_list
     end
 
     f.actions
@@ -60,7 +55,7 @@ ActiveAdmin.register Post do
       row :image do
         post.image.blank? ? 'No image to display' : cl_image_tag(post.image_url)
       end
-      row('Tags') { |post| (post.tag_list) }
+      row('Tag List') { |post| (post.tag_list) }
       row('Published?') { |post| status_tag(post.published) }
       row :published_at
     end
@@ -96,5 +91,5 @@ ActiveAdmin.register Post do
     link_to 'Unublish post', unpublish_admin_post_path(post), method: :put  if post.is_published?
   end
 
-  permit_params   :admin_user_id, :body, :image, :intro, :published, :published_at, :title, :image_cache
+  permit_params   :admin_user_id, :body, :image, :intro, :published, :published_at, :title, :image_cache, :tag_list
 end
