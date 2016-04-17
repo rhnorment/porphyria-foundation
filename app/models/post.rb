@@ -30,12 +30,12 @@ class Post < ActiveRecord::Base
   has_many          :taggings
   has_many          :tags,        -> { order(id: :asc) }, through: :taggings, dependent: :destroy
 
+  before_validation :generate_slug
+
   validates         :admin_user_id,   presence: true
   validates         :body,            presence: true
   validates         :slug,            uniqueness: true
   validates         :title,           presence: true, uniqueness: true
-
-  before_validation :generate_slug
 
   def is_not_published?
     !published
@@ -74,8 +74,6 @@ class Post < ActiveRecord::Base
   protected
 
     def generate_slug
-      return unless slug.blank?
-
       self.slug ||= title.parameterize if title
     end
 

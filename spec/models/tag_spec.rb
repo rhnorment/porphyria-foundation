@@ -4,6 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  name       :string
+#  slug       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -33,14 +34,16 @@ RSpec.describe Tag, type: :model do
   end
 
   it { should have_db_column(:name).of_type(:string) }
+  it { should have_db_column(:slug).of_type(:string) }
 
-  it { should have_db_index(:name) }
+  it { should have_db_index(:slug) }
 
   it { should have_many(:posts).through(:taggings) }
 
   it { should validate_presence_of(:name) }
 
   it { should validate_uniqueness_of(:name) }
+  it { should validate_uniqueness_of(:slug) }
 
   it { should respond_to(:id) }
   it { should respond_to(:name) }
