@@ -30,7 +30,18 @@
 
   <div class="blog-tags">
     <% tags.each do |tag| %>
-      <%= content_tag :span, link_to(tag.name, '#') %>
+        <%= content_tag :span, link_to(tag.name, tag) %>
     <% end %>
+  </div>
+</div>
+
+<!-- archives widget -->
+<div class="widget-wrapper">
+  <div class="widget-title">
+    <h4>Archives</h4>
+  </div>
+
+  <div class="blog-tags">
+    <h6>Coming Soon</h6>
   </div>
 </div>

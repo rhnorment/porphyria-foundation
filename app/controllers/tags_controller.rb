@@ -11,10 +11,11 @@
 
 class TagsController < ApplicationController
   def show
-    tag = Tag.find_by(id: params[:id])
+    @tag = Tag.find_by(id: params[:id])
 
-    if tag
-      @posts = tag.posts_with_tag
+    if @tag
+      @posts = @tag.posts_with_tag.includes(:admin_user).page params[:page]
+      @tags = Tag.with_posts
     else
       redirect_to posts_url
     end

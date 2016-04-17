@@ -121,6 +121,14 @@ section {
     font-size: 2em;
   }
 
+  h5 {
+    color: lighten($base-font-color, 10%);
+
+    span.post-tags {
+      border-bottom: double;
+    }
+  }
+
   hr {
     border: solid 2px rgba(0,0,0,0.1);
     margin: 1em auto 1.5em;

@@ -8,7 +8,7 @@
     <%= link_to 'MENU', '', class:'navigation-menu-button', id:'js-mobile-menu' %>
 
     <!-- render either Blog menu or Main menu -->
-    <% if params[:controller] == 'posts' %>
+    <% if params[:controller] != 'pages' %>
       <nav class="nav">
         <ul id="navigation-menu">
           <%= content_tag :li, link_to('Back to Home', root_path), class:'nav-link active' %>

@@ -39,15 +39,15 @@
         </div>
 
         <div class="author-bio">
-          <h3><%= Faker::Name.name %></h3>
-          <p><%= Faker::Lorem.paragraph(3) %></p>
+          <h3><%= @post.admin_user.name %></h3>
+          <p><%= @post.admin_user.bio %></p>
         </div>
       </div>
 
     </article>
 
     <aside class="sidebar">
-      <%= render partial: 'sidebar', locals: { tags: @tags } %>
+      <%= render partial: 'shared/blog_sidebar', locals: { tags: @tags } %>
     </aside>
 
   </div>
