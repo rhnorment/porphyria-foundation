@@ -387,6 +387,7 @@ DEPENDENCIES
   rack-timeout
   rails (= 4.2.4)
   rails_12factor
+  rake
   recipient_interceptor
   refills
   rspec-rails
