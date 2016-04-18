@@ -25,7 +25,10 @@ RSpec.describe PostsController, type: :controller do
   let(:tag2) { create(:tag, name: 'Tag 2') }
 
   describe 'GET :index' do
-    before { get :index }
+    before do
+      published_post.tags.push(tag1)
+      get :index
+    end
 
     it { should route(:get, '/blog').to(action: :index) }
     it { should respond_with(:success) }
@@ -40,8 +43,8 @@ RSpec.describe PostsController, type: :controller do
       expect(assigns(:posts)).to_not include(unpublished_post)
     end
 
-    it 'should set @tags to include all tags' do
-      expect(assigns(:tags)).to include(tag1, tag2)
+    it 'should set @tags to include only tags with associated posts' do
+      expect(assigns(:tags)).to include(tag1)
     end
   end
 
