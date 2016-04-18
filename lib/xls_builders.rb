@@ -2,7 +2,6 @@ module XLSBuilders
   extend ActiveSupport::Concern
   
   class ContactsSpreadsheet
-  
     attr_accessor :contacts
 
     def initialize(contacts)

@@ -54,6 +54,7 @@ RSpec.describe Post, type: :model do
   it { should have_db_index(:admin_user_id) }
 
   it { should belong_to(:admin_user) }
+  it { should have_many(:tags).through(:taggings) }
 
   it { should validate_presence_of(:admin_user_id) }
   it { should validate_presence_of(:body) }
@@ -75,6 +76,9 @@ RSpec.describe Post, type: :model do
   it { should respond_to(:is_published?) }
   it { should respond_to(:publish) }
   it { should respond_to(:unpublish) }
+  it { should respond_to(:tag!) }
+  it { should respond_to(:tag_list) }
+  it { should respond_to(:tag_list=) }
 
   let(:published_post)    { create(:published_post) }
   let(:unpublished_post)  { create(:unpublished_post) }
@@ -169,6 +173,31 @@ RSpec.describe Post, type: :model do
         expect(published_post.unpublish).to be_truthy
       end
     end
+  end
+
+  describe 'post tags' do
+    before do
+      published_post.tag_list = 'new, tags, here'
+      published_post.save
+      published_post.reload
+    end
+
+    it 'adds tags to post' do
+      expect(published_post.tags.size).to eql(3)
+    end
+
+    it 'updates with new tags added' do
+      published_post.tag_list = 'new, tags, here, plus'
+      published_post.save
+      expect(published_post.tags.size).to eql(4)
+    end
+
+    it 'removes tags that were removed' do
+      published_post.tag_list = 'new'
+      published_post.save
+      expect(published_post.tags.size).to eql(1)
+    end
+
   end
 
 end

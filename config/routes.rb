@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get   '/500' => 'errors#server_error'
 
   resources   :posts, only: [:index, :show], path: '/blog'
+  resources   :tags,  only: [:show]
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

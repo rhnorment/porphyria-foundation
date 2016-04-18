@@ -12,7 +12,6 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'delayed_job_active_record'
 gem 'email_validator'
 gem 'devise'
-gem 'faker'
 gem 'flutie'
 gem 'font-awesome-sass'
 gem 'i18n-tasks'
@@ -45,7 +44,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'populator'
-  gem 'rspec-rails', '~> 3.3.0'
+  gem 'rspec-rails'
   gem 'sqlite3'
 end
 
@@ -54,7 +53,8 @@ group :test do
   gem 'database_cleaner'
   gem 'formulaic'
   gem 'launchy'
-  gem 'shoulda-matchers', '~> 3.0'
+  gem 'rake'
+  gem 'shoulda-matchers', require: false
   gem 'simplecov', require: false
   gem 'timecop'
   gem 'webmock'

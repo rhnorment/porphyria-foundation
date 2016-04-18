@@ -48,4 +48,8 @@ FactoryGirl.define do
     published     true
     published_at  Time.now
   end
+
+  factory :post_with_tags, class: 'Post', parent: :post do |post|
+    post.after_create { |p| p.tag!('Rails', 'a great tag', 'test') }
+  end
 end

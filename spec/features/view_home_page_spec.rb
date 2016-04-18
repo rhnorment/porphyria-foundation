@@ -2,8 +2,9 @@ require 'rails_helper'
 
 describe 'view home page', type: :feature do
 
-  let!(:post) { create(:published_post) }
-  let!(:post_without_image) { create(:post_without_image) }
+  let!(:admin_user)         { create(:admin_user) }
+  let!(:post)               { create(:published_post, admin_user: admin_user) }
+  let!(:post_without_image) { create(:post_without_image, admin_user: admin_user) }
 
   before { visit root_url }
 

@@ -5,7 +5,9 @@ describe 'list posts', type: :feature do
   let!(:admin_user) { create(:admin_user) }
   let!(:post) { create(:published_post, admin_user_id: admin_user.id) }
 
-  before { visit posts_url }
+  before do
+    visit posts_url
+  end
 
   it 'contains the correct attributes and link' do
     within("div##{post.id}") do
@@ -26,17 +28,6 @@ describe 'list posts', type: :feature do
 
       expect(have_current_path(post))
     end
-  end
-
-  it 'should render the sidebar' do
-    expect(page).to have_link('News')
-    expect(page).to have_link('Blog')
-    expect(page).to have_link('Member Stories')
-    expect(page).to have_link('Get Involved')
-
-    expect(page).to have_field('search')
-
-    expect(page).to have_text('Tags')
   end
 
 end

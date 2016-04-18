@@ -26,9 +26,10 @@
       <!-- post tags -->
       <div class="post-tags">
         <h3>Tags: </h3>
-        <span><%= link_to 'Tag 1', '#' %></span>
-        <span><%= link_to 'Tag 2', '#' %></span>
-        <span><%= link_to 'Tag 3', '#' %></span>
+
+        <% @post.tags.each do |tag| %>
+          <span><%= link_to tag.name, '#' %></span>
+        <% end %>
       </div>
 
       <!-- author box -->
@@ -38,15 +39,15 @@
         </div>
 
         <div class="author-bio">
-          <h3><%= Faker::Name.name %></h3>
-          <p><%= Faker::Lorem.paragraph(3) %></p>
+          <h3><%= @post.admin_user.name %></h3>
+          <p><%= @post.admin_user.bio %></p>
         </div>
       </div>
 
     </article>
 
     <aside class="sidebar">
-      <%= render 'sidebar' %>
+      <%= render partial: 'shared/blog_sidebar', locals: { tags: @tags } %>
     </aside>
 
   </div>
