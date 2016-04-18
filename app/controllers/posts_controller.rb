@@ -17,7 +17,7 @@
 
 class PostsController < ApplicationController
   def index
-    @posts = Post.published.includes(:admin_user).page params[:page]
+    @posts = Post.published.page params[:page]
     @tags = Tag.with_posts
 
     if params[:tags].present?
