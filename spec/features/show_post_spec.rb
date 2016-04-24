@@ -37,27 +37,4 @@ describe 'view post', type: :feature do
     end
   end
 
-  it 'should render the sidebar headers' do
-    expect(page).to have_link('News')
-    expect(page).to have_link('Blog')
-    expect(page).to have_link('Member Stories')
-    expect(page).to have_link('Get Involved')
-
-    expect(page).to have_field('search')
-
-    expect(page).to have_text('Tags')
-  end
-
-  it 'should render the search form' do
-    expect(page).to have_field('search')
-  end
-
-  it 'should render the list of active tags in the sidebar' do
-    within('.blog-tags') do
-      expect(page).to have_text('Tag 1')
-      expect(page).to have_text('Tag 2')
-      expect(page).to have_text('Tag 3')
-    end
-  end
-
 end

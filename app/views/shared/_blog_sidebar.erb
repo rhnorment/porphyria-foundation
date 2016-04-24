@@ -30,7 +30,7 @@
 
   <div class="blog-tags">
     <% tags.each do |tag| %>
-        <%= content_tag :span, link_to(tag.name, tag) %>
+        <%= content_tag :span, link_to("#{tag.name} (#{tag.frequency})", tag) %>
     <% end %>
   </div>
 </div>

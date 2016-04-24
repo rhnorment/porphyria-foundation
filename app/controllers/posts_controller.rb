@@ -16,9 +16,12 @@
 #
 
 class PostsController < ApplicationController
+
   def index
     @posts = Post.published.page params[:page]
-    @tags = Tag.with_posts
+
+    get_active_tags
+    get_post_archive
 
     if params[:tags].present?
       tags = Tag.where(name: params[:tags].split(', ')).pluck(:id)
@@ -31,10 +34,12 @@ class PostsController < ApplicationController
 
     if post.is_published?
       @post = post
-      @tags = Tag.all
+
+      get_active_tags
+      get_post_archive
     else
       redirect_to posts_url
     end
-
   end
+
 end
