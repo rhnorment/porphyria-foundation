@@ -9,18 +9,21 @@ class ApplicationController < ActionController::Base
   end
 
   def get_post_archive
-    @archive_posts = {}
-    @first_post_year = DateTime.now.year
-
-    posts = Post.published.limit(100)  # limit to 100 for safety reasons
-
-    if posts.length > 0
-      @archive_posts = posts.group_by { |post| post.published_at.beginning_of_month.strftime('%Y %-m') }
-      @first_post_year = posts.last.published_at.year
-    end
+    @dates = get_dates
   end
 
   private
+
+    def get_dates
+      dates = []
+      archive_posts = Post.archive.sort
+
+      archive_posts.each do |key, value|
+        dates.push(key)
+      end
+
+      dates.flatten.uniq
+    end
 
     def record_not_found
       redirect_to posts_url

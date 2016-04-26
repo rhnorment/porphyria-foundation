@@ -38,7 +38,6 @@ RSpec.describe Post, type: :model do
   it 'has a valid factory' do
     expect(build(:published_post)).to be_valid
     expect(build(:unpublished_post)).to be_valid
-    expect(build(:post_without_image)).to be_valid
   end
 
   it { should have_db_column(:admin_user_id).of_type(:integer) }
@@ -80,8 +79,27 @@ RSpec.describe Post, type: :model do
   it { should respond_to(:tag_list) }
   it { should respond_to(:tag_list=) }
 
-  let(:published_post)    { create(:published_post) }
-  let(:unpublished_post)  { create(:unpublished_post) }
+  let!(:published_post)    { create(:published_post, title: 'Archive', published_at: Date.parse('10-10-10')) }
+  let!(:published_post_2)  { create(:published_post, title: 'Archive Two', published_at: Date.parse('11-11-11')) }
+  let!(:unpublished_post)  { create(:unpublished_post, title: 'Not Archive') }
+
+  describe 'post archive' do
+    let(:posts) { Post.archive }
+
+    it 'should scope to the archived posts' do
+      expect(posts['October 2010']).to include(published_post)
+      expect(posts['November 2011']).to include(published_post_2)
+    end
+
+    it 'should not scope to an incorrect year_month' do
+      expect(posts['October 2010']).to_not include(published_post_2)
+      expect(posts['November 2011']).to_not include(published_post)
+    end
+
+    it 'should not scrope to the unpublished posts' do
+      expect(posts['October 2010']).to_not include(unpublished_post)
+    end
+  end
 
   describe 'should scope to published posts' do
     it 'should list published posts' do
@@ -197,7 +215,6 @@ RSpec.describe Post, type: :model do
       published_post.save
       expect(published_post.tags.size).to eql(1)
     end
-
   end
 
 end

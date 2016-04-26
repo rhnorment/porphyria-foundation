@@ -22,6 +22,7 @@ class Post < ActiveRecord::Base
   paginates_per                   10
   to_param                        :slug
 
+  scope             :archive,     -> { published.limit(100).group_by { |post| post.published_at.beginning_of_month.strftime('%B %Y') } || {} }
   scope             :default,     -> { where(:published) }
   scope             :published,   -> { where(published: true).where('published_at <= ?', DateTime.now).order(published_at: :desc) }
   scope             :unpublished, -> { where(published: false) }

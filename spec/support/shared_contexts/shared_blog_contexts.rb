@@ -1,11 +1,11 @@
 shared_context 'set tags' do
-  it 'should set @tags to include only tags with associated posts' do
-    expect(assigns(:tags)).to include(tag_1)
-    expect(assigns(:tags)).to_not include(tag_2)
-  end
+  it { expect(assigns(:tags)).to include(tag_1) }
+  it { expect(assigns(:tags)).to_not include(tag_2) }
 end
 
-shared_context 'set post archive'
+shared_context 'set post archive' do
+  it { expect(assigns(:dates)).to eql(["November 2011", "October 2010"]) }
+end
 
 shared_context 'blog sidebar' do
   it 'should render the sidebar headers' do
@@ -39,5 +39,5 @@ shared_context 'blog sidebar' do
 
   it 'should render the published posts grouped by month'
 
-  it 'should not list umpublished posts'
+  it 'should not list unpublished posts'
 end

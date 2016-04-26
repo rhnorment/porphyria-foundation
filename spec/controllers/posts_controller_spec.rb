@@ -19,8 +19,8 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
 
-  let!(:post_1)   { create(:published_post, title: 'Post 1 Title') }
-  let!(:post_2)   { create(:published_post, title: 'Post 2 Title') }
+  let!(:post_1)   { create(:published_post, title: 'Post 1 Title', published_at: Date.parse('10-10-10')) }
+  let!(:post_2)   { create(:published_post, title: 'Post 2 Title', published_at: Date.parse('11-11-11')) }
   let!(:post_3)   { create(:unpublished_post) }
   let!(:tag_1)    { create(:tag, name: 'Tag 1') }
   let!(:tag_2)    { create(:tag, name: 'Tag 2') }
@@ -46,6 +46,8 @@ RSpec.describe PostsController, type: :controller do
     end
 
     it_behaves_like 'set tags'
+
+    it_behaves_like 'set post archive'
   end
 
   describe 'GET :show' do
@@ -58,6 +60,8 @@ RSpec.describe PostsController, type: :controller do
       it { should render_template(:show) }
 
       it_behaves_like 'set tags'
+
+      it_behaves_like 'set post archive'
     end
 
     context 'post is not published' do
