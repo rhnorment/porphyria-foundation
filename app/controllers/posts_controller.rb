@@ -18,15 +18,14 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.published.page params[:page]
+    if params[:archive].nil?
+      @posts = Post.published.page params[:page]
+    else
+      @posts = Post.unpublished.page params[:page]
+    end
 
     get_active_tags
     get_post_archive
-
-    if params[:tags].present?
-      tags = Tag.where(name: params[:tags].split(', ')).pluck(:id)
-      @posts = @posts.joins(:taggings).where('taggings.tag_id in (?)', tags )
-    end
   end
 
   def show
