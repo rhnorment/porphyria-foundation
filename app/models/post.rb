@@ -17,19 +17,19 @@
 
 class Post < ActiveRecord::Base
 
-  default_scope                   { includes(:tags) }
-  mount_uploader                  :image, ImageUploader
-  paginates_per                   10
-  to_param                        :slug
+  default_scope     { includes(:tags) }
+  mount_uploader    :image, ImageUploader
+  paginates_per     10
+  to_param          :slug
 
-  scope             :archive,     -> { published.limit(100).group_by { |post| post.published_at.beginning_of_month.strftime('%B %Y') } || {} }
-  scope             :default,     -> { where(:published) }
-  scope             :published,   -> { where(published: true).where('published_at <= ?', DateTime.now).order(published_at: :desc) }
-  scope             :unpublished, -> { where(published: false) }
+  scope             :archive_dates,   -> { published.limit(100).pluck(:published_at).sort.reverse.map { |date| date.strftime('%B %Y') }.uniq || {} }
+  scope             :default,         -> { where(:published) }
+  scope             :published,       -> { where(published: true).where('published_at <= ?', DateTime.now).order(published_at: :desc) }
+  scope             :unpublished,     -> { where(published: false) }
 
   belongs_to        :admin_user
   has_many          :taggings
-  has_many          :tags,        -> { order(id: :asc) }, through: :taggings, dependent: :destroy
+  has_many          :tags,             -> { order(id: :asc) }, through: :taggings, dependent: :destroy
 
   before_validation :generate_slug
 

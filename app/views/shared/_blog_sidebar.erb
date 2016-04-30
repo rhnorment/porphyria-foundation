@@ -42,6 +42,10 @@
   </div>
 
   <div class="archive">
-    <h6></h6>
+    <ul>
+      <% @dates.each do |date| %>
+        <%= content_tag :li, link_to(date, '') %>
+      <% end %>
+    </ul>
   </div>
 </div>

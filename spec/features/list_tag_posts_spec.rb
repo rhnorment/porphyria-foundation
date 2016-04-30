@@ -3,14 +3,15 @@ require 'rails_helper'
 describe 'list tag posts', type: :feature do
 
   let!(:admin_user) { create(:admin_user) }
-  let!(:post_1) { create(:published_post, title: 'First Post', admin_user_id: admin_user.id) }
-  let!(:post_2) { create(:published_post, title: 'Second Post', admin_user_id: admin_user.id) }
-  let!(:post_3) { create(:unpublished_post, admin_user_id: admin_user.id) }
-
-  let!(:tag_1)  { create(:tag, name: 'Tag 1') }
+  let!(:post_1)   { create(:published_post, admin_user: admin_user, title: 'Post 1 Title', published_at: Date.parse('10-10-10')) }
+  let!(:post_2)   { create(:published_post, title: 'Post 2 Title', published_at: Date.parse('11-11-11')) }
+  let!(:post_3)   { create(:unpublished_post) }
+  let!(:tag_1)    { create(:tag, name: 'Tag 1') }
+  let!(:tag_2)    { create(:tag, name: 'Tag 2') }
 
   before do
     post_1.tags.push(tag_1)
+    post_1.tags.push(tag_2)
     post_3.tags.push(tag_1)
 
     visit tag_path(tag_1)
@@ -40,5 +41,7 @@ describe 'list tag posts', type: :feature do
   it 'does not contain attributes for unpublished posts' do
     expect(page).to_not have_text(post_3.title)
   end
+
+  it_behaves_like 'blog sidebar'
 
 end

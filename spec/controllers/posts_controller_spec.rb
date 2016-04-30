@@ -47,7 +47,7 @@ RSpec.describe PostsController, type: :controller do
 
     it_behaves_like 'set tags'
 
-    it_behaves_like 'set post archive'
+    it_behaves_like 'set post archive dates'
   end
 
   describe 'GET :show' do
@@ -61,7 +61,7 @@ RSpec.describe PostsController, type: :controller do
 
       it_behaves_like 'set tags'
 
-      it_behaves_like 'set post archive'
+      it_behaves_like 'set post archive dates'
     end
 
     context 'post is not published' do

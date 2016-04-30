@@ -84,20 +84,14 @@ RSpec.describe Post, type: :model do
   let!(:unpublished_post)  { create(:unpublished_post, title: 'Not Archive') }
 
   describe 'post archive' do
-    let(:posts) { Post.archive }
+    let(:archive_dates) { Post.archive_dates }
 
-    it 'should scope to the archived posts' do
-      expect(posts['October 2010']).to include(published_post)
-      expect(posts['November 2011']).to include(published_post_2)
+    it 'should scope to the archive dates' do
+      expect(Post.archive_dates).to eql(['November 2011', 'October 2010'])
     end
 
-    it 'should not scope to an incorrect year_month' do
-      expect(posts['October 2010']).to_not include(published_post_2)
-      expect(posts['November 2011']).to_not include(published_post)
-    end
-
-    it 'should not scrope to the unpublished posts' do
-      expect(posts['October 2010']).to_not include(unpublished_post)
+    it 'should list the archive dates in a revers sort' do
+      expect(Post.archive_dates).to_not eql(['October 2010', 'November 2011'])
     end
   end
 

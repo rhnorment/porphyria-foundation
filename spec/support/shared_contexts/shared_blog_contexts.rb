@@ -3,7 +3,7 @@ shared_context 'set tags' do
   it { expect(assigns(:tags)).to_not include(tag_2) }
 end
 
-shared_context 'set post archive' do
+shared_context 'set post archive dates' do
   it { expect(assigns(:dates)).to eql(["November 2011", "October 2010"]) }
 end
 
@@ -37,7 +37,11 @@ shared_context 'blog sidebar' do
     end
   end
 
-  it 'should render the published posts grouped by month'
+  it 'should list the dates (month and year) that contain published posts' do
+    within('div.archive') do
+      expect(page).to have_link('November 2011')
+      expect(page).to have_link('October 2010')
+    end
+  end
 
-  it 'should not list unpublished posts'
 end
