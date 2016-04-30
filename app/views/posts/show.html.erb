@@ -1,0 +1,54 @@
+<div class="blog-single">
+  <div class="container">
+
+    <!-- /// MAIN COLUMN /// -->
+    <article class="article-column">
+
+      <!-- image, title, meta, and excerpt -->
+      <!-- call image_for helper -->
+      <%= image_for(@post) %>
+
+      <div class="title">
+        <h2><%= @post.title %></h2>
+      </div>
+
+      <div class="meta">
+        by <span class="author"><%= @post.admin_user.name %></span>
+        on <span class="date"><%= @post.published_at.to_date %></span>
+      </div>
+
+      <!-- call intro_for helper -->
+      <%= intro_for(@post) %>
+
+      <!-- the content -->
+      <p><%= @post.body %></p>
+
+      <!-- post tags -->
+      <div class="post-tags">
+        <h3>Tags: </h3>
+
+        <% @post.tags.each do |tag| %>
+          <span><%= link_to tag.name, '#' %></span>
+        <% end %>
+      </div>
+
+      <!-- author box -->
+      <div class="author-box">
+        <div class="author-avatar">
+          <%= image_tag 'http://placehold.it/80x80' %>
+        </div>
+
+        <div class="author-bio">
+          <h3><%= @post.admin_user.name %></h3>
+          <p><%= @post.admin_user.bio %></p>
+        </div>
+      </div>
+
+    </article>
+
+    <aside class="sidebar">
+      <%= render partial: 'shared/blog_sidebar', locals: { tags: @tags } %>
+    </aside>
+
+  </div>
+</div>

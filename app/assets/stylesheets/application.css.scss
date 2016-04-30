@@ -21,7 +21,8 @@
 @import 'partials/globals';
 @import 'partials/header';
 @import 'partials/footer';
-@import 'partials/blog-single';
 
-// Import page partials
-@import 'home';
+// Import resource styles
+@import 'pages';
+@import 'posts';
+@import 'errors';

@@ -1,7 +1,7 @@
 // TYPOGRPAHY //
 
 body {
-  color: lighten(black, 40%);
+  color: lighten($purple, 40%);
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -42,10 +42,10 @@ blockquote {
 }
 
 a {
-  color: $highlight;
+  color: $dark-purple;
 
   &:hover {
-    color: darken($highlight, 5%);
+    color: darken($dark-purple, 5%);
   }
 }
 
@@ -100,10 +100,11 @@ section {
 }
 
 .color-overlay {
-  background-color: $highlight;position: absolute;
+  background-color: $purple;
   height: 100%;
   left: 0;
   opacity: 0.7;
+  position: absolute;
   top: 0;
   width: 100%;
   z-index: -100;
@@ -118,6 +119,14 @@ section {
 
   h2 {
     font-size: 2em;
+  }
+
+  h5 {
+    color: lighten($base-font-color, 10%);
+
+    span.post-tags {
+      border-bottom: double;
+    }
   }
 
   hr {
@@ -166,7 +175,7 @@ section {
 	width: 14px;
 }
 
-owl-theme .owl-nav [class*='owl-'] {
+.owl-theme .owl-nav [class*='owl-'] {
 	padding: .5em 1em;
 }
 

@@ -1,9 +1,12 @@
+// compare to master branch //
+
 // INTRO SECTION //
 
 section.intro {
   $parallax-intro-url: url('http://placehold.it/1200x700&text=american+porphyria+foundation') 0 0 no-repeat;
 
   color: white;
+  min-height: 600px;
   padding: 0;
   text-transform: uppercase;
 
@@ -58,7 +61,7 @@ section.intro {
       opacity: 0.5;
       text-align: center;
       transition: opacity 0.2s;
-    
+
       &:hover {
         opacity: 1;
       }
@@ -90,22 +93,23 @@ section.features {
 
     h4 {
       font-size: 1.3em;
+      opacity: 0.7;
       padding-bottom: .5em;
       text-transform: uppercase;
     }
 
     p {
-      color: darken(white, 50%);
+      color: darken(white, 40%);
     }
 
     i {
-      color: darken(white, 20%);
+      color: $purple;
       font-size: 4em;
       margin-bottom: .3em;
       transition: color .2s;
 
       &:hover {
-        color: $highlight;
+        color: $light-purple;
       }
     }
   }
@@ -114,13 +118,12 @@ section.features {
 // NEWSlETTER FORM SECTION //
 
 section.newsletter {
-  $parallax-newsletter-url:
-  url('http://placehold.it/1200x700&text=american+porphyria+foundation') 0 0 no-repeat;
+  $parallax-newsletter-url: url('http://placehold.it/1200x700&text=american+porphyria+foundation') 0 0 no-repeat;
 
   color: white;
   padding: 5em 0;
 
-  image-bg {
+  .image-bg {
     background: $parallax-newsletter-url;
     background-size: cover;
   }
@@ -163,12 +166,12 @@ section.newsletter {
         @include span-columns(4);
         border-radius: 3px;
         margin-top: 1em;
-        width: 100;
+        width: 100%;
       }
 
       @include span-columns(2 of 6);
       @include omega;
-      background: darken($highlight, 10%);
+      background: darken($purple, 10%);
       border-radius: 0 3px 3px 0;
       height: 3em;
       margin: 0;
@@ -194,7 +197,6 @@ section.showcase {
     @include clearfix;
     margin: 5em 0 0 0;
 
-
     .split-left,
     .split-right {
       @include span-columns(6);
@@ -213,7 +215,7 @@ section.showcase {
 
     .split-left.float-right {
       float: right;
-       
+
       &.split-text {
         @include media($large-screen-up) {
           padding-left: 1.5em;

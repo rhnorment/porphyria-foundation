@@ -1,0 +1,21 @@
+<div class="blog-item" id="<%= post.id %>">
+  <!-- call image_for helper -->
+  <%= image_for(post) %>
+
+  <div class="blog-teaser">
+    <h4 class="blog-title">
+      <%= link_to post.title, post %>
+    </h4>
+
+    <div class="meta">
+      by <span class="author"><%= post.admin_user.name %></span>
+      on <span class="date"><%= post.published_at.to_date %></span>
+    </div>
+
+    <p class="excerpt">
+      <%= post.body.truncate_words(15) %>
+    </p>
+
+    <%= link_to "Read more \u00bb", post, class:'read-more' %>
+  </div>
+</div>
