@@ -30,7 +30,7 @@
 
   <div class="blog-tags">
     <% tags.each do |tag| %>
-        <%= content_tag :span, link_to(tag.name, tag) %>
+        <%= content_tag :span, link_to("#{tag.name} (#{tag.frequency})", tag) %>
     <% end %>
   </div>
 </div>
@@ -41,7 +41,11 @@
     <h4>Archives</h4>
   </div>
 
-  <div class="archives">
-    <h6>Coming Soon</h6>
+  <div class="archive">
+    <ul>
+      <% @dates.each do |date| %>
+        <%= content_tag :li, link_to(date, posts_path(date_month: date)) %>
+      <% end %>
+    </ul>
   </div>
 </div>

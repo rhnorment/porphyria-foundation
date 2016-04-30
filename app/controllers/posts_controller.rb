@@ -16,14 +16,17 @@
 #
 
 class PostsController < ApplicationController
-  def index
-    @posts = Post.published.page params[:page]
-    @tags = Tag.with_posts
 
-    if params[:tags].present?
-      tags = Tag.where(name: params[:tags].split(', ')).pluck(:id)
-      @posts = @posts.joins(:taggings).where('taggings.tag_id in (?)', tags )
+  def index
+    if params[:date_month].nil?
+      @posts = Post.published.page params[:page]
+    else
+      @posts = Post.find_by_date_month(params[:date_month]).page params[:page]
+      @date_month = params[:date_month]
     end
+
+    get_active_tags
+    get_post_archive
   end
 
   def show
@@ -31,10 +34,12 @@ class PostsController < ApplicationController
 
     if post.is_published?
       @post = post
-      @tags = Tag.all
+
+      get_active_tags
+      get_post_archive
     else
       redirect_to posts_url
     end
-
   end
+
 end

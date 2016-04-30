@@ -13,9 +13,12 @@ describe 'list posts', type: :feature do
     post_1.tags.push(tag_1)
     post_1.tags.push(tag_2)
     visit posts_url
+    click_link('October 2010')
   end
 
   it 'contains the correct attributes and link' do
+    expect(page).to have_text('Showing posts for October 2010')
+
     within("div##{post_1.id}") do
       expect(page).to have_selector('div.media')
 

@@ -15,7 +15,9 @@ class TagsController < ApplicationController
 
     if @tag
       @posts = @tag.posts_with_tag.includes(:admin_user).page params[:page]
-      @tags = Tag.with_posts
+
+      get_active_tags
+      get_post_archive
     else
       redirect_to posts_url
     end

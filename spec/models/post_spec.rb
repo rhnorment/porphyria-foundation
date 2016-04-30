@@ -38,7 +38,6 @@ RSpec.describe Post, type: :model do
   it 'has a valid factory' do
     expect(build(:published_post)).to be_valid
     expect(build(:unpublished_post)).to be_valid
-    expect(build(:post_without_image)).to be_valid
   end
 
   it { should have_db_column(:admin_user_id).of_type(:integer) }
@@ -80,8 +79,21 @@ RSpec.describe Post, type: :model do
   it { should respond_to(:tag_list) }
   it { should respond_to(:tag_list=) }
 
-  let(:published_post)    { create(:published_post) }
-  let(:unpublished_post)  { create(:unpublished_post) }
+  let!(:published_post)    { create(:published_post, title: 'Archive', published_at: Date.parse('10-10-10')) }
+  let!(:published_post_2)  { create(:published_post, title: 'Archive Two', published_at: Date.parse('11-11-11')) }
+  let!(:unpublished_post)  { create(:unpublished_post, title: 'Not Archive') }
+
+  describe 'post archive dates' do
+    let(:archive_dates) { Post.archive_dates }
+
+    it 'should scope to the archive dates' do
+      expect(Post.archive_dates).to eql(['November 2011', 'October 2010'])
+    end
+
+    it 'should list the archive dates in a revers sort' do
+      expect(Post.archive_dates).to_not eql(['October 2010', 'November 2011'])
+    end
+  end
 
   describe 'should scope to published posts' do
     it 'should list published posts' do
@@ -175,6 +187,22 @@ RSpec.describe Post, type: :model do
     end
   end
 
+  describe '.find_by_date_month' do
+    let(:date_month) { 'October 2010' }
+
+    it 'should return all posts within the date_month range' do
+      expect(Post.find_by_date_month(date_month)).to include(published_post)
+    end
+
+    it 'should not return posts not withing the date_month range' do
+      expect(Post.find_by_date_month(date_month)).to_not include(published_post_2)
+    end
+
+    it 'should not return unpublished posts' do
+      expect(Post.find_by_date_month(date_month)).to_not include(unpublished_post)
+    end
+  end
+
   describe 'post tags' do
     before do
       published_post.tag_list = 'new, tags, here'
@@ -197,7 +225,6 @@ RSpec.describe Post, type: :model do
       published_post.save
       expect(published_post.tags.size).to eql(1)
     end
-
   end
 
 end

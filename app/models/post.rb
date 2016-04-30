@@ -17,18 +17,19 @@
 
 class Post < ActiveRecord::Base
 
-  default_scope                   { includes(:tags) }
-  mount_uploader                  :image, ImageUploader
-  paginates_per                   10
-  to_param                        :slug
+  default_scope     { includes(:tags) }
+  mount_uploader    :image, ImageUploader
+  paginates_per     10
+  to_param          :slug
 
-  scope             :default,     -> { where(:published) }
-  scope             :published,   -> { where(published: true).where('published_at <= ?', DateTime.now).order(published_at: :desc) }
-  scope             :unpublished, -> { where(published: false) }
+  scope             :archive_dates,   -> { published.limit(100).pluck(:published_at).sort.reverse.map { |date| date.strftime('%B %Y') }.uniq || {} }
+  scope             :default,         -> { where(:published) }
+  scope             :published,       -> { where(published: true).where('published_at <= ?', DateTime.now).order(published_at: :desc) }
+  scope             :unpublished,     -> { where(published: false) }
 
   belongs_to        :admin_user
   has_many          :taggings
-  has_many          :tags,        -> { order(id: :asc) }, through: :taggings, dependent: :destroy
+  has_many          :tags,             -> { order(id: :asc) }, through: :taggings, dependent: :destroy
 
   before_validation :generate_slug
 
@@ -69,6 +70,11 @@ class Post < ActiveRecord::Base
     return if is_not_published?
 
     update_attributes(published: false, published_at: nil)
+  end
+
+  def self.find_by_date_month(date_month)
+    date = Date.parse(date_month)
+    published.where(published_at: date.beginning_of_month..date.end_of_month)
   end
 
   protected

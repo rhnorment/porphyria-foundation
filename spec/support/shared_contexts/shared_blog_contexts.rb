@@ -1,24 +1,13 @@
-require 'rails_helper'
+shared_context 'set tags' do
+  it { expect(assigns(:tags)).to include(tag_1) }
+  it { expect(assigns(:tags)).to_not include(tag_2) }
+end
 
-describe 'blog sidebar', type: :feature do
+shared_context 'set post archive dates' do
+  it { expect(assigns(:dates)).to eql(["November 2011", "October 2010"]) }
+end
 
-  let!(:admin_user) { create(:admin_user) }
-  let!(:post_1) { create(:published_post, title: 'First Post', admin_user: admin_user) }
-  let!(:post_2) { create(:published_post, title: 'Second Post', admin_user: admin_user) }
-  let!(:post_3) { create(:unpublished_post, title: 'Third Post', admin_user: admin_user) }
-
-  let!(:tag_1)  { create(:tag, name: 'Tag 1') }
-  let!(:tag_2)  { create(:tag, name: 'Tag 2') }
-  let!(:tag_3)  { create(:tag, name: 'Tag 3') }
-
-
-  before do
-    post_1.tags.push(tag_1, tag_2)
-    post_3.tags.push(tag_3)
-
-    visit posts_url
-  end
-
+shared_context 'blog sidebar' do
   it 'should render the sidebar headers' do
     expect(page).to have_link('News')
     expect(page).to have_link('Blog')
@@ -48,6 +37,11 @@ describe 'blog sidebar', type: :feature do
     end
   end
 
-  it 'should render the post archives'
+  it 'should list the dates (month and year) that contain published posts' do
+    within('div.archive') do
+      expect(page).to have_link('November 2011')
+      expect(page).to have_link('October 2010')
+    end
+  end
 
 end
