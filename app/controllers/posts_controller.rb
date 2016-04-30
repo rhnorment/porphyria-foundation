@@ -18,10 +18,11 @@
 class PostsController < ApplicationController
 
   def index
-    if params[:archive].nil?
+    if params[:date_month].nil?
       @posts = Post.published.page params[:page]
     else
-      @posts = Post.unpublished.page params[:page]
+      @posts = Post.find_by_date_month(params[:date_month]).page params[:page]
+      @date_month = params[:date_month]
     end
 
     get_active_tags

@@ -83,7 +83,7 @@ RSpec.describe Post, type: :model do
   let!(:published_post_2)  { create(:published_post, title: 'Archive Two', published_at: Date.parse('11-11-11')) }
   let!(:unpublished_post)  { create(:unpublished_post, title: 'Not Archive') }
 
-  describe 'post archive' do
+  describe 'post archive dates' do
     let(:archive_dates) { Post.archive_dates }
 
     it 'should scope to the archive dates' do
@@ -184,6 +184,22 @@ RSpec.describe Post, type: :model do
       it 'should publish the post' do
         expect(published_post.unpublish).to be_truthy
       end
+    end
+  end
+
+  describe '.find_by_date_month' do
+    let(:date_month) { 'October 2010' }
+
+    it 'should return all posts within the date_month range' do
+      expect(Post.find_by_date_month(date_month)).to include(published_post)
+    end
+
+    it 'should not return posts not withing the date_month range' do
+      expect(Post.find_by_date_month(date_month)).to_not include(published_post_2)
+    end
+
+    it 'should not return unpublished posts' do
+      expect(Post.find_by_date_month(date_month)).to_not include(unpublished_post)
     end
   end
 

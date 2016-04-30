@@ -4,6 +4,10 @@
     <div class="title">
       <h2>Purple Light Blog</h2>
       <%= tag :hr, class:'small' %>
+
+      <% if @date_month %>
+          <h5>Showing posts for <span class="post-tags"><%= @date_month %></span></h5>
+      <% end %>
     </div>
 
     <!-- main column -->

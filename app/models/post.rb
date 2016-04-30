@@ -72,6 +72,11 @@ class Post < ActiveRecord::Base
     update_attributes(published: false, published_at: nil)
   end
 
+  def self.find_by_date_month(date_month)
+    date = Date.parse(date_month)
+    published.where(published_at: date.beginning_of_month..date.end_of_month)
+  end
+
   protected
 
     def generate_slug

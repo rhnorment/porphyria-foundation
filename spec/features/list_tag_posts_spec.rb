@@ -18,6 +18,8 @@ describe 'list tag posts', type: :feature do
   end
 
   it 'contains the correct attributes for the correct posts' do
+    expect(page).to have_text('Showing posts for Tag 1')
+
     expect(page).to have_selector('div.media')
 
     expect(page).to have_text(post_1.title)
