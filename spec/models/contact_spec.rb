@@ -59,7 +59,7 @@ describe Contact, type: :model do
   end
 
   it 'has a valid factory' do
-    expect(build(:contact)).to be_valid
+    expect(Contact.new(contact_attributes)).to be_valid
   end
 
   it { should have_db_column(:address_1).of_type(:string) }

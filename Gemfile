@@ -41,20 +41,19 @@ group :development, :test do
   gem 'awesome_print'
   gem 'bundler-audit', require: false
   gem 'byebug'
+  gem 'database_cleaner'
   gem 'dotenv-rails'
-  gem 'factory_girl_rails'
   gem 'populator'
   gem 'rspec-rails'
+  gem 'shoulda-matchers', require: false
   gem 'sqlite3'
 end
 
 group :test do
   gem 'capybara'
-  gem 'database_cleaner'
   gem 'formulaic'
   gem 'launchy'
   gem 'rake'
-  gem 'shoulda-matchers', require: false
   gem 'simplecov', require: false
   gem 'timecop'
   gem 'webmock'

@@ -2,8 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PagesController, type: :controller do
 
-  let(:published_post) { create(:published_post) }
-  let(:unpublished_post) { create(:unpublished_post) }
+  include_context 'posts'
 
   describe 'GET :home' do
     before { get :home }
@@ -14,7 +13,7 @@ RSpec.describe PagesController, type: :controller do
     it { should render_template(:home) }
 
     it 'should set @posts to include the published post' do
-      expect(assigns(:posts)).to include(published_post)
+      expect(assigns(:posts)).to include(post_1)
     end
 
     it 'should not set @posts to include the unpublished post' do

@@ -36,8 +36,8 @@ RSpec.describe Post, type: :model do
   end
 
   it 'has a valid factory' do
-    expect(build(:published_post)).to be_valid
-    expect(build(:unpublished_post)).to be_valid
+    expect(Post.new(post_attributes)).to be_valid
+    expect(Post.new(post_attributes(published: false))).to be_valid
   end
 
   it { should have_db_column(:admin_user_id).of_type(:integer) }
@@ -79,9 +79,7 @@ RSpec.describe Post, type: :model do
   it { should respond_to(:tag_list) }
   it { should respond_to(:tag_list=) }
 
-  let!(:published_post)    { create(:published_post, title: 'Archive', published_at: Date.parse('10-10-10')) }
-  let!(:published_post_2)  { create(:published_post, title: 'Archive Two', published_at: Date.parse('11-11-11')) }
-  let!(:unpublished_post)  { create(:unpublished_post, title: 'Not Archive') }
+  include_context 'posts'
 
   describe 'post archive dates' do
     let(:archive_dates) { Post.archive_dates }
@@ -97,7 +95,7 @@ RSpec.describe Post, type: :model do
 
   describe 'should scope to published posts' do
     it 'should list published posts' do
-      expect(Post.published).to include(published_post)
+      expect(Post.published).to include(post_1)
     end
 
     it 'should not list unpublished posts' do
@@ -111,18 +109,18 @@ RSpec.describe Post, type: :model do
     end
 
     it 'should not list published posts' do
-      expect(Post.unpublished).to_not include(published_post)
+      expect(Post.unpublished).to_not include(post_1)
     end
   end
 
   describe '#is_published?' do
     context 'when post is published' do
       it 'should return true' do
-        expect(published_post.is_published?).to be_truthy
+        expect(post_1.is_published?).to be_truthy
       end
 
       it 'should not return false' do
-        expect(published_post.is_published?).to_not be_falsey
+        expect(post_1.is_published?).to_not be_falsey
       end
     end
 
@@ -140,11 +138,11 @@ RSpec.describe Post, type: :model do
   describe '#is_not_published' do
     context 'when post is published' do
       it 'should return false' do
-        expect(published_post.is_not_published?).to be_falsey
+        expect(post_1.is_not_published?).to be_falsey
       end
 
       it 'should return not true' do
-        expect(published_post.is_not_published?).to_not be_truthy
+        expect(post_1.is_not_published?).to_not be_truthy
       end
     end
 
@@ -168,7 +166,7 @@ RSpec.describe Post, type: :model do
 
     context 'when a post is published' do
       it 'should not publish the post' do
-        expect(published_post.publish).to be_falsey
+        expect(post_1.publish).to be_falsey
       end
     end
   end
@@ -182,7 +180,7 @@ RSpec.describe Post, type: :model do
 
     context 'when the post is published' do
       it 'should publish the post' do
-        expect(published_post.unpublish).to be_truthy
+        expect(post_1.unpublish).to be_truthy
       end
     end
   end
@@ -191,11 +189,11 @@ RSpec.describe Post, type: :model do
     let(:date_month) { 'October 2010' }
 
     it 'should return all posts within the date_month range' do
-      expect(Post.find_by_date_month(date_month)).to include(published_post)
+      expect(Post.find_by_date_month(date_month)).to include(post_1)
     end
 
     it 'should not return posts not withing the date_month range' do
-      expect(Post.find_by_date_month(date_month)).to_not include(published_post_2)
+      expect(Post.find_by_date_month(date_month)).to_not include(post_2)
     end
 
     it 'should not return unpublished posts' do
@@ -205,25 +203,25 @@ RSpec.describe Post, type: :model do
 
   describe 'post tags' do
     before do
-      published_post.tag_list = 'new, tags, here'
-      published_post.save
-      published_post.reload
+      post_1.tag_list = 'new, tags, here'
+      post_1.save
+      post_1.reload
     end
 
     it 'adds tags to post' do
-      expect(published_post.tags.size).to eql(3)
+      expect(post_1.tags.size).to eql(3)
     end
 
     it 'updates with new tags added' do
-      published_post.tag_list = 'new, tags, here, plus'
-      published_post.save
-      expect(published_post.tags.size).to eql(4)
+      post_1.tag_list = 'new, tags, here, plus'
+      post_1.save
+      expect(post_1.tags.size).to eql(4)
     end
 
     it 'removes tags that were removed' do
-      published_post.tag_list = 'new'
-      published_post.save
-      expect(published_post.tags.size).to eql(1)
+      post_1.tag_list = 'new'
+      post_1.save
+      expect(post_1.tags.size).to eql(1)
     end
   end
 

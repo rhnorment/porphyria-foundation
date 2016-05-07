@@ -30,7 +30,7 @@ RSpec.describe Tag, type: :model do
   end
 
   it 'has a valid factory' do
-    expect(build(:tag)).to be_valid
+    expect(Tag.new(tag_attributes)).to be_valid
   end
 
   it { should have_db_column(:name).of_type(:string) }
@@ -51,30 +51,21 @@ RSpec.describe Tag, type: :model do
   it { should respond_to(:frequency) }
 
   # Instance methods:
-  let!(:tag_1)               { create(:tag, name: 'Tag 1') }
-  let!(:tag_2)               { create(:tag, name: 'Tag 2') }
-  let!(:tag_3)               { create(:tag, name: 'Tag 3') }
-  let!(:published_post_1)    { create(:published_post, title: 'Published Post 1') }
-  let!(:published_post_2)    { create(:published_post, title: 'Published Post 2') }
-  let!(:unpublished_post)    { create(:unpublished_post, title: 'Unpublished Post', published: false) }
+  include_context 'posts'
+  include_context 'tags'
 
   describe '#posts_with_tag' do
-    before do
-      published_post_1.tags << [tag_1, tag_2]
-      published_post_2.tags << [tag_3]
-      unpublished_post.tags << [tag_2]
-    end
+    before { tag_posts }
 
     it 'should list the posts associated with each tag' do
-      expect(tag_1.posts_with_tag).to include(published_post_1)
-      expect(tag_2.posts_with_tag).to include(published_post_1)
-      expect(tag_3.posts_with_tag).to include(published_post_2)
+      expect(tag_1.posts_with_tag).to include(post_1)
+      expect(tag_3.posts_with_tag).to include(post_2)
     end
 
     it 'should not list the posts not associated with each tag' do
-      expect(tag_1.posts_with_tag).to_not include(published_post_2)
-      expect(tag_2.posts_with_tag).to_not include(published_post_2)
-      expect(tag_3.posts_with_tag).to_not include(published_post_1)
+      expect(tag_1.posts_with_tag).to_not include(post_2)
+      expect(tag_2.posts_with_tag).to_not include(post_2)
+      expect(tag_3.posts_with_tag).to_not include(post_1)
     end
 
     it 'should not associated tags with the unpublished post' do
@@ -84,8 +75,8 @@ RSpec.describe Tag, type: :model do
 
   describe '#frequency' do
     before do
-      published_post_1.tags << [tag_1, tag_2]
-      published_post_2.tags << [tag_3]
+      post_1.tags << [tag_1, tag_2]
+      post_2.tags << [tag_3]
       unpublished_post.tags << [tag_2]
     end
 
@@ -99,8 +90,8 @@ RSpec.describe Tag, type: :model do
   # class methods
   describe '.with_posts scope' do
     before do
-      published_post_1.tags << [tag_1]
-      published_post_2.tags << []
+      post_1.tags << [tag_1]
+      post_2.tags << []
       unpublished_post.tags << [tag_3]
     end
 

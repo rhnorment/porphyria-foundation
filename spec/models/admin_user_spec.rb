@@ -40,7 +40,7 @@ RSpec.describe AdminUser, type: :model do
   end
 
   it 'has a valid factory' do
-    expect(build(:admin_user)).to be_valid
+    expect(AdminUser.new(admin_user_attributes)).to be_valid
   end
 
   it { should have_db_column(:bio).of_type(:text) }

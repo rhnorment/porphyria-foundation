@@ -13,21 +13,17 @@ require 'rails_helper'
 
 RSpec.describe TagsController, type: :controller do
 
-  let!(:post_1)   { create(:published_post, title: 'Post 1 Title', published_at: Date.parse('10-10-10')) }
-  let!(:post_2)   { create(:published_post, title: 'Post 2 Title', published_at: Date.parse('11-11-11')) }
-  let!(:post_3)   { create(:unpublished_post) }
-  let!(:tag_1)   { create(:tag, name: 'Tag 1') }
-  let!(:tag_2)   { create(:tag, name: 'Tag 2') }
+  include_context 'posts'
+  include_context 'tags'
 
   describe 'GET :show' do
     before do
-      post_1.tags.push(tag_1)
-      post_3.tags.push(tag_1)
+      tag_posts
 
       get :show, id: tag_1
     end
 
-    it { should route(:get, '/tags/1-tag-1').to(action: :show, id: tag_1) }
+    it { should route(:get, '/tags/1-tag-name-one').to(action: :show, id: tag_1) }
     it { should respond_with(:success) }
     it { should render_with_layout(:application) }
     it { should render_template(:show) }
@@ -41,7 +37,7 @@ RSpec.describe TagsController, type: :controller do
     end
 
     it 'does not assign unpublished posts' do
-      expect(assigns(:posts)).to_not include(post_3)
+      expect(assigns(:posts)).to_not include(unpublished_post)
     end
 
     it_behaves_like 'set tags'

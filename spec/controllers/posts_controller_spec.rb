@@ -19,14 +19,11 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
 
-  let!(:post_1)   { create(:published_post, title: 'Post 1 Title', published_at: Date.parse('10-10-10')) }
-  let!(:post_2)   { create(:published_post, title: 'Post 2 Title', published_at: Date.parse('11-11-11')) }
-  let!(:post_3)   { create(:unpublished_post) }
-  let!(:tag_1)    { create(:tag, name: 'Tag 1') }
-  let!(:tag_2)    { create(:tag, name: 'Tag 2') }
+  include_context 'posts'
+  include_context 'tags'
 
   before :each do
-    post_1.tags.push(tag_1)
+    tag_posts
   end
 
   describe 'GET :index' do
@@ -43,7 +40,7 @@ RSpec.describe PostsController, type: :controller do
       end
 
       it 'should not set @posts to include the unpublished post' do
-        expect(assigns(:posts)).to_not include(post_3)
+        expect(assigns(:posts)).to_not include(unpublished_post)
       end
 
       it_behaves_like 'set tags'
@@ -68,7 +65,7 @@ RSpec.describe PostsController, type: :controller do
       end
 
       it 'should not set @posts to include the unpublished post' do
-        expect(assigns(:posts)).to_not include(post_3)
+        expect(assigns(:posts)).to_not include(unpublished_post)
       end
 
       it_behaves_like 'set tags'
@@ -81,7 +78,7 @@ RSpec.describe PostsController, type: :controller do
     context 'post is published' do
       before { get :show, id: post_1 }
 
-      it { should route(:get, '/blog/1-post-1-title').to(action: :show, id: post_1) }
+      it { should route(:get, '/blog/1-archive').to(action: :show, id: post_1) }
       it { should respond_with(:success) }
       it { should render_with_layout(:application) }
       it { should render_template(:show) }
@@ -92,9 +89,9 @@ RSpec.describe PostsController, type: :controller do
     end
 
     context 'post is not published' do
-      before { get :show, id: post_3 }
+      before { get :show, id: unpublished_post }
 
-      it { should_not route(:get, 'blog/2-post-3-title').to(action: :show, id: post_3) }
+      it { should_not route(:get, 'blog/2-not-archive').to(action: :show, id: unpublished_post) }
       it { should redirect_to(posts_url) }
     end
   end
