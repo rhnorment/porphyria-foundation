@@ -11,8 +11,8 @@
     <% if params[:controller] != 'pages' %>
       <nav class="nav">
         <ul id="navigation-menu">
-          <%= content_tag :li, link_to('Back to Home', root_path), class:'nav-link active' %>
-          <%= content_tag :li, link_to('Blog', posts_path), class:'nav-link' %>
+          <%= content_tag :li, link_to('Back to Home', root_path), class:'nav-link active', data: { 'no-turbolink': true } %>
+          <%= content_tag :li, link_to('Blog', posts_path), class:'nav-link', data: { 'no-turbolink': true } %>
         </ul>
       </nav>
 
@@ -20,11 +20,11 @@
 
       <nav class="nav">
         <ul id="navigation-menu">
-          <%= content_tag :li, link_to('Home', '#section-intro'), class:'nav-link active' %>
-          <%= content_tag :li, link_to('Site Features', '#section-features'), class:'nav-link' %>
-          <%= content_tag :li, link_to('APF Showcase', '#section-showcase'), class:'nav-link' %>
-          <%= content_tag :li, link_to('Blog', '#section-blog'), class:'nav-link' %>
-          <%= content_tag :li, link_to('Contact', '#section-contact'), class:'nav-link' %>
+          <%= content_tag :li, link_to('Home', '#section-intro'), class:'nav-link active', data: { 'no-turbolink': true } %>
+          <%= content_tag :li, link_to('Site Features', '#section-features'), class:'nav-link', data: { 'no-turbolink': true } %>
+          <%= content_tag :li, link_to('APF Showcase', '#section-showcase'), class:'nav-link', data: { 'no-turbolink': true } %>
+          <%= content_tag :li, link_to('Blog', '#section-blog'), class:'nav-link', data: { 'no-turbolink': true } %>
+          <%= content_tag :li, link_to('Contact', '#section-contact'), class:'nav-link', data: { 'no-turbolink': true } %>
         </ul>
       </nav>
      <% end %>
