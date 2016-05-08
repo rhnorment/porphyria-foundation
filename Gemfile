@@ -28,7 +28,7 @@ gem 'refills'
 gem 'sass-rails', '~> 5.0'
 gem 'spreadsheet'
 gem 'title'
-gem 'turbolinks'
+# gem 'turbolinks'
 gem 'uglifier'
 
 group :development do

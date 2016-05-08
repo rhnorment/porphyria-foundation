@@ -394,7 +394,6 @@ DEPENDENCIES
   sqlite3
   timecop
   title
-  turbolinks
   uglifier
   web-console
   webmock
