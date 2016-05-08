@@ -116,8 +116,8 @@
 article.article-column,
 .main-column {
   @include span-columns(9);
-  @include media($large-screen-down) {
-    @include span-columns(12);
+  @include media($medium-screen-down) {
+    @include span-columns(4);
   }
 
   .title {
@@ -226,13 +226,13 @@ article.article-column,
 aside.sidebar {
   @include span-columns(3);
 
-  @include media($large-screen-down) {
-    @include span-columns(12);
-    @include pad(1em 20% 0);
+  @include media($medium-screen-down) {
+    @include span-columns(4);
+    @include pad(2em 20% 0);
   }
 
   @include media($small-screen-down) {
-    @include span-columns(12);
+    @include span-columns(4);
     @include pad(1em 3% 0);
   }
 

@@ -84,7 +84,7 @@ section.features {
     }
 
     @include media($small-screen-down) {
-      @include span-columns(12);
+      @include span-columns(4);
       @include omega(1n);
     }
 
