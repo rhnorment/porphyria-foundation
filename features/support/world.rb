@@ -11,10 +11,6 @@ module PorphyriaWorld
     )
   end
 
-  def have_image?(src)
-    has_xpath?("//img[contains(@src,\"/images/#{src}\")]")
-  end
-
   def path_to(page_name)
     case page_name
 

@@ -11,7 +11,9 @@ Feature: List blog items on index view
 
   Scenario: Viewing the post index
     When I visit the posts page
-    Then I should see the published posts
-    And I should not see the unpublished posts
-    And The images should render properly
+    Then I should see "Title 1"
+    And I should see "Title 2"
+    And I should see "Title 3"
+    And I should not see "Title 4"
+
 
