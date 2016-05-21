@@ -51,6 +51,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'cucumber-rails', require: false
   gem 'formulaic'
   gem 'launchy'
   gem 'rake'

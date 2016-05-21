@@ -18,7 +18,8 @@
 module PostsHelper
 
   def image_for(post)
-    content_tag :div, image_tag(post.image_url), class: 'media' unless post.image.nil?
+    image = post.image.blank? ? 'default_image.png' : post.image_url
+    content_tag :div, cl_image_tag(image), class: 'media'
   end
 
   def intro_for(post)
