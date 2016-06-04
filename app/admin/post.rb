@@ -89,7 +89,6 @@ ActiveAdmin.register Post do
 
   permit_params   :admin_user_id,
                   :body,
-                  :id,
                   :image,
                   :intro,
                   :published,
