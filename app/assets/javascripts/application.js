@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-// require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery.stellar.min
 //= require headroom.min
@@ -19,4 +18,3 @@
 //= require owl.carousel.min
 //= require jquery.fitvids
 //= require pages
-// require turbolinks

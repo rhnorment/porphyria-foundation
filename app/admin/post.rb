@@ -91,5 +91,14 @@ ActiveAdmin.register Post do
     link_to 'Unublish post', unpublish_admin_post_path(post), method: :put  if post.is_published?
   end
 
-  permit_params   :admin_user_id, :body, :image, :intro, :published, :published_at, :title, :image_cache, :tag_list
+  permit_params   :admin_user_id,
+                  :body,
+                  :image,
+                  :intro,
+                  :published,
+                  :published_at,
+                  :title,
+                  :image_cache,
+                  :tag_list,
+                  :_wysihtml5_mode
 end
