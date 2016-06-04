@@ -17,6 +17,15 @@ GIT
       sass-rails
       sprockets (< 4)
 
+GIT
+  remote: git://github.com/boontdustie/active_admin_editor.git
+  revision: efc7df212173cbac65dc95ed50e6f5917ae049c0
+  specs:
+    active_admin_editor (1.1.0)
+      activeadmin (>= 0.4.0)
+      ejs
+      rails (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -140,6 +149,7 @@ GEM
       json
       thread
       thread_safe
+    ejs (1.1.1)
     email_validator (1.6.0)
       activemodel
     erubis (2.7.0)
@@ -352,6 +362,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_admin_editor!
   activeadmin!
   awesome_print
   bourbon (~> 4.2.0)

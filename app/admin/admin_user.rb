@@ -1,7 +1,5 @@
 ActiveAdmin.register AdminUser do
 
-  menu priority: 2
-
   filter :email
   filter :current_sign_in_at
   filter :sign_in_count
@@ -30,9 +28,9 @@ ActiveAdmin.register AdminUser do
     actions
   end
 
-  menu priority: 4
+  menu priority: 5
 
-  permit_params :bio, :email, :name, :password, :password_confirmation
+  permit_params  :bio, :email, :name, :password, :password_confirmation
 
   show do
     attributes_table do

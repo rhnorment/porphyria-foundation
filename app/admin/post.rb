@@ -1,15 +1,20 @@
 ActiveAdmin.register Post do
 
-  menu  priority: 4
+  config.sort_order = 'published_at_desc'
 
-  # FORM ==========================================================
+  filter    :admin_user
+  filter    :title
+  filter    :body
+  filter    :published
+  filter    :published_at
+
   form do |f|
     f.semantic_errors
 
     f.inputs do
       f.input :admin_user, as: :select, collection: AdminUser.all, prompt: 'Select one'
       f.input :title
-      f.input :body, label: 'Content'
+      f.input :body, as: :html_editor, label: 'Content'
       f.input :image, as: :file, hint: cl_image_tag(post.image_url)
       f.input :image_cache, as: :hidden
       li link_to 'Remove Image', remove_image_admin_post_path(post), method: :put if post.image?
@@ -18,16 +23,6 @@ ActiveAdmin.register Post do
 
     f.actions
   end
-
-
-  # INDEX =========================================================
-  config.sort_order = 'published_at_desc'
-
-  filter    :admin_user
-  filter    :title
-  filter    :body
-  filter    :published
-  filter    :published_at
 
   index do
     selectable_column
@@ -39,11 +34,12 @@ ActiveAdmin.register Post do
     actions
   end
 
+  menu priority: 3
+
   scope   :all, default: true
   scope   :published
   scope   :unpublished
 
-  # SHOW ==========================================================
   show do
     attributes_table do
       row :title

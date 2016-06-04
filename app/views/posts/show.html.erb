@@ -21,7 +21,7 @@
       <%= intro_for(@post) %>
 
       <!-- the content -->
-      <p><%= @post.body %></p>
+      <p><%= sanitize(@post.body) %></p>
 
       <!-- post tags -->
       <div class="post-tags">

@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.2.3'
 
 gem 'activeadmin', github: 'activeadmin'
+gem 'active_admin_editor', github: 'boontdustie/active_admin_editor'
 gem 'bourbon', '~> 4.2.0'
 gem 'carrierwave'
 gem 'chosen_rails'

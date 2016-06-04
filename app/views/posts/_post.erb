@@ -13,7 +13,7 @@
     </div>
 
     <p class="excerpt">
-      <%= post.body.truncate_words(15) %>
+      <%= sanitize(post.body.truncate_words(15)) %>
     </p>
 
     <%= link_to "Read more \u00bb", post, class:'read-more' %>

@@ -1,8 +1,5 @@
 ActiveAdmin.register Tag do
 
-  menu  priority: 5
-
-  # INDEX ==========================================================
   config.sort_order = 'frequency_desc'
 
   filter    :name
@@ -16,8 +13,8 @@ ActiveAdmin.register Tag do
     column  :frequency
   end
 
+  menu  priority: 4
 
-  # SHOW ===========================================================
   show do
     attributes_table do
       row   :name
@@ -33,7 +30,6 @@ ActiveAdmin.register Tag do
     end
   end
 
-  #  PRIVATE =======================================================
   permit_params   :name
 
 end
