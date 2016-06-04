@@ -7,6 +7,16 @@ ActiveAdmin.register Tag do
   filter    :created_at
   filter    :updated_at
 
+  form do |f|
+    f.semantic_errors
+
+    f.inputs do
+      f.input :name
+    end
+
+    f.actions
+  end
+
   index do
     selectable_column
     column('Name') { |tag| link_to tag.name, admin_tag_path(tag) }

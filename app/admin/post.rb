@@ -89,12 +89,13 @@ ActiveAdmin.register Post do
 
   permit_params   :admin_user_id,
                   :body,
+                  :id,
                   :image,
                   :intro,
                   :published,
                   :published_at,
                   :title,
                   :image_cache,
-                  :tag_list,
-                  :_wysihtml5_mode
+                  :tag_list
+
 end
