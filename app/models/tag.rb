@@ -24,7 +24,7 @@ class Tag < ActiveRecord::Base
   has_many            :posts, through: :taggings
 
   def frequency
-    posts_with_tag.size
+    posts_with_tag.count
   end
 
   def posts_with_tag

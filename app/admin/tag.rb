@@ -19,8 +19,8 @@ ActiveAdmin.register Tag do
 
   index do
     selectable_column
-    column('Name') { |tag| link_to tag.name, admin_tag_path(tag) }
-    column  :frequency
+    column('Name')      { |tag| link_to tag.name, admin_tag_path(tag) }
+    column('Frequency') { |tag| tag.frequency }
   end
 
   menu  priority: 4
