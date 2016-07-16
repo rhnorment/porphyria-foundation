@@ -1,7 +1,5 @@
 ActiveAdmin.register Tag do
 
-  config.sort_order = 'frequency_desc'
-
   filter    :name
   filter    :posts
   filter    :created_at
