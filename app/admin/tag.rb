@@ -26,13 +26,13 @@ ActiveAdmin.register Tag do
   show do
     attributes_table do
       row   :name
-      row   :frequency
+      row('Frequency')  { |tag| tag.frequency }
       row   :created_at
       row   :updated_at
     end
 
     panel 'Posts with Tag' do
-      table_for tag.posts do
+      table_for tag.posts.published do
         column('Title') { |post| link_to post.title, admin_post_path(post) }
       end
     end
