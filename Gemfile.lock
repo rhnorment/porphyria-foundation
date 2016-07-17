@@ -93,7 +93,6 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
-    chosen_rails (0.1.0)
     cloudinary (1.2.0)
       aws_cf_signer
       rest-client
@@ -373,7 +372,6 @@ DEPENDENCIES
   byebug
   capybara
   carrierwave
-  chosen_rails
   cloudinary
   coffee-rails (~> 4.1.0)
   cucumber-rails
