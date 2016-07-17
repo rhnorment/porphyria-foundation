@@ -21,7 +21,7 @@ ActiveAdmin.register Tag do
     column('Frequency') { |tag| tag.frequency }
   end
 
-  menu  priority: 4
+  menu  parent: 'Site Content'
 
   show do
     attributes_table do

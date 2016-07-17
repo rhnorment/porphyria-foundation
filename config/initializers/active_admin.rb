@@ -19,7 +19,6 @@ ActiveAdmin.setup do |config|
 
  config.batch_actions = true
 
-  
  config.localize_format = :long
 
  # config.breadcrumb = false
@@ -46,12 +45,12 @@ ActiveAdmin.setup do |config|
   #   end
   #
   # If you wanted to add a static menu item to the default menu provided:
-  #
-  #   config.namespace :admin do |admin|
-  #     admin.build_menu :default do |menu|
-  #       menu.add label: "My Great Website", url: "http://www.mygreatwebsite.com", html_options: { target: :blank }
-  #     end
-  #   end
+
+  config.namespace :admin do |admin|
+    admin.build_menu  do |menu|
+      menu.add label: 'Site Content', priority: 3
+    end
+  end
 
   # == Download Links
   #

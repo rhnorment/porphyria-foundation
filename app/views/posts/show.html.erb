@@ -28,7 +28,7 @@
         <h3>Tags: </h3>
 
         <% @post.tags.each do |tag| %>
-          <span><%= link_to tag.name, '#' %></span>
+          <span><%= link_to tag.name, tag %></span>
         <% end %>
       </div>
 
