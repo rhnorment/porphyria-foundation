@@ -7,26 +7,26 @@ module Publishes
   end
 
   def is_not_published?
-    !published || !published_at_is_in_past?
+    !published
   end
 
   def is_published?
-    published && published_at_is_in_past?
+    published
   end
 
   def publish
     return if is_published?
 
-    update_attributes(published: true, published_at: Time.now)
+    update(published: true, published_at: DateTime.now, publish_on: nil)
   end
 
-  def published_at_is_in_past?
-    published_at <= DateTime.now
+  def is_scheduled?
+    publish_on < DateTime.now
   end
 
   def unpublish
     return if is_not_published?
 
-    update_attributes(published: false, published_at: nil)
+    update(published: false, published_at: nil, publish_on: nil)
   end
 end

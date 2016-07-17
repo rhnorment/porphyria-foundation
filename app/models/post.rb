@@ -13,6 +13,7 @@
 #  updated_at    :datetime         not null
 #  admin_user_id :integer
 #  intro         :string           default("")
+#  publish_on    :datetime
 #
 
 class Post < ActiveRecord::Base
@@ -33,7 +34,7 @@ class Post < ActiveRecord::Base
 
   validates         :admin_user_id,   presence: true
   validates         :body,            presence: true
-  validates         :published_at,    not_in_past: true
+  validates         :publish_on,      not_in_past: true, allow_nil: true
   validates         :slug,            uniqueness: true
   validates         :title,           presence: true, uniqueness: true
 

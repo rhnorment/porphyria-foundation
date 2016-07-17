@@ -13,6 +13,7 @@
 #  updated_at    :datetime         not null
 #  admin_user_id :integer
 #  intro         :string           default("")
+#  publish_on    :datetime
 #
 
 require 'rails_helper'
@@ -46,6 +47,7 @@ RSpec.describe Post, type: :model do
   it { should have_db_column(:intro).of_type(:string) }
   it { should have_db_column(:slug).of_type(:string) }
   it { should have_db_column(:published).of_type(:boolean) }
+  it { should have_db_column(:publish_on).of_type(:datetime) }
   it { should have_db_column(:published_at).of_type(:datetime) }
   it { should have_db_column(:title).of_type(:string) }
 
@@ -73,6 +75,7 @@ RSpec.describe Post, type: :model do
 
   it { should respond_to(:is_not_published?) }
   it { should respond_to(:is_published?) }
+  it { should respond_to(:is_scheduled?) }
   it { should respond_to(:publish) }
   it { should respond_to(:unpublish) }
   it { should respond_to(:tag!) }
@@ -157,6 +160,16 @@ RSpec.describe Post, type: :model do
     end
   end
 
+  describe '#is scheduled?' do
+    context 'when published flag is set'
+
+    context 'when published flag is not set'
+
+    context 'when publish_on date has not arrived yet'
+
+    context 'when publish_on date has arrived'
+  end
+
   describe '#publish' do
     context 'when a post is not published' do
       it 'should publish the post' do
@@ -170,6 +183,8 @@ RSpec.describe Post, type: :model do
       end
     end
   end
+
+  describe '#i'
 
   describe '#unpublish?' do
     context 'when the post is not published' do
