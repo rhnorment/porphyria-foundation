@@ -54,7 +54,7 @@ class Post < ActiveRecord::Base
 
   def tag!(tags_attr)
     self.tags = tags_attr.map(&:strip).reject(&:blank?).map do |tag|
-      Tag.where(name: tag.capitalize).first_or_create
+      Tag.where(name: tag.titleize).first_or_create
     end
   end
 
