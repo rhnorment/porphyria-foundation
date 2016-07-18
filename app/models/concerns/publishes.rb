@@ -7,6 +7,12 @@ module Publishes
     scope  :unpublished,  -> { where(published: false) }
   end
 
+  module ClassMethods
+    def Post.publish_scheduled_posts(time)
+      scheduled.each { |post| post.publish if time >= post.publish_on }
+    end
+  end
+
   def is_not_published?
     !published
   end
@@ -22,7 +28,7 @@ module Publishes
   end
 
   def is_scheduled?
-    publish_on < DateTime.now
+    publish_on < DateTime.now if publish_on
   end
 
   def unpublish

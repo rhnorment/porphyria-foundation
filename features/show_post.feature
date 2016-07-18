@@ -14,3 +14,20 @@ Feature: Show post
       | post_id | tag_id |
       |    1    |    1   |
       |    1    |    3   |
+
+  Scenario: View Title 1 Post
+    When I visit the posts page
+    And I click "Title 1"
+
+    Then I should see "Title 1"
+    And I should not see "Title 2"
+    And I should not see "Title 3"
+
+  Scenario: View Title 2 Post
+    When I visit the posts page
+    And I click "Title 2"
+
+    Then I should see "Title 2"
+    And I should not see "Title 1"
+    And I should not see "Title 3"
+
