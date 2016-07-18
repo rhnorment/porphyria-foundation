@@ -32,6 +32,8 @@ ActiveAdmin.register Post do
       f.input :image_cache, as: :hidden
       li link_to 'Remove Image', remove_image_admin_post_path(post), method: :put if post.image?
       f.input :tag_list
+      f.input :publish_on, as: :datetime_select, label: 'Publish On', discard_minute: true,
+              order: [:month, :day, :year], start_year: Time.now.year if post.is_not_published?
     end
 
     f.actions
@@ -47,7 +49,7 @@ ActiveAdmin.register Post do
     actions
   end
 
-  menu priority: 3
+  menu parent: 'Site Content'
 
   scope   :all, default: true
   scope   :published
@@ -67,6 +69,7 @@ ActiveAdmin.register Post do
       row('Tag List') { |post| (post.tag_list) }
       row('Published?') { |post| status_tag(post.published) }
       row :published_at
+      row :publish_on
     end
   end
 
@@ -92,7 +95,7 @@ ActiveAdmin.register Post do
     link_to 'View on site', post_path(post) if post.is_published?
   end
 
-  action_item :publish_post, only: :show do
+  action_item :publish_post_now, only: :show do
     link_to 'Publish post', publish_admin_post_path(post), method: :put if post.is_not_published?
   end
 
@@ -105,6 +108,7 @@ ActiveAdmin.register Post do
                   :image,
                   :intro,
                   :published,
+                  :publish_on,
                   :published_at,
                   :title,
                   :image_cache,
