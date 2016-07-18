@@ -2,8 +2,9 @@ module Publishes
   extend ActiveSupport::Concern
 
   included do
-    scope             :published,       -> { where(published: true).where('published_at <= ?', DateTime.now).order(published_at: :desc) }
-    scope             :unpublished,     -> { where(published: false) }
+    scope  :published,    -> { where(published: true).where('published_at <= ?', DateTime.now).order(published_at: :desc) }
+    scope  :scheduled,    -> { where(published: false).where('publish_on > ?', DateTime.now).order(publish_on: :desc) }
+    scope  :unpublished,  -> { where(published: false) }
   end
 
   def is_not_published?

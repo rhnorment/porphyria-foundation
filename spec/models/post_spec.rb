@@ -160,7 +160,7 @@ RSpec.describe Post, type: :model do
     end
   end
 
-  describe '#is scheduled?' do
+  describe '#is_scheduled?' do
     context 'when published flag is set'
 
     context 'when published flag is not set'

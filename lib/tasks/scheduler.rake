@@ -1,0 +1,1 @@
+desc 'This task is called by the Heroku Scheduler add-on'
