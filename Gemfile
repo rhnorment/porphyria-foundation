@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.0'
+ruby '2.3.1'
 
 gem 'activeadmin', github: 'activeadmin'
 gem 'active_admin_editor', github: 'boontdustie/active_admin_editor'

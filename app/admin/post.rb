@@ -1,10 +1,5 @@
 ActiveAdmin.register Post do
 
-  # set date for future posts
-  # date and time  - 2
-
-  # add signature section  -1
-
   # add image to content section  -3
 
   # article can be news blog member story
