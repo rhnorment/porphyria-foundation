@@ -49,7 +49,7 @@ RSpec.describe PostsController, type: :controller do
     end
 
     context 'params[:date_month] is not nil' do
-      before { get :index, date_month: 'October 2010' }
+      before { get :index, params: { date_month: 'October 2010' } }
 
       it { should route(:get, '/blog').to(action: :index) }
       it { should respond_with(:success) }
@@ -76,7 +76,7 @@ RSpec.describe PostsController, type: :controller do
 
   describe 'GET :show' do
     context 'post is published' do
-      before { get :show, id: post_1 }
+      before { get :show, params: { id: post_1 } }
 
       it { should route(:get, '/blog/1-archive').to(action: :show, id: post_1) }
       it { should respond_with(:success) }
@@ -89,7 +89,7 @@ RSpec.describe PostsController, type: :controller do
     end
 
     context 'post is not published' do
-      before { get :show, id: unpublished_post }
+      before { get :show, params: { id: unpublished_post } }
 
       it { should_not route(:get, 'blog/2-not-archive').to(action: :show, id: unpublished_post) }
       it { should redirect_to(posts_url) }

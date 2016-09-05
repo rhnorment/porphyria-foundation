@@ -20,7 +20,7 @@ RSpec.describe TagsController, type: :controller do
     before do
       tag_posts
 
-      get :show, id: tag_1
+      get :show, params: { id: tag_1 }
     end
 
     it { should route(:get, '/tags/1-tag-name-one').to(action: :show, id: tag_1) }
