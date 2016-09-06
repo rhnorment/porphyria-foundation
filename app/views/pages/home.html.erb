@@ -6,7 +6,7 @@
 
   <div class="container">
     <div class="logo">
-      <h1><%= image_tag 'logo-white.png', alt:'logo' %></h1>
+      <h1><%= image_tag 'logo-full-white.png', alt:'logo' %></h1>
     </div>
 
     <h3>
@@ -76,11 +76,11 @@
 <section class="newsletter">
   <div class="image-bg" data-stellar-background-ratio="0.5"></div>
   <%= content_tag :div, nil, class:'color-overlay' %>
-  
+
   <div class="container">
     <div class="nl-text">
       <p>
-        Register for our monthly newsletter and receive 
+        Register for our monthly newsletter and receive
         notifications when important news about Porphyria occurs!
       </p>
     </div>
@@ -91,7 +91,7 @@
         <input type="email" name="email" id="email" placeholder="Your email address" required>
         <input type="submit" class="button" value="Submit">
       </form>
-      
+
       <%= content_tag :div, nil, class:'newsletter-error' %>
     </div>
   </div>
@@ -112,7 +112,7 @@
       <div class="split-left split-text">
         <h4>Check out our member stories!</h4>
         <p class="lead"><%= Faker::Lorem.sentence(12) %></p>
-        
+
         <p>&nbsp;</p>  <!-- fix spacing in home.css.scss -->
 
         <%= link_to 'Join APF', 'javascript:void(0)', class:'button large' %>
@@ -126,11 +126,11 @@
           <div class="item">
             <%= image_tag 'http://placehold.it/800x550&amp;text=use+your+image+here' %>
           </div>
-          
+
           <div class="item">
             <%= image_tag 'http://placehold.it/800x550&amp;text=use+your+image+here' %>
           </div>
-         
+
           <div class="item">
             <%= image_tag 'http://placehold.it/800x550&amp;text=use+your+image+here' %>
           </div>
@@ -223,7 +223,7 @@
 <section class="blog" id="section-blog">
   <div class="container">
     <div class="title">
-      <h2>Latest News</h2>
+      <h2>Latest Blog Posts</h2>
       <%= tag :hr, class:'small' %>
       <p>
         Check back often for exciting news and announcements.
@@ -231,68 +231,14 @@
     </div>
 
     <div id="blog-teasers" class="owl-carousel owl-theme">
-      <!-- standard post format -->
-      <div class="blog-item">
-        <%= link_to image_tag('http://placehold.it/800x600'), '#', class:'featured-image' %>
-
-        <div class="blog-teaser">
-          <h4 class="post-title"><%= link_to Faker::Book.title, 'javascript:void(0)' %></h4>
-
-          <div class="meta">
-            by <span class="author"><%= link_to 'admin', '' %></span>
-            on <span class="date"><%= link_to Faker::Date.backward(23), '' %></span>
-          </div>
-
-          <p class="excerpt"><%= Faker::Lorem.sentence(12) %></p>
-
-          <%= link_to 'Read more', 'javascript:void(0)', class:'read-more' %>
-        </div>
-      </div>
-
-      <div class="blog-item">
-        <%= link_to image_tag('http://placehold.it/800x600'), 'javascript:void(0)', class:'featured-image' %>
-
-        <div class="blog-teaser">
-          <h4 class="post-title"><%= link_to Faker::Book.title, 'javascript:void(0)' %></h4>
-
-          <div class="meta">
-            by <span class="author"><%= link_to 'admin', '' %></span>
-            on <span class="date"><%= link_to Faker::Date.backward(23), '' %></span>
-          </div>
-
-          <p class="excerpt"><%= Faker::Lorem.sentence(12) %></p>
-
-          <%= link_to 'Read more', 'javascript:void(0)', class:'read-more' %>
-        </div>
-      </div>
-
-      <!-- video post format -->
-      <div class="blog-item">
-        <div class="fitvids">
-          <!-- responsive video iframe -->
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/zmM3HSH8dDk" allowfullscreen></iframe>
-        </div>
-
-        <div class="blog-teaser">
-          <h4 class="post-title"><%= link_to Faker::Book.title, 'javascript:void(0)' %></h4>
-
-          <div class="meta">
-            by <span class="author"><%= link_to 'admin', '' %></span>
-            on <span class="date"><%= link_to Faker::Date.backward(23), '' %></span>
-          </div>
-
-          <p class="excerpt"><%= Faker::Lorem.sentence(12) %></p>
-
-          <%= link_to 'Read more', 'javascript:void(0)', class:'read-more' %>
-        </div>
-      </div>
+      <%= render @posts %>
     </div>
 
-    <%= link_to 'View all Items', 'javascript:void(0)', class:'button' %>
+    <%= link_to 'View all posts', posts_path, class:'button' %>
   </div>
 </section>
 
-<section class="contact" id="contact">
+<section class="contact" id="section-contact">
   <div class="container">
     <div class="title">
       <h2>Contact</h2>

@@ -1,24 +1,6 @@
 ActiveAdmin.register Contact do
 
-  menu priority: 2
-
-  config.sort_order = 'last_name_asc'
-
-  filter    :first_name
-  filter    :last_name
-  filter    :company
-  filter    :city
-  filter    :state
-  filter    :zip_code
-  filter    :country
-  filter    :status
-  filter    :porphyria_type, as: :select, collection: Contact::PORPHYRIA_TYPES
-  filter    :gift_amount, as: :numeric_range
-  filter    :gift_given_on
-  filter    :doctor_packet_sent_on
-  filter    :patient_packet_sent_on
-  filter    :created_at, label: 'Member Since'
-  filter    :keep
+  menu priority: 3
 
 # ACTION ITEMS ======================================================================
   action_item :new, only: :show do
@@ -113,9 +95,23 @@ ActiveAdmin.register Contact do
   end
 
 # INDEX =============================================================================
-  scope   :all, default: true
-  scope   :international_members
-  scope   :with_email_addresses
+  config.sort_order = 'last_name_asc'
+
+  filter    :first_name
+  filter    :last_name
+  filter    :company
+  filter    :city
+  filter    :state
+  filter    :zip_code
+  filter    :country
+  filter    :status
+  filter    :porphyria_type, as: :select, collection: Contact::PORPHYRIA_TYPES
+  filter    :gift_amount, as: :numeric_range
+  filter    :gift_given_on
+  filter    :doctor_packet_sent_on
+  filter    :patient_packet_sent_on
+  filter    :created_at, label: 'Member Since'
+  filter    :keep
 
   index do
     selectable_column
@@ -133,6 +129,10 @@ ActiveAdmin.register Contact do
       item 'Delete', admin_contact_path(contact), method: :delete, data: { confirm: 'Are you sure?'' '}
     end
   end
+
+  scope   :all, default: true
+  scope   :international_members
+  scope   :with_email_addresses
 
 # SHOW =============================================================================
   show do

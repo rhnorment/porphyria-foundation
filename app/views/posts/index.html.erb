@@ -1,0 +1,29 @@
+<div class="blog-archive">
+  <div class="container">
+
+    <div class="title">
+      <h2>Purple Light Blog</h2>
+      <%= tag :hr, class:'small' %>
+
+      <% if @date_month %>
+          <h5>Showing posts for <span class="post-tags"><%= @date_month %></span></h5>
+      <% end %>
+    </div>
+
+    <!-- main column -->
+    <div class="main-column">
+      <!-- call blog items partial -->
+      <%= render @posts %>
+
+      <!-- call pagination renderer -->
+      <%= paginate @posts %>
+    </div>
+
+    <!-- sidebar column -->
+    <aside class="sidebar">
+      <!-- call submenu partial -->
+      <%= render partial: 'shared/blog_sidebar', locals: { tags: @tags } %>
+    </aside>
+
+  </div>
+</div>
