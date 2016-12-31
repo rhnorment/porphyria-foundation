@@ -18,3 +18,8 @@
 .idea
 APF_import_test.csv
 import_test.csv
+/db/schema.rb
+script/
+spec/features/
+/v3_1_0.dump
+/lib/tasks/populate_blog.rake
