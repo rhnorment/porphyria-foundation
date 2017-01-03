@@ -1,10 +1,10 @@
 def admin_user_attributes(overrides={})
   {
+      bio:  'I am an Admin User an this is my bio.',
       email:  'admin@example.com',
+      name:  'Admin User',
       password:   'password',
       password_confirmation:  'password',
-      name:  'Admin User Name',
-      bio:  'I am an Admin User an this is my bio.'
   }.merge(overrides)
 end
 

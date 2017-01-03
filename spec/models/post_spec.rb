@@ -184,8 +184,6 @@ RSpec.describe Post, type: :model do
     end
   end
 
-  describe '#i'
-
   describe '#unpublish?' do
     context 'when the post is not published' do
       it 'should not publish the post' do

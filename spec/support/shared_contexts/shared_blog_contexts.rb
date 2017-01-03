@@ -1,7 +1,17 @@
+shared_context 'admin users' do
+  let!(:admin_user)          { AdminUser.create(admin_user_attributes) }
+end
+
 shared_context 'posts' do
-  let!(:post_1)             { Post.create(post_attributes(title: 'Archive', published_at: Date.parse('10-10-10'))) }
-  let!(:post_2)             { Post.create(post_attributes(title: 'Archive Two', published_at: Date.parse('11-11-11'))) }
-  let!(:unpublished_post)   { Post.create(post_attributes(published: false, title: 'Not Archive')) }
+  let!(:post_1)             { Post.create(post_attributes(title: 'Archive',
+                                                          published_at: Date.parse('10-10-10'),
+                            )) }
+  let!(:post_2)             { Post.create(post_attributes(title: 'Archive Two',
+                                                          published_at: Date.parse('11-11-11')
+                            )) }
+  let!(:unpublished_post)   { Post.create(post_attributes(published: false,
+                                                          title: 'Not Archive'
+                            )) }
 end
 
 shared_context 'tags' do

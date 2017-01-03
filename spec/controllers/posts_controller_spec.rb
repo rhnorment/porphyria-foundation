@@ -36,7 +36,7 @@ RSpec.describe PostsController, type: :controller do
       it { should render_template(:index) }
 
       it 'should set @posts to include the published post' do
-        expect(assigns(:posts)).to include(post_1, post_2)
+        expect(assigns(:posts)).to match_array([post_1, post_2])
       end
 
       it 'should not set @posts to include the unpublished post' do
@@ -64,7 +64,7 @@ RSpec.describe PostsController, type: :controller do
         expect(assigns(:posts)).to_not include(post_2)
       end
 
-      it 'should not set @posts to include the unpublished post' do
+      it 'should not set @posts to include the unpublished posts' do
         expect(assigns(:posts)).to_not include(unpublished_post)
       end
 

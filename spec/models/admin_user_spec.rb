@@ -71,5 +71,4 @@ RSpec.describe AdminUser, type: :model do
   it { should respond_to(:reset_password_token) }
   it { should respond_to(:remember_created_at) }
   it { should respond_to(:sign_in_count) }
-
 end
