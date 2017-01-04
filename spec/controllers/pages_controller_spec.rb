@@ -13,7 +13,7 @@ RSpec.describe PagesController, type: :controller do
     it { should render_template(:home) }
 
     it 'should set @posts to include the published post' do
-      expect(assigns(:posts)).to include(post_1)
+      expect(assigns(:posts)).to match_array([post_1, post_2])
     end
 
     it 'should not set @posts to include the unpublished post' do

@@ -27,7 +27,7 @@
     <div class="title">
       <h2>Get Involved</h2>
       <%= tag :hr, class:'small' %>
-      <p>Welcome to our new site!  Here are a things you can do:</p>
+      <p>Welcome to our new site! Here are a few things you can do:</p>
     </div>
 
     <div class="feature-items">
@@ -73,7 +73,7 @@
 
 <!-- ///// NEWSLETTER FORM SECTION ///// -->
 
-<section class="newsletter">
+<section class="newsletter" id="section-newsletter">
   <div class="image-bg" data-stellar-background-ratio="0.5"></div>
   <%= content_tag :div, nil, class:'color-overlay' %>
 
@@ -140,7 +140,7 @@
   </div>
 </section>
 
-<section class="showcase gray">
+<section class="showcase gray" id="section-video-showcase">
   <div class="container">
     <div class="split">
       <div class="split-left split-text float-right">
@@ -156,7 +156,7 @@
       <div class="split-right split-media float-left">
         <div class="fitvids">
           <!-- responsive video iframe -->
-          <iframe src="https://player.vimeo.com/video/131585885?portrait=0" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+          <iframe id="nbc-vid" src="https://player.vimeo.com/video/131585885?portrait=0" width="560" height="315" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -165,7 +165,7 @@
 
 <!-- ///// ADIVSORY BOARD SECTION ///// -->
 
-<section class="showcase">
+<section class="showcase" id="section-advisory-board">
   <div class="container">
     <div class="split">
       <div class="split-left split-text">
@@ -185,7 +185,7 @@
 
 <!-- ///// QUOTE SECTION ///// -->
 
-<section class="quote">
+<section class="quote" id="section-quote">
   <div class="image-bg" data-stellar-background-ratio="0.5"></div>
   <%= content_tag :div, nil, class:'color-overlay' %>
 
@@ -277,7 +277,7 @@
         <%= content_tag :div, nil, id:'contact-error' %>
 
         <p class="submit">
-          <input class="button" type="submit" value="submit">
+          <input class="button" type="submit" value="Submit">
         </p>
       </form>
     </div>

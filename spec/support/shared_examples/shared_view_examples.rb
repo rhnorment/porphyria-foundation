@@ -1,19 +1,19 @@
-shared_examples 'title' do
+shared_examples_for 'title' do
   it { expect(page).to have_title('American Porphyria Foundation') }
 end
 
-shared_examples 'logo' do
+shared_examples_for 'logo' do
   it { within 'a.logo' do
         expect(page).to have_selector('img')
       end
   }
 end
 
-shared_examples 'mobile menu toggle' do
+shared_examples_for 'mobile menu toggle' do
   it { expect(page).to have_link('MENU', href: '') }
 end
 
-shared_examples 'footer' do
+shared_examples_for 'footer' do
   it { within 'footer.footer' do
         expect(page).to have_css('p.copyright')
 
@@ -25,11 +25,23 @@ shared_examples 'footer' do
   }
 end
 
-def it_behaves_like_layout
-  it_behaves_like 'title'
-  it_behaves_like 'logo'
-  it_behaves_like 'mobile menu toggle'
-  it_behaves_like 'footer'
+shared_examples_for 'parallax' do |section|
+  it { within "#section-#{section}" do
+        expect(page).to have_css('div.image-bg')
+        expect(page).to have_css('div.color-overlay')
+    end
+  }
+end
+
+shared_examples_for 'rendered post' do
+
+end
+
+def it_should_behave_like_layout
+  it_should_behave_like 'title'
+  it_should_behave_like 'logo'
+  it_should_behave_like 'mobile menu toggle'
+  it_should_behave_like 'footer'
 end
 
 
