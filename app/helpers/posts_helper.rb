@@ -36,7 +36,7 @@ module PostsHelper
 
     when 'posts' && 'show'
       content_tag :div, class: 'media' do
-        image_source
+       image_source
       end
     end
   end
