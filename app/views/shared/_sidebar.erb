@@ -46,7 +46,7 @@
   <div class="archive">
     <ul>
       <% @dates.each do |date| %>
-        <%= content_tag :li, link_to(date, posts_path(date_month: date)) %>
+          <%= content_tag :li, link_to(date, posts_path(date_month: date)) %>
       <% end %>
     </ul>
   </div>
