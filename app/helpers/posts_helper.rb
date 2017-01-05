@@ -18,12 +18,8 @@
 module PostsHelper
 
   def image_for(post)
-    crop = 'mpad'
-    height = 600
-    width = 800
-
-    image = post.image.blank? ? 'default_image.png' : post.image_url
-    image_source = cl_image_tag(image, height: height, width: width, crop: crop)
+    image = post.image.blank? ? 'logo-full_ha3zyp.png' : post.image_url
+    image_source = cl_image_tag(image)
 
     case controller_name && action_name
     when 'pages' && 'home'

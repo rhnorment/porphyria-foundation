@@ -350,7 +350,9 @@ section.blog {
       }
 
       a.featured-image {
+        background-color: $light-gray;
         display: block;
+        @include padding($base-spacing);
 
         img {
           transition: all 0.5s;
