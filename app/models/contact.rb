@@ -44,7 +44,7 @@ class Contact < ActiveRecord::Base
   include CSVBuilders
   include XLSBuilders
 
-  PORPHYRIA_TYPES = %w(AIP VP HCP ADP PCT EPP CEP HEP)
+  PORPHYRIA_TYPES = %w(None AIP VP HCP ADP PCT EPP CEP HEP)
   YES_NO = %w(Yes No)
 
   scope   :international_members,   -> { where.not(country: 'USA') }
