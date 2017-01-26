@@ -47,7 +47,7 @@ group :development, :test do
   gem 'shoulda-matchers', require: false
   gem 'sqlite3'
 end
-
+git
 group :test do
   gem 'capybara'
   gem 'formulaic'
