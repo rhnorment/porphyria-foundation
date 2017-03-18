@@ -23,5 +23,4 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
 end
 
-ActiveRecord::Migration.maintain_test_schema!
 Capybara.javascript_driver = :webkit
