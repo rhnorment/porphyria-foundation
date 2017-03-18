@@ -44,7 +44,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'populator'
   gem 'rspec-rails'
-  gem 'shoulda-matchers', require: false
+  gem 'shoulda-matchers'
   gem 'sqlite3'
 end
 
