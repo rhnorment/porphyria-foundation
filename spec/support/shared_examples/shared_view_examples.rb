@@ -44,4 +44,8 @@ def it_should_behave_like_layout
   it_should_behave_like 'footer'
 end
 
+def it_should_behave_like_layout_in_waiting
+  it_should_behave_like 'footer'
+end
+
 

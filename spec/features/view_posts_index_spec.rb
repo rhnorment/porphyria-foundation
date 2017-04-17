@@ -16,7 +16,7 @@ RSpec.describe 'view posts index', type: :feature do
       # save_and_open_page
     end
 
-    it_should_behave_like_layout
+    it_should_behave_like_layout_in_waiting
 
     describe 'sidebar' do
       it 'should contain a sub-menu' do
@@ -78,8 +78,6 @@ RSpec.describe 'view posts index', type: :feature do
     end
 
     it 'should only render posts scoped to the selected tag' do
-      save_and_open_page
-
       expect(page).to have_css('h5', text: 'Showing posts for Tag Name One')
 
       expect(page).to have_link('Archive')
