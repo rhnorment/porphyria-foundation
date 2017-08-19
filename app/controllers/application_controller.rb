@@ -18,3 +18,6 @@ class ApplicationController < ActionController::Base
       redirect_to posts_url
     end
 end
+
+
+

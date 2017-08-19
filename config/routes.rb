@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root  'pages#home'
 
-  get   'search',  to:  'search#search'
+  # get   'search',  to:  'search#search'
 
   get   '/404' => 'errors#not_found', as: 'not_found'
   get   '/422' => 'errors#unprocessable'
