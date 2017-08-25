@@ -9,6 +9,10 @@
     a.button.large {
       background: darkgray;
       color: whitesmoke;
+
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 }
