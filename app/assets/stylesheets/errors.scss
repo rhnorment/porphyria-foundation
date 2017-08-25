@@ -11,7 +11,7 @@
       color: whitesmoke;
 
       &:hover {
-        opacity: 1;
+        background: darken(darkgray, 40%);
       }
     }
   }
