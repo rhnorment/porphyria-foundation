@@ -2,4 +2,13 @@
 
 .error-pages {
   padding: 9em 0 3em 0;
+
+  p {
+    margin-bottom: 2em;
+
+    a.button.large {
+      background: darkgray;
+      color: whitesmoke;
+    }
+  }
 }
