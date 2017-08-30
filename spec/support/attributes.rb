@@ -47,8 +47,7 @@ end
 def post_attributes(overrides={})
   {
       admin_user_id: 1,
-      body: 'This is the body of the example post',
-      image: 'image.jpg',
+      body: 'This is the body of the example post.',
       intro: 'This is the intro to the post.',
       published: true,
       published_at: Time.now,

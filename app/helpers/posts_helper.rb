@@ -18,7 +18,7 @@
 module PostsHelper
 
   def image_for(post)
-    image = post.image.blank? ? 'logo-full_ha3zyp.png' : post.image_url
+    image = post.image.blank? ? 'purple_light_header_l7kllh.jpg' : post.image_url
     image_source = cl_image_tag(image)
 
     case controller_name && action_name

@@ -16,6 +16,7 @@ shared_examples_for 'do not display unpublished posts' do
   it { expect(page).to_not have_text('Not Archive') }
 end
 
-shared_examples 'display post details'
+
+
 
 

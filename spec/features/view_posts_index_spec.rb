@@ -18,40 +18,7 @@ RSpec.describe 'view posts index', type: :feature do
 
     it_should_behave_like_layout_in_waiting
 
-    describe 'sidebar' do
-      it 'should contain a sub-menu' do
-        within 'aside.sidebar' do
-          expect(page).to have_css('h4', text: 'Categories')
-          expect(page).to have_link('Blog', href: '/blog')
-        end
-      end
-
-      it 'should have a link to NEWS'
-      it 'should have a link to MEMBER STORIES'
-      it 'should have a link to GET INVOLVED'
-
-      it 'should contain a search widget'
-
-      it 'should contain a tags widget' do
-        within 'aside.sidebar' do
-          expect(page).to have_css('h4', text: 'Tags')
-
-          expect(page).to have_link('Tag Name One (1)')
-          expect(page).to have_link('Tag Name Three (1)')
-
-          expect(page).not_to have_link('Tag Name Two')
-        end
-      end
-
-      it 'should contain an Archives widget' do
-        within 'aside.sidebar' do
-          expect(page).to have_css('h4', text: 'Archives')
-
-          expect(page).to have_link('November 2011', href: '/blog?date_month=November+2011')
-          expect(page).to have_link('October 2010', href: '/blog?date_month=October+2010')
-        end
-      end
-    end
+    it_should_behave_like_sidebar
   end
 
   describe 'view all posts' do
@@ -101,5 +68,4 @@ RSpec.describe 'view posts index', type: :feature do
       expect(page).not_to have_link('Archive Two')
     end
   end
-
 end

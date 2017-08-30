@@ -33,8 +33,37 @@ shared_examples_for 'parallax' do |section|
   }
 end
 
-shared_examples_for 'rendered post' do
+shared_examples_for 'sub-menu' do
+  it {
+    within 'aside.sidebar' do
+      expect(page).to have_css('h4', text: 'Categories')
+      expect(page).to have_link('Blog', href: '/blog')
+    end
+  }
+end
 
+shared_examples_for 'tags-widget' do
+  it {
+    within 'aside.sidebar' do
+      expect(page).to have_css('h4', text: 'Tags')
+
+      expect(page).to have_link('Tag Name One (1)')
+      expect(page).to have_link('Tag Name Three (1)')
+
+      expect(page).not_to have_link('Tag Name Two')
+    end
+  }
+end
+
+shared_examples_for 'archives-widget' do
+  it {
+    within 'aside.sidebar' do
+      expect(page).to have_css('h4', text: 'Archives')
+
+      expect(page).to have_link('November 2011', href: '/blog?date_month=November+2011')
+      expect(page).to have_link('October 2010', href: '/blog?date_month=October+2010')
+    end
+  }
 end
 
 def it_should_behave_like_layout
@@ -46,6 +75,12 @@ end
 
 def it_should_behave_like_layout_in_waiting
   it_should_behave_like 'footer'
+end
+
+def it_should_behave_like_sidebar
+  it_should_behave_like 'sub-menu'
+  it_should_behave_like 'tags-widget'
+  it_should_behave_like 'archives-widget'
 end
 
 

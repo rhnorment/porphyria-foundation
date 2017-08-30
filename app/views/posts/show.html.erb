@@ -35,15 +35,13 @@
       <!-- author box -->
       <div class="author-box">
         <div class="author-avatar">
-          <%= image_tag 'http://placehold.it/80x80' %>
+          <%= cl_image_tag('apf_logo_xbrt1g.png', width:'80', height:'80') %>
         </div>
 
         <div class="author-bio">
-          <h3><%= @post.admin_user.name %></h3>
-          <p><%= @post.admin_user.bio %></p>
+          <h3>Research... Is your Key to a Cure</h3>
         </div>
       </div>
-
     </article>
 
     <aside class="sidebar">
