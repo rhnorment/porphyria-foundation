@@ -55,7 +55,7 @@ RSpec.describe 'view post', type: :feature do
     end
 
     it 'should display the correct closing content' do
-      expect(page).to have_css('h3', text: 'Research...  Is your Key to a Cure')
+      expect(page).to have_css('h3', text: 'Research... Is your Key to a Cure')
     end
   end
 end
