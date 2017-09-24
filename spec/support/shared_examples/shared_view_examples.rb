@@ -83,4 +83,3 @@ def it_should_behave_like_sidebar
   it_should_behave_like 'archives-widget'
 end
 
-

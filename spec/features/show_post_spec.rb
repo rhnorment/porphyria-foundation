@@ -10,14 +10,14 @@ RSpec.describe 'view post', type: :feature do
     tag_posts
   end
 
-  describe 'view attributes' do
+  describe 'static post attributes' do
     before do
       visit posts_url
       click_link('Archive')
     end
 
     it 'should print html' do
-      save_and_open_page
+      #save_and_open_page
     end
 
     it_should_behave_like_layout_in_waiting
@@ -25,11 +25,13 @@ RSpec.describe 'view post', type: :feature do
     it_should_behave_like_sidebar
   end
 
-  describe 'show variable post attributes' do
+  describe 'post attributes' do
     before do
       visit posts_url
       click_link('Archive')
     end
+
+    it 'should display the correct header image'
 
     it 'should display the correct title' do
       within('div.title') do
@@ -51,12 +53,8 @@ RSpec.describe 'view post', type: :feature do
         expect(page).to have_css('span', text: 'October 10, 2010')
       end
     end
-  end
 
-  describe 'static post attributes' do
-    it 'should display the correct header image'
-
-    it 'should display the correct tagline' do
+    it 'should display the correct closing content' do
       expect(page).to have_css('h3', text: 'Research... Is your Key to a Cure')
     end
   end
