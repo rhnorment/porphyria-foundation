@@ -44,23 +44,6 @@ def contact_attributes(overrides={})
   }.merge(overrides)
 end
 
-def post_attributes(overrides={})
-  {
-      admin_user_id: 1,
-      body: 'This is the body of the example post.',
-      intro: 'This is the intro to the post.',
-      published: true,
-      published_at: Time.now,
-      title: 'Blog Post Title',
-  }.merge(overrides)
-end
-
-def tag_attributes(overrides={})
-  {
-    name: 'Tag Name'
-  }.merge(overrides)
-end
-
 def x_number
   '800-800-8000'
 end

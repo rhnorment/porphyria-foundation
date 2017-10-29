@@ -7,8 +7,6 @@ ActiveAdmin.register_page 'Dashboard' do
 
     h3 "There are #{ pluralize(Contact.count, 'contact') } in the database."
 
-    h3 "There are #{ pluralize(Post.published.count, 'post') } published on the site."
-
     columns do
 
       column do

@@ -46,11 +46,6 @@ ActiveAdmin.setup do |config|
   #
   # If you wanted to add a static menu item to the default menu provided:
 
-  config.namespace :admin do |admin|
-    admin.build_menu  do |menu|
-      menu.add label: 'Site Content', priority: 3
-    end
-  end
 
   # == Download Links
   #
