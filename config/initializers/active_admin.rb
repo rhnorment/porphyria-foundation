@@ -13,7 +13,7 @@ ActiveAdmin.setup do |config|
 
  # config.logout_link_method = :get
 
- # config.root_to = 'dashboard#index'
+ config.root_to = 'dashboard#index'
 
  # config.comments_order = 'created_at ASC'
 

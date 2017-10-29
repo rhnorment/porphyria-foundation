@@ -2,9 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.1'
 
-gem 'activeadmin', github: 'activeadmin'
-gem 'active_admin_editor', github: 'boontdustie/active_admin_editor'
-# gem 'chosen_rails'
+gem 'activeadmin'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'delayed_job_active_record'
 gem 'email_validator'
@@ -43,7 +41,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara'
   gem 'formulaic'
   gem 'launchy'
   gem 'rake'

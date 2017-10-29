@@ -12,9 +12,3 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.stellar.min
-//= require headroom.min
-//= require jquery.headroom
-//= require owl.carousel.min
-//= require jquery.fitvids
-//= require pages
