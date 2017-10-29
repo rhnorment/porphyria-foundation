@@ -1,28 +1,2 @@
 @charset "utf-8";
 
-@import 'partials/reset';
-@import 'bourbon';
-@import 'base/grid-settings';
-@import 'neat';
-@import 'base/base';
-@import 'refills/flashes';
-
-// * {  border: 1px solid red !important; }
-
-// Font Awesome styles
-@import 'font-awesome-sprockets';
-@import 'font-awesome';
-
-// Owl Carousel + Flexslider styles
-@import 'owl.carousel';
-@import 'owl-theme';
-
-// Import layout partials
-@import 'partials/globals';
-@import 'partials/header';
-@import 'partials/footer';
-
-// Import resource styles
-@import 'pages';
-@import 'posts';
-@import 'errors';

@@ -58,8 +58,6 @@ RSpec.describe AdminUser, type: :model do
   it { should have_db_index(:email).unique }
   it { should have_db_index(:reset_password_token).unique }
 
-  it { should have_many(:posts) }
-
   it { should respond_to(:bio) }
   it { should respond_to(:current_sign_in_at) }
   it { should respond_to(:current_sign_in_ip) }

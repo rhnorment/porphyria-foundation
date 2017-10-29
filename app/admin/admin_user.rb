@@ -28,7 +28,7 @@ ActiveAdmin.register AdminUser do
     actions
   end
 
-  menu priority: 5
+  menu priority: 3
 
   permit_params  :bio, :email, :name, :password, :password_confirmation
 

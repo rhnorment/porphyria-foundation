@@ -1,6 +1,6 @@
 ActiveAdmin.register Contact do
 
-  menu priority: 3
+  menu priority: 2
 
 # ACTION ITEMS ======================================================================
   action_item :new, only: :show do
