@@ -197,11 +197,13 @@ ActiveAdmin.register Contact do
                   :patient_packet_sent_on, :porphyria_type, :research, :state, :status, :waived, :zip_code
 
   csv do
-    column  :full_name
-    column  :address_1
-    column  :address_2
-    column  :city_state_zip
-    column  :email_address
+    column :full_name
+    column :address_1
+    column :address_2
+    column :city_state_zip
+    column :email_address
+    column :business_phone
+    column :cell_phone
   end
 
 end

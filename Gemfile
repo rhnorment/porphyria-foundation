@@ -4,6 +4,7 @@ ruby '2.3.1'
 
 gem 'activeadmin'
 gem 'coffee-rails', '~> 4.1.0'
+gem 'constantcontact'
 gem 'delayed_job_active_record'
 gem 'email_validator'
 gem 'devise'
