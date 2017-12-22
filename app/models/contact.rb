@@ -48,7 +48,7 @@ class Contact < ActiveRecord::Base
   YES_NO = %w(Yes No)
 
   scope   :international_members,   -> { where.not(country: 'USA') }
-  scope   :with_email_addresses,    -> { where('email_address IS NOT NULL') }
+  scope   :with_email_addresses,    -> { where.not(email_address: '') }
   
   def city_state_zip
     [city, state, zip_code].join(' ')

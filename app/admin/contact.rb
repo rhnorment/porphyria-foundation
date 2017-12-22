@@ -7,8 +7,12 @@ ActiveAdmin.register Contact do
     link_to 'Add New Contact', new_admin_contact_path
   end
 
-  action_item :export_to_email, only: :index do
-    link_to 'Export to Email', export_to_email_admin_contacts_path
+  action_item :export_for_mail, only: :index do
+    link_to 'Export for Mail', export_for_mail_admin_contacts_path
+  end
+
+  action_item :export_for_email, only: :index do
+    link_to 'Export for Email', export_for_email_admin_contacts_path
   end
 
 # CONTROLLER ======================================================================
@@ -31,9 +35,14 @@ ActiveAdmin.register Contact do
     end
   end
 
-  collection_action :export_to_email, method: :get do
+  collection_action :export_for_mail, method: :get do
     export =  Contact.with_email_addresses
-    send_data export.to_email_csv, filename: "email-#{Date.today}.csv"
+    send_data export.for_mail_csv, filename: "mail-#{Date.today}.csv"
+  end
+
+  collection_action :export_for_email, method: :get do
+    export = Contact.with_email_addresses
+    send_data export.for_email_csv, filename: "email-#{Date.today}.csv"
   end
 
 # FORM ============================================================================
