@@ -22,7 +22,7 @@ module XLSBuilders
     def create_body(sheet)
       # Header row with formatting:
       sheet.row(0).concat [
-        'Full Name', 
+        'Full Name',
         'Company',
         'Address 1',
         'Address 2',
@@ -38,7 +38,7 @@ module XLSBuilders
       
       contacts.each do |contact|
         sheet.row(row_index).concat [
-          contact.full_name, 
+          contact.full_name,
           contact.company,
           contact.address_1,
           contact.address_2,

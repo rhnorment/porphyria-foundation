@@ -197,7 +197,8 @@ ActiveAdmin.register Contact do
                   :patient_packet_sent_on, :porphyria_type, :research, :state, :status, :waived, :zip_code
 
   csv do
-    column :full_name
+    column :first_name
+    column :last_name
     column :address_1
     column :address_2
     column :city_state_zip
