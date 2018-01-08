@@ -199,12 +199,7 @@ ActiveAdmin.register Contact do
   csv do
     column :first_name
     column :last_name
-    column :address_1
-    column :address_2
-    column :city_state_zip
     column :email_address
-    column :business_phone
-    column :cell_phone
   end
 
 end
