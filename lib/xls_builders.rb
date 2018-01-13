@@ -28,8 +28,10 @@ module XLSBuilders
         'Address 2',
         'City, State, Zip', 
         'Country',
+        'Home Phone',
+        'Business Phone',
+        'Cell Phone',
         'Email Address',
-        'Business Phone'
         ]
       
       sheet.row(0).default_format = Spreadsheet::Format.new(weight: :bold)
@@ -44,8 +46,10 @@ module XLSBuilders
           contact.address_2,
           contact.city_state_zip,
           contact.country,
-          contact.email_address,
+          contact.home_phone,
           contact.business_phone,
+          contact.cell_phone,
+          contact.email_address,
         ]
         
         row_index += 1

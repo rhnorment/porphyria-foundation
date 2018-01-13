@@ -4,6 +4,7 @@ if ENV.fetch('COVERAGE', false)
 end
 
 require 'capybara/rspec'
+require 'constantcontact'
 require 'shoulda-matchers'
 require 'webmock/rspec'
 
@@ -23,3 +24,7 @@ RSpec.configure do |config|
 end
 
 WebMock.disable_net_connect!(allow_localhost: true)
+
+def load_file(file_name)
+  json = File.read(File.join(File.dirname(__FILE__), 'fixtures', file_name))
+end

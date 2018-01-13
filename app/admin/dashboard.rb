@@ -4,11 +4,10 @@ ActiveAdmin.register_page 'Dashboard' do
 
   content do
     h2 'American Porphyria Foundation'
-
     h3 "There are #{ pluralize(Contact.count, 'contact') } in the database."
+    # h3 "There are #{ pluralize(@email_lists.count, 'list') } email lists in Constant Contact."
 
     columns do
-
       column do
         panel 'Most Recent Contacts' do
           table_for Contact.order(id: :desc).limit(10).each do |contact|
@@ -19,7 +18,6 @@ ActiveAdmin.register_page 'Dashboard' do
           end
         end
       end
-
     end
   end
 
