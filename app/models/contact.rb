@@ -41,6 +41,7 @@
 
 class Contact < ActiveRecord::Base
 
+  include CCIntegration
   include CSVBuilders
   include XLSBuilders
 
