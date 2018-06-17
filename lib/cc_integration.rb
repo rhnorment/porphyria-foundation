@@ -10,8 +10,8 @@ module CCIntegration
       @cc.add_contact(contact_json)
     end
 
-    def get_lists
-      @cc.get_lists
+    def get_list(list_id)
+      @cc.get_list(list_id)
     end
   end
 
@@ -26,13 +26,10 @@ module CCIntegration
       return unless valid_contact(@contact)
 
       cc = CCContact.new
-      contact_list = cc.get_lists[0].id
-      list_to_add_to = ConstantContact::Components::ContactList.new
-      list_to_add_to.id = contact_list
 
       new_contact = ConstantContact::Components::Contact.new
       new_contact.add_email(ConstantContact::Components::EmailAddress.new(@contact.email_address))
-      new_contact.add_list(list_to_add_to)
+      new_contact.add_list(get_list_id(@contact)).id
       new_contact.first_name = @contact.first_name
       new_contact.last_name = @contact.last_name
 
@@ -43,6 +40,29 @@ module CCIntegration
 
     def valid_contact(c)
       !c.first_name.empty? && !c.last_name.empty? && !c.email_address.empty?
+    end
+
+    def get_list_id(c)
+      case c.porphyria_type
+      when 'EPP'
+        1956569763
+      when 'AIP'
+        1264276246
+      when 'HCP'
+        1496488488
+      when 'VP'
+        1598671601
+      when 'CEP'
+        1223815697
+      when 'PCT'
+        1331113000
+      when 'HEP'
+        1398729893
+      when 'ADP'
+        1586419189
+      else
+        1048140845
+      end
     end
   end
 end

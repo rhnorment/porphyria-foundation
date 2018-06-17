@@ -108,7 +108,7 @@ ActiveAdmin.register Contact do
           f.input   :last_name
           f.input   :name_suffix
           f.input   :date_of_birth, order: [:month, :day, :year], start_year: Date.today.year - 70,
-                    end_year: Date.today.year - 10
+                    end_year: Date.today.year
         end
 
         f.inputs 'Address Information' do
