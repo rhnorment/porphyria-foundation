@@ -201,7 +201,7 @@ GEM
     populator (1.0.0)
     public_suffix (3.0.0)
     puma (3.10.0)
-    rack (2.0.3)
+    rack (2.0.8)
     rack-canonical-host (0.2.3)
       addressable (> 0, < 3)
       rack (>= 1.0.0, < 3)
